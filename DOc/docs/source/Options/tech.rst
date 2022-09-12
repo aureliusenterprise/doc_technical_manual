@@ -4,10 +4,10 @@ Technical description
 Here we explain all the libraries that are public. How components work
 together
 
-..image 
-
 In the next picture, you can get an idea of how the browsing
 of a page on the front end is executed.
+
+.. image:: /Options/imgs/proxy.png
 
 1) User request comes into our web server which acts as a reverse proxy.
 
@@ -49,10 +49,12 @@ Python Rest APIs
 Synchronization 
 ---------------
 
-..image  
-
 How create, update, and delete operations are processed in the
 environment.
+
+
+.. image:: /Options/imgs/proxy2.png
+   
 
 1) User request of a create update or lead operation is managed to the
    user interface the reverse proxy.

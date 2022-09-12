@@ -30,7 +30,7 @@ The solution itself consists of Apache Atlas in the core with Apache
 Kafka used in HBase, you also publish and make accessible the original
 Apache user interface.
 
-..images
+.. image:: /Options/imgs/k8s.png
 
 In addition to that we deployed a Keycloack which is our identity
 provider it’s open source also, which allows to integrate with all kinds
@@ -62,7 +62,7 @@ an easy way also provided in the image.
 Different namespaces on the same cluster for different, independent
 deployments.
 
-..images
+.. image:: /Options/imgs/namespaces.png
 
 
 It is possible to deploy the helm chart multiple times in different
