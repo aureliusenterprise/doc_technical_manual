@@ -1,4 +1,4 @@
-Aurelius Atlas
+Aurelius Atlas Data Governance Solution
 ==============
 
-**Aurelius Atlas Demo documentation** 
+**Powered by Apache Atlas** 
