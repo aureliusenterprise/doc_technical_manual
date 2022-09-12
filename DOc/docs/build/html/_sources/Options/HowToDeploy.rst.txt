@@ -1,0 +1,13 @@
+How to deploy Aurelius Atlas? 
+=============================
+
+|image1|\ The deployment of the solution is provided as a helm chart
+
+Write description on what will be deployed.
+
+If you want, to try our demo environment `Click
+here. <#demo-enviroment>`__
+
+This is the frequently asked questions about the deployment,
+
+`Click here <#faqs>`__ to know more.

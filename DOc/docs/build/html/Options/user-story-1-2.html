@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Managing data pipelines with full lineage &mdash;  0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/fav.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Other User Story 3" href="user-story-1-3.html" />
+    <link rel="prev" title="Users can find data and related context fast" href="user-story-1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> 
+            <img src="../_static/logo-big.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Menu</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="benefits.html">Benefits of Aurelius Atlas Data Governance Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acess.html">How to acess the Demo Environment</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="story.html">User stories solved by Aurelius Atlas</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="user-story-1.html">Users can find data and related context fast</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Managing data pipelines with full lineage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#user-story">User story</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-by-step-guide">Step by step guide</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user-story-1-3.html">Other User Story 3</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html"></a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="story.html">User stories solved by Aurelius Atlas</a> &raquo;</li>
+      <li>Managing data pipelines with full lineage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Options/user-story-1-2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="managing-data-pipelines-with-full-lineage">
+<h1>Managing data pipelines with full lineage<a class="headerlink" href="#managing-data-pipelines-with-full-lineage" title="Permalink to this heading"></a></h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gt-NzPn5KCU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><section id="user-story">
+<h2>User story<a class="headerlink" href="#user-story" title="Permalink to this heading"></a></h2>
+<p>In many organizations data is ingested from various source systems and
+then transformed and consumed based on different technologies. While the
+technologies are specific to the organization, data processing usually
+is based on multiple transformation steps. Changing the output of a
+source or a transformation step is potentially impacting subsequent
+transformation steps. A data scientist changing the output schema of his
+analysis or a data integration expert altering the output of a
+transformation step use an impact analysis to investigate whether the
+planned change is effecting other transformation steps or data users.
+The challenge is to identify how the data is used and if it is being
+used who is the responsible person owning this part.</p>
+<p>Overlooking a dependent transformation step or a data usage can cause
+subsequent data processing to fail with a consequence of inconsistent or
+wrong data in other systems or in dashboards used for decision making.</p>
+<p>As part of data governance also linage information is collected in
+Aurelius Atlas. That is, capturing the data processing and the data
+usage as processes, where each process may consume data and may produce
+data. Looking at the linage graph directly shows the consumers of data,
+which allows to relate it to the responsible persons.</p>
+<p>To illustrate the process of finding relevant information from a linage
+graph and who is responsible this one, the following scenario is
+described: An implementer of data pipeline wants to extend the schema of
+a particular table. To make sure that the subsequent processing will not
+fail, he wants to know who is using the data such that the subsequent
+processing is also adjusted.</p>
+</section>
+<section id="step-by-step-guide">
+<h2>Step by step guide<a class="headerlink" href="#step-by-step-guide" title="Permalink to this heading"></a></h2>
+<p>You can search for the table <strong>NL1-HR-001</strong> in the technical context</p>
+<img alt="../_images/first1.jpg" src="../_images/first1.jpg" />
+<p>You get a list of results, lets click in the called <strong>NL1-HR-001</strong></p>
+<img alt="../_images/second1.jpg" src="../_images/second1.jpg" />
+<p>As you can see in the detail page of the dataset, you have all
+these elements:</p>
+<img alt="../_images/third1.jpg" src="../_images/third1.jpg" />
+<p><code class="docutils literal notranslate"><span class="pre">1.</span> <span class="pre">–</span> <span class="pre">Name</span> <span class="pre">and</span> <span class="pre">type:</span> <span class="pre">Of</span> <span class="pre">the</span> <span class="pre">dataset</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">2.</span> <span class="pre">–</span> <span class="pre">Hierarchy:</span> <span class="pre">Where</span> <span class="pre">is</span> <span class="pre">located</span> <span class="pre">inside</span> <span class="pre">the</span> <span class="pre">system</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">3.</span> <span class="pre">–</span> <span class="pre">Description:</span> <span class="pre">Gives</span> <span class="pre">you</span> <span class="pre">information</span> <span class="pre">about</span> <span class="pre">this</span> <span class="pre">dataset</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">4.</span> <span class="pre">–</span> <span class="pre">Summary</span> <span class="pre">of</span> <span class="pre">page</span> <span class="pre">structure:</span> <span class="pre">Quick</span> <span class="pre">view</span> <span class="pre">of</span> <span class="pre">all</span> <span class="pre">the</span> <span class="pre">elements</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">page</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">5.</span> <span class="pre">-</span> <span class="pre">Lineage</span> <span class="pre">model:</span> <span class="pre">If</span> <span class="pre">is</span> <span class="pre">available</span> <span class="pre">or</span> <span class="pre">not</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">6.</span> <span class="pre">-</span> <span class="pre">Button:</span> <span class="pre">to</span> <span class="pre">navigate</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">structure</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">page</span></code></p>
+<p>To find the Lineage model:</p>
+<p><code class="docutils literal notranslate"><span class="pre">1.</span> <span class="pre">–</span> <span class="pre">Click</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">button.</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">–</span> <span class="pre">Click</span> <span class="pre">on</span> <span class="pre">Lineage</span> <span class="pre">Model</span></code></p>
+<img alt="../_images/fourth1.jpg" src="../_images/fourth1.jpg" />
+<p>Once in the Lineage model, you click on the source to see the detail
+page.</p>
+<img alt="../_images/fifth1.jpg" src="../_images/fifth1.jpg" />
+<p>In this detail page you can find all the information about the data, and
+how is this one being used.</p>
+<p>Here is an overview of the elements on the detail page:</p>
+<p><code class="docutils literal notranslate"><span class="pre">1–</span> <span class="pre">Name</span> <span class="pre">and</span> <span class="pre">type</span> <span class="pre">of</span> <span class="pre">data</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">2–</span> <span class="pre">Data</span> <span class="pre">governance</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">3–</span> <span class="pre">Properties</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">data</span></code></p>
+<img alt="../_images/six1.jpg" src="../_images/six1.jpg" />
+<p>Let’s follow the flow of the data, if you click on the next square
+called <strong>Change-event</strong>, you can see how this data was change to a Kafka
+topic.</p>
+<img alt="../_images/seven1.jpg" src="../_images/seven1.jpg" />
+<p>If you click on the next one, you can see that this Kafka topic was
+converted into an <strong>Elastic index</strong>.</p>
+<img alt="../_images/eigth1.jpg" src="../_images/eigth1.jpg" />
+<p>Whit the lineage graphs you’re able to see where the data is going, this
+it’s not limited to a particular system but it’s across different
+applications we are tracking the governance information.</p>
+<p><strong>Benefits</strong></p>
+<p><strong>1 – Clear information about where the data is stored</strong></p>
+<p><strong>2 – See the entire data flow step by step</strong></p>
+<p><strong>3 – How this data is being used</strong></p>
+<p><strong>4 - Track sensitive information</strong></p>
+<p><strong>5 – Improve Data compliance</strong></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="user-story-1.html" class="btn btn-neutral float-left" title="Users can find data and related context fast" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="user-story-1-3.html" class="btn btn-neutral float-right" title="Other User Story 3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Aurelius Atlas Enterprise.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+    /* Sidebar header (and topbar for mobile) 
+    .wy-side-nav-search, .wy-nav-top 
+    /* Sidebar 
+    .wy-nav-side 
+      */
+
+      .wy-breadcrumbs-aside{
+        visibility: hidden;
+      }
+    
+    
+  </style>
+
+
+</body>
+</html>
