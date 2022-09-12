@@ -54,12 +54,7 @@ Integrate in Azure Environment.
 
 -  Purview replaces Apache Atlas.
 
-..
-
-   .. image:: vertopal_5336a9f227114ea882bbba634fc13a92/media/image10.jpeg
-      :alt: Diagram Description automatically generated
-      :width: 5.786in
-      :height: 4.06467in
+..images
 
 Integrate in AWS
 ----------------
@@ -67,16 +62,6 @@ Integrate in AWS
 AWS
 does not seem to have its own data governance solution, thus stand-alone tools.
 
-..
-      .. image:: vertopal_5336a9f227114ea882bbba634fc13a92/media/image11.jpeg
-  :alt: Graphical user interface, application Description automatically
-   generated
-   :width: 6.26806in
-   :height: 3.13403in
-
-      .. image:: vertopal_5336a9f227114ea882bbba634fc13a92/media/image12.png
-   :alt: Diagram Description automatically generated with low confidence
-   :width: 3.03472in
-   :height: 3.28056in
+..images
 
 .. _section-3:

@@ -1,7 +1,6 @@
 Aurelius Atlas Data Governance Solution
 =======================================
 
-
 Thank you for your interest in Aurelius Atlas Data Governance solution,
 powered by Apache Atlas.
 

@@ -1,15 +1,15 @@
-
-**How to use Aurelius Atlas Data Demo Environment**
-===================================================
+Aurelius Atlas Data Governance Solution
+=======================================
 
 
 Thank you for your interest in Aurelius Atlas Data Governance solution,
 powered by Apache Atlas.
 
-Here you will find a step-by-step approach how to operate and use the
-demo environment of Aurelius Atlas Data Governance Solution.
+Here you will find a step-by-step approach how to deploy, operate and
+use Aurelius Atlas, including a demo environment, videos and possible
+user stories.
 
-Aurelius Atlas is an open-source solution, that can be used free under
+Aurelius Atlas is an open-source solution, which can be used free under
 the Elastic V2 license agreement.
 
 
@@ -18,8 +18,12 @@ the Elastic V2 license agreement.
       :hidden:
       :caption: Menu
 
-      Options/benefits
-      Options/acess
-      Options/story
+      Options/what
+      Options/how
+      Options/tech
+      Options/demo
+      Options/integration
+      Options/support
+      Options/about
 
     
