@@ -38,7 +38,7 @@ Reverse Proxy
 -------------
 
 How a user request is processed
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------
 
 Atlas Core Library
 ------------------
@@ -65,7 +65,7 @@ environment.
 3) The next updates are executed in Apache Atlas, so then we are safe
    that all changes are executed properly.
 
-3) Next step is to propagate these to make sure that all the context
+4) Next step is to propagate these to make sure that all the context
 information in Elastic Enterprise Search is also up to date again.
 
 4) We make use of the facility of Apache Atlas to publish changes to

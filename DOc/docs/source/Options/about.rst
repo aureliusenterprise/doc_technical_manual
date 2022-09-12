@@ -18,10 +18,10 @@ About the company
    behavior, and filters those real-time insights by adding search
    capabilities to deliver immediate value.
 
-SERVICES
+Services
 --------
 
 Upgrade Apache Atlas
-====================
+--------------------
 
 ..images

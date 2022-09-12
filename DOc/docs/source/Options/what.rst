@@ -81,7 +81,7 @@ Atlas, `Click here <#technical-description>`__
 
 
 What do I need to run the application? 
-======================================
+--------------------------------------
 
 To be able to deploy Aurelius Atlas a Kubernetes cluster will be needed.
 
