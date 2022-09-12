@@ -1,4 +1,4 @@
 Aurelius Atlas
-=======
+==============
 
-**Aurelius Atlas Demo environment documentation** 
+**Aurelius Atlas Demo documentation** 
