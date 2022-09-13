@@ -35,12 +35,12 @@ Apache user interface.
 In addition to that we deployed a Keycloack which is our identity
 provider it’s open source also, which allows to integrate with all kinds
 of other identity providers like in our demo environment which you can
-try by `clicking here <demo>`__.
+try by `**Clicking here** <demo>`__.
 
 We connect with Gmail, but you can also connect to an active directory
 somewhere, on top of that we have our actual user interface, which is
-included in what we call the `reverse proxy
-port <#reverse-proxy>`__\ *.*
+included in what we call the `**Reverse proxy
+port** <#reverse-proxy>`__\.
 
 This port have a lot of uses for searches and full text search but also
 with different facets, for that we are using the Elastic stack, so an
@@ -77,13 +77,13 @@ So, to understand how these different components work together, click
 here to go to the technical documentation
 
 If you want to learn more about all the components that made up Aurelius
-Atlas, `Click here <tech>`__
+Atlas, `**Click here** <tech>`__
 
 
 What do I need to run the application? 
 --------------------------------------
 
-To be able to deploy Aurelius Atlas a Kubernetes cluster will be needed.
+To be able to deploy Aurelius Atlas a **Kubernetes cluster will be needed**.
 
 These are some of the components that you need to run the application,
 be sure that you have them, before running the application.
@@ -100,7 +100,7 @@ documentation to set up.
 -  API services
 
 If you already have it, you can go directly to the deploy section by
-`clicking here. <how>`__
+`**Clicking here**. <how>`__
 
 Integration Options
 -------------------
@@ -108,10 +108,10 @@ Integration Options
 Aurelius Atlas has different options to integrate here is an overview of
 the integration options:
 
--  Identity providers via Keycloak (AAD, gmail,…)
+-  Identity providers via Keycloak **(AAD, gmail,…)**
 
--  External\* Apache Atlas
-
+-  `External\* Apache Atlas <https://atlas.apache.org/#/>`
+  
 -  `External\* Elastic <https://www.elastic.co/guide/index.html>`__
 
 -  `External\* Kafka <https://kafka.apache.org/20/documentation/>`__
@@ -124,17 +124,17 @@ the integration options:
 
 -  GCP
 
-Write here a brief overview of the integrations options and why you
-would use them
+| Write here a brief overview of the integrations options and why you
+| would use them
 
-`Click here <integrations>`__ to know more about the integration
+`**Click here** <integration>`__ to know more about the integration
 options.
 
 How others have used Aurelius Atlas
 -----------------------------------
 
-Write here a brief overview of how others have integrated with it. Such
-as linking it to IaC,
+| Write here a brief overview of how others have integrated with it. Such
+| as linking it to IaC,
 
 provide a link to the page with more details.
 
@@ -142,6 +142,6 @@ How to Deploy Aurelius Atlas
 ----------------------------
 
 To start using Aurelius Atlas here is a guide to easily learn how to
-deploy the application `click here <how>`__
+deploy the application `**Click here** <how>`__
 
 

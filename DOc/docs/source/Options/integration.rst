@@ -1,6 +1,6 @@
 Integrations
 ============
-.. _integrations:
+.. _integration:
 
 Keycloak is very well equipped to connect with other identity providers
 like Azure active directory or Gmail or other identity providers you run
@@ -21,19 +21,19 @@ infrastructure.
 
 Identity providers via Keycloak (AAD, Gmail,…)
 
-External\* Apache Atlas
+- External\* Apache Atlas
 
-External \* Elastic
+- External \* Elastic
 
-External \* Kafka
+- External \* Kafka
 
-Hadoop
+- Hadoop
 
-Azure
+- Azure
 
-AWS
+- AWS
 
-GCP
+- GCP
 
 Integrate Aurelius Atlas in Hadoop
 ----------------------------------
@@ -65,4 +65,3 @@ does not seem to have its own data governance solution, thus stand-al
 
 ..images
 
-.. _section-3:

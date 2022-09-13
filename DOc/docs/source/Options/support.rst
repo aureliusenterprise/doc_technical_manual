@@ -9,9 +9,17 @@ FAQS
 
 * :ref:`Deployment<deployment>`
 
-* :ref:`Integrations<integrations>`
+* :ref:`Integrations<integration>`
 
 * :ref:`About the demo environment<demo>`
+
+.. toctree::
+      :hidden:
+      
+    Support/general
+    Support/deploy
+    Support/integration
+    Support/demo-env
 
 
 Contact
