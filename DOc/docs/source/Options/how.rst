@@ -6,12 +6,12 @@ The deployment of the solution is provided as a helm chart
 
 | Write description on what will be deployed.
 
-If you want, to try our demo environment `**Click
-here**. <demo>`__
+If you want, to try our demo environment `Click
+here. <demo>`__
 
 This is the frequently asked questions about the deployment,
 
-`**Click here** <faqs>`__ to know more.
+`Click here <faqs>`__ to know more.
 
 Requirements
 ------------
@@ -66,8 +66,9 @@ readme <https://github.com/aureliusenterprise/helm-governance/blob/main/charts/f
 Atlas is now accessible via reverse proxy
 at `Atlas <https://aureliusdev.westeurope.cloudapp.azure.com/anwo/atlas2/login.jsp>`
 
+
 Deployment of Demo Dataset
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
 | The content for this section will be written on
 `Github <https://github.com/aureliusenterprise/helm-governance>`__

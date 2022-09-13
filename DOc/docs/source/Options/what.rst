@@ -35,12 +35,12 @@ Apache user interface.
 In addition to that we deployed a Keycloack which is our identity
 provider it’s open source also, which allows to integrate with all kinds
 of other identity providers like in our demo environment which you can
-try by `**Clicking here** <demo>`__.
+try by `Clicking here <demo>`__.
 
 We connect with Gmail, but you can also connect to an active directory
 somewhere, on top of that we have our actual user interface, which is
-included in what we call the `**Reverse proxy
-port** <#reverse-proxy>`__\.
+included in what we call the `Reverse proxy
+port <#reverse-proxy>`__\.
 
 This port have a lot of uses for searches and full text search but also
 with different facets, for that we are using the Elastic stack, so an
@@ -77,7 +77,7 @@ So, to understand how these different components work together, click
 here to go to the technical documentation
 
 If you want to learn more about all the components that made up Aurelius
-Atlas, `**Click here** <tech>`__
+Atlas, `Click here <tech>`__
 
 
 What do I need to run the application? 
@@ -100,7 +100,7 @@ documentation to set up.
 -  API services
 
 If you already have it, you can go directly to the deploy section by
-`**Clicking here**. <how>`__
+`Clicking here. <how>`__
 
 Integration Options
 -------------------
@@ -127,7 +127,7 @@ the integration options:
 | Write here a brief overview of the integrations options and why you
 | would use them
 
-`**Click here** <integration>`__ to know more about the integration
+`Click here <integration>`__ to know more about the integration
 options.
 
 How others have used Aurelius Atlas
@@ -142,6 +142,6 @@ How to Deploy Aurelius Atlas
 ----------------------------
 
 To start using Aurelius Atlas here is a guide to easily learn how to
-deploy the application `**Click here** <how>`__
+deploy the application `Click here <how>`__
 
 

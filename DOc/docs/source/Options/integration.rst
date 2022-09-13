@@ -23,9 +23,9 @@ Identity providers via Keycloak (AAD, Gmail,…)
 
 - External\* Apache Atlas
 
-- External \* Elastic
+- External\* Elastic
 
-- External \* Kafka
+- External\* Kafka
 
 - Hadoop
 
