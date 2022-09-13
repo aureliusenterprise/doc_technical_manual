@@ -5,14 +5,6 @@ FAQS
 ----
 .. _faqs:
 
-* :ref:`General<general>`
-
-* :ref:`Deployment<deployment>`
-
-* :ref:`Integrations<integration>`
-
-* :ref:`About the demo environment<demo>`
-
 .. toctree::
       :hidden:
       

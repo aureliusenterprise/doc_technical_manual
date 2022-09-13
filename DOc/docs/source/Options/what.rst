@@ -110,7 +110,7 @@ the integration options:
 
 -  Identity providers via Keycloak **(AAD, gmail,…)**
 
--  `External\* Apache Atlas <https://atlas.apache.org/#/>`
+-  `External\* Apache Atlas <https://atlas.apache.org/#/>`__
   
 -  `External\* Elastic <https://www.elastic.co/guide/index.html>`__
 
