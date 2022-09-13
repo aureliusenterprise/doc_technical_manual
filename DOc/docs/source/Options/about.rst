@@ -23,5 +23,3 @@ Services
 
 Upgrade Apache Atlas
 --------------------
-
-..images
