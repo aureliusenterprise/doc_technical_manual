@@ -1,5 +1,6 @@
 Demo environment
 ================
+.. _demo:
 
 The demo environment is open for anyone who want to try out Aurelius
 Atlas.

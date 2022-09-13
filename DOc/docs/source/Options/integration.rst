@@ -1,5 +1,6 @@
 Integrations
 ============
+.. _integrations:
 
 Keycloak is very well equipped to connect with other identity providers
 like Azure active directory or Gmail or other identity providers you run

@@ -1,0 +1,3 @@
+FAQS - Integrations
+===================
+.. _integrations:

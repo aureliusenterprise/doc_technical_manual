@@ -3,14 +3,16 @@ Support / Maintenance
 
 FAQS
 ----
+.. _faqs:
 
--  General
+* :ref:`General<general>`
 
--  Deployment
+* :ref:`Deployment<deployment>`
 
--  Integrations
+* :ref:`Integrations<integrations>`
 
--  About the demo enviroment
+* :ref:`About the demo environment<demo>`
+
 
 Contact
 -------

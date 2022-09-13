@@ -1,15 +1,15 @@
 What is Aurelius Atlas?
 =======================
 
-Welcome to the Aurelius Atlas solution powered by Apache Atlas! Aurelius
-Atlas is an open-source Data Governance solution, based on a selection
+Welcome to the **Aurelius Atlas solution** powered by Apache Atlas, Aurelius
+Atlas is an open-source **Data Governance solution**, based on a selection
 of open-source tools to facilitate business users to access governance
 information in an easy consumable way and meet the data governance
 demands of the distributed data world.
 
 It is a Data Governance solution powered by Apache Atlas for Data in
-motion (in transit), Data in rest, Data in use. It manages distributed
-data governance over multicloud environment as well as hybrid (On-Prem)
+motion **(in transit)**, Data in rest, Data in use. It manages distributed
+data governance over multicloud environment as well as hybrid **(On-Prem)**
 
 Components of Aurelius Atlas Helm:
 ----------------------------------
@@ -35,7 +35,7 @@ Apache user interface.
 In addition to that we deployed a Keycloack which is our identity
 provider it’s open source also, which allows to integrate with all kinds
 of other identity providers like in our demo environment which you can
-try by `clicking here <#demo-enviroment>`__.
+try by `clicking here <demo>`__.
 
 We connect with Gmail, but you can also connect to an active directory
 somewhere, on top of that we have our actual user interface, which is
@@ -77,7 +77,7 @@ So, to understand how these different components work together, click
 here to go to the technical documentation
 
 If you want to learn more about all the components that made up Aurelius
-Atlas, `Click here <#technical-description>`__
+Atlas, `Click here <tech>`__
 
 
 What do I need to run the application? 
@@ -100,7 +100,7 @@ documentation to set up.
 -  API services
 
 If you already have it, you can go directly to the deploy section by
-`clicking here. <#how-to-deploy-aurelius-atlas-1>`__
+`clicking here. <how>`__
 
 Integration Options
 -------------------
@@ -127,7 +127,7 @@ the integration options:
 Write here a brief overview of the integrations options and why you
 would use them
 
-`Click here <#integrations>`__ to know more about the integration
+`Click here <integrations>`__ to know more about the integration
 options.
 
 How others have used Aurelius Atlas
@@ -142,6 +142,6 @@ How to Deploy Aurelius Atlas
 ----------------------------
 
 To start using Aurelius Atlas here is a guide to easily learn how to
-deploy the application `click here <#how-to-deploy-aurelius-atlas-1>`__
+deploy the application `click here <how>`__
 
-.. _how-to-deploy-aurelius-atlas-1:
+
