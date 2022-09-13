@@ -121,22 +121,22 @@ the integration options:
 -  `Azure <https://docs.microsoft.com/en-us/azure/?product=popular>`__
 
 -  `AWS <https://docs.aws.amazon.com/>`__
+..
+   -  GCP
 
--  GCP
-
-..(*Write here a brief overview of the integrations options and why you
-..would use them*)
+    (*Write here a brief overview of the integrations options and why you
+    would use them*)
 
 `Click here <integration>`__ to know more about the integration
 options.
+..
+    How others have used Aurelius Atlas
+   
 
-..How others have used Aurelius Atlas
-..-----------------------------------
+    (*Write here a brief overview of how others have integrated with it. Such
+    as linking it to IaC*),
 
-..(*Write here a brief overview of how others have integrated with it. Such
-..as linking it to IaC*),
-
-..provide a link to the page with more details.
+    provide a link to the page with more details.
 
 How to Deploy Aurelius Atlas
 ----------------------------
