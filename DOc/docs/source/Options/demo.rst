@@ -2,8 +2,7 @@ Demo environment
 ================
 .. _demo:
 
-The demo environment is open for anyone who want to try out **Aurelius
-Atlas**.
+The demo environment is open for anyone who want to try out **Aurelius Atlas**.
 
 - It can be accessed `Clicking here <https://aureliusdev.westeurope.cloudapp.azure.com/demo/auth/>`__
 
