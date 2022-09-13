@@ -129,6 +129,7 @@ the integration options:
 
 `Click here <integration>`__ to know more about the integration
 options.
+
 ..
     How others have used Aurelius Atlas
    
