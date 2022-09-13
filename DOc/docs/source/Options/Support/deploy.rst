@@ -1,3 +1,3 @@
-FAQS - Deployment
-=================
+Deployment
+==========
 .. _deployment:

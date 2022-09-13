@@ -49,24 +49,24 @@ Elastic
 
 To deploy, Elastic Cluster on Kubernetes (ECK) must be installed on the cluster.
 To install ECK on the cluster, please follow the instructions provided
-on `Elastic documentation <https://www.elastic.co/guide/en/cloud-on-k8s/master/k8s-deploy-eck.html>`
+on `Elastic documentation<https://www.elastic.co/guide/en/cloud-on-k8s/master/k8s-deploy-eck.html>`
 
 For more details about this elastic helm chart look at `Elastic
-readme <https://github.com/aureliusenterprise/helm-governance/blob/main/charts/elastic/README.md>`__
+readme<https://github.com/aureliusenterprise/helm-governance/blob/main/charts/elastic/README.md>`__
 
 Flink
 -----
 
 For more details about this Flink helm chart look at `Flink
-readme <https://github.com/aureliusenterprise/helm-governance/blob/main/charts/flink/README.md>`__
+readme<https://github.com/aureliusenterprise/helm-governance/blob/main/charts/flink/README.md>`__
 
-Atlas is now accessible via reverse proxy at `Atlas <https://aureliusdev.westeurope.cloudapp.azure.com/anwo/atlas2/login.jsp>`
+Atlas is now accessible via reverse proxy at `Atlas<https://aureliusdev.westeurope.cloudapp.azure.com/anwo/atlas2/login.jsp>`
 
 
 Deployment of Demo Dataset
 --------------------------
 
-| The content for this section will be written on `Github <https://github.com/aureliusenterprise/helm-governance>`__
+| The content for this section will be written on `Github<https://github.com/aureliusenterprise/helm-governance>`__
 
 
 Video instructions

@@ -1,3 +1,3 @@
-FAQS - Integrations
-===================
+Integrations
+============
 .. _integrations:

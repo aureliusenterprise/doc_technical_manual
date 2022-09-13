@@ -1,3 +1,3 @@
-FAQS - General
-==============
+General
+=======
 .. _general:

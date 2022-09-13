@@ -1,3 +1,3 @@
-FAQS - Demo environment
-=======================
+Demo environment
+================
 .. _demo:
