@@ -1,4 +1,4 @@
-What is Aurelius Atlas? TEST1
+What is Aurelius Atlas?
 =======================
 
 Welcome to the **Aurelius Atlas solution** powered by Apache Atlas, Aurelius

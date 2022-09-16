@@ -1,4 +1,4 @@
-Aurelius Atlas Data Governance Solution DEV
+Aurelius Atlas Data Governance Solution
 =======================================
 
 
