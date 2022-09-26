@@ -16,6 +16,10 @@ Components of Aurelius Atlas Helm:
 
 -  `Apache Atlas <https://atlas.apache.org/#/>`__
 
+-  `Kafka UI <https://kafka.apache.org/>`__
+
+-  `Apache Flink <https://flink.apache.org/>`__
+
 -  `Elasticsearch <https://www.elastic.co/guide/index.html>`__
 
 -  `Keycloak <https://www.keycloak.org/documentation>`__
@@ -92,6 +96,10 @@ If you do not have it click on the name to go to the external
 documentation to set up.
 
 -  `Apache Atlas <https://atlas.apache.org/#/>`__
+
+-  `Kafka UI <https://kafka.apache.org/>`__
+
+-  `Apache Flink <https://flink.apache.org/>`__
 
 -  `Elasticsearch <https://www.elastic.co/guide/index.html>`__
 
