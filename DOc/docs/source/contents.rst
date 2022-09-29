@@ -19,8 +19,9 @@ the Elastic V2 license agreement.
       :caption: Menu
 
       Options/what
-      Options/how
+      Options/helm_deployment
       Options/tech
+      Options/backup
       Options/demo
       Options/integration
       Options/support
