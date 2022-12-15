@@ -11,44 +11,56 @@ Conceptual view
 ---------------
 
 Thus, conceptually data quality results can be added in Aurelius Atlas. It consits of 3 parts:
- - the actual data quality result
- - an associated data quality Atlas entity
- - a field which is assicated with the quality result 
+
+* the actual data quality result
+*  an associated data quality Atlas entity
+*  a field which is assicated with the quality result 
 
 Data quality result
 ~~~~~~~~~~~~~~~~~~~
 
 Data quality result consists of multiple fields:
-- a unique ID, which can be human readable, but must be unique
-- a qualityguid, which is a guid of the actual quality result	
-- a data quality result (dqscore), which is a value between 0 and 1, where 0 mean 0% compliance and 1 means 100% compliance
+
+* a unique ID, which can be human readable, but must be unique
+* a qualityguid, which is a guid of the actual quality result	
+* a data quality result (dqscore), which is a value between 0 and 1, where 0 mean 0% compliance and 1 means 100% compliance
 
 Data quality rule
 ~~~~~~~~~~~~~~~~~
 
 A data quality rule is described in Aurelius Atlas as type data quality rule. Currently you can not enter this quality rule via the front end.
-A data quality rule consists of :
-- name of the associated data quality rule
-- data quality rule description: explaining the thought behind the data quality rule
-- expression, which is constructuced from an expression language on the level of the data quality 
-- business rule ID, which is usually just a number used for ordering the rules when presenting in the front end
-- data quality rule dimension: 
 
-		Rule Category    	| Rule Description
-		------------------------------------------------------------------------------------
-		completeness		| degree to which data is not null
-		accuracy			| degree to which a column conforms to a standard
-		validity			| degree to which the data comply with a predefined structure
-		uniqueness   		| degree to which the data has a unique value
-		timeliness			| the data should be up to date
+A data quality rule consists of :
+
+* name of the associated data quality rule
+* data quality rule description: explaining the thought behind the data quality rule
+* expression, which is constructuced from an expression language on the level of the data quality 
+* business rule ID, which is usually just a number used for ordering the rules when presenting in the front end
+* data quality rule dimension: 
+
+	================== 	=====================================================================
+	Rule Category    	Rule Description
+	================== 	=====================================================================
+	completeness		degree to which data is not null
+	------------------	-----------------------------------------------------------------
+	accuracy			degree to which a column conforms to a standard
+	------------------	-----------------------------------------------------------------
+	validity			degree to which the data comply with a predefined structure
+	------------------	-----------------------------------------------------------------
+	uniqueness   		degree to which the data has a unique value
+	------------------	-----------------------------------------------------------------
+	timeliness			the data should be up to date
+	------------------	-----------------------------------------------------------------
 
 Associated field
 ~~~~~~~~~~~~~~~~~
 
 A field can be used in multiple data quality rules, thus a field may have multiple data quality results of different data quality rule dimensions. A field is referenced by the followign information:
-- qualified name of the field used for the assessment
-- fieldguid, that is the guid of the referenced field
-- qualified field name
+
+* qualified name of the field used for the assessment
+* fieldguid, that is the guid of the referenced field
+* qualified field name
+
 
 Technical view
 --------------
@@ -61,7 +73,7 @@ Data quality result
 
 The data quality result in elastic app search is stored in the atlas-dev-quality engine. An exmaple of the required documents is shown below. It contains all the conceptual elements explained in the previous section.
 
-.. code-block::json
+.. codeblock::json
 	{
 		"id": "nl3--nl3plant--nl3plant001--workorderid--8",
 		"fields": [{
@@ -128,7 +140,7 @@ Data quality rules are Apache Atlas entities, which can not be entered via the A
 The entity contains the required fields as properties, such that they referential integrity between data quality results and the data quality rule entity are guaranteed.
 An example of a data quality rule entity in json format as it is stored in Apache Atlas is shown below.
 
-.. code-block::json
+.. codeblock::json
 	{
 		"referredEntities": {},
 		"entity": {
