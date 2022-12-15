@@ -38,19 +38,20 @@ A data quality rule consists of :
 * business rule ID, which is usually just a number used for ordering the rules when presenting in the front end
 * data quality rule dimension: 
 
-	================== 	=====================================================================
-	Rule Category    	Rule Description
-	================== 	=====================================================================
-	completeness		degree to which data is not null
-	------------------	-----------------------------------------------------------------
-	accuracy			degree to which a column conforms to a standard
-	------------------	-----------------------------------------------------------------
-	validity			degree to which the data comply with a predefined structure
-	------------------	-----------------------------------------------------------------
-	uniqueness   		degree to which the data has a unique value
-	------------------	-----------------------------------------------------------------
-	timeliness			the data should be up to date
-	------------------	-----------------------------------------------------------------
++----------------+-------------------------------------------------------------+
+| Rule Category  | 	Rule Description                                           |
++================+=============================================================+
+| completeness	 |	degree to which data is not null                           |
++----------------+-------------------------------------------------------------+
+| accuracy		 |	degree to which a column conforms to a standard            |
++----------------+-------------------------------------------------------------+
+| validity       | degree to which the data comply with a predefined structure |
++----------------+-------------------------------------------------------------+
+| uniqueness   	 | degree to which the data has a unique value                 |
++----------------+-------------------------------------------------------------+
+| timeliness	 | the data should be up to date							   |
++----------------+-------------------------------------------------------------+
+
 
 Associated field
 ~~~~~~~~~~~~~~~~~
