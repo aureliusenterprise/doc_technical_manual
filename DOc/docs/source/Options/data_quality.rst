@@ -39,7 +39,7 @@ A data quality rule consists of :
 * data quality rule dimension: 
 
 +----------------+-------------------------------------------------------------+
-| Rule Category  | 	Rule Description                                       |
+| Rule Category  | Rule Description                                       |
 +================+=============================================================+
 | completeness	 | degree to which data is not null                            |
 +----------------+-------------------------------------------------------------+
