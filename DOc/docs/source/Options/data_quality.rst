@@ -74,7 +74,8 @@ Data quality result
 
 The data quality result in elastic app search is stored in the atlas-dev-quality engine. An exmaple of the required documents is shown below. It contains all the conceptual elements explained in the previous section.
 
-.. code-block:: json
+.. code-block:: javascript
+
 	{
 		"id": "nl3--nl3plant--nl3plant001--workorderid--8",
 		"fields": [{
@@ -141,7 +142,8 @@ Data quality rules are Apache Atlas entities, which can not be entered via the A
 The entity contains the required fields as properties, such that they referential integrity between data quality results and the data quality rule entity are guaranteed.
 An example of a data quality rule entity in json format as it is stored in Apache Atlas is shown below.
 
-.. code-block:: json
+.. code-block:: javascript
+
 	{
 		"referredEntities": {},
 		"entity": {
