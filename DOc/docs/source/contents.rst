@@ -25,7 +25,7 @@ the Elastic V2 license agreement.
       Options/integration
       Options/support
       Options/about
-	  Options/data_quality
+      Options/data_quality
 
 
     
