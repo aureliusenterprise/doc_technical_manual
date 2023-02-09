@@ -14,7 +14,7 @@ Thus, conceptually data quality results can be added in Aurelius Atlas. It consi
 
 * the actual data quality result
 *  an associated data quality Atlas entity
-*  a field which is assicated with the quality result 
+*  a field which is associated with the quality result 
 
 Data quality result
 ~~~~~~~~~~~~~~~~~~~
@@ -56,7 +56,7 @@ A data quality rule consists of :
 Associated field
 ~~~~~~~~~~~~~~~~~
 
-A field can be used in multiple data quality rules, thus a field may have multiple data quality results of different data quality rule dimensions. A field is referenced by the followign information:
+A field can be used in multiple data quality rules, thus a field may have multiple data quality results of different data quality rule dimensions. A field is referenced by the following information:
 
 * qualified name of the field used for the assessment
 * fieldguid, that is the guid of the referenced field
