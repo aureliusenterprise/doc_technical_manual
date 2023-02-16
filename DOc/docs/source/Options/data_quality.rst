@@ -67,12 +67,12 @@ Technical view
 --------------
 
 Technically, data quality is represented in Aurelius Atlas as Apache Atlas concepts and as data in the metadata store (elastic app search).
-The field as well as a description of the data quality rule are entities in Aurleius Atlas, while the data actual data quality result is stored as metadata in elastic app search.
+The field as well as a description of the data quality rule are entities in Aurelius Atlas, while the data actual data quality result is stored as metadata in elastic app search.
 
 Data quality result
 ~~~~~~~~~~~~~~~~~~~
 
-The data quality result in elastic app search is stored in the atlas-dev-quality engine. An exmaple of the required documents is shown below. It contains all the conceptual elements explained in the previous section.
+The data quality result in elastic app search is stored in the atlas-dev-quality engine. An example of the required documents is shown below. It contains all the conceptual elements explained in the previous section.
 
 .. code-block:: javascript
 
@@ -197,5 +197,5 @@ Propagation of data quality results
 
 After creating the data quality rule entity in Apache Atlas and data quality results in the metadata store, the data quality is accessible at the field. 
 To propagate data quality results through the complete governance tree, currently there is a script required which can be called periodically. 
-In a later version of Aurelius Atlas, all changes to data quality or the sovernance structures in Aurelius Atlas will also propagate data quality results.
+In a later version of Aurelius Atlas, all changes to data quality or the governance structures in Aurelius Atlas will also propagate data quality results.
 A description on how to setup the script and how to run it will follow shortly.
