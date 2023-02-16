@@ -199,3 +199,11 @@ After creating the data quality rule entity in Apache Atlas and data quality res
 To propagate data quality results through the complete governance tree, currently there is a script required which can be called periodically. 
 In a later version of Aurelius Atlas, all changes to data quality or the governance structures in Aurelius Atlas will also propagate data quality results.
 A description on how to setup the script and how to run it will follow shortly.
+
+
+
+The Data quality rules
+
+They are located at the m4i-data-management repository https://gitlab.com/m4i/m4i-data-management/-/tree/master/m4i_data_management/core/quality/rules
+on gitlab.
+
