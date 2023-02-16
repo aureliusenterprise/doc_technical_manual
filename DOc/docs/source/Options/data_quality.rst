@@ -49,7 +49,7 @@ A data quality rule consists of :
 +----------------+-------------------------------------------------------------+
 | uniqueness   	 | degree to which the data has a unique value                 |
 +----------------+-------------------------------------------------------------+
-| timeliness	 | the data should be up to date			       |
+| timeliness	 | the data should be up to date			                   |
 +----------------+-------------------------------------------------------------+
 
 
@@ -280,7 +280,7 @@ These are they data quality rules that are applied on a dataset.
 
 
     16.Unallowed text:
-        Checks if values in the column with the given `column_name` contain a specific unallowed `text` (e.g. 'BG Van Oord'). 
+        Checks if values in the column with the given `column_name` contain a specific unallowed `text`. 
 
     17.Uniqueness:
         Checks whether the values in the column with the given `column_name` are unique (duplicate value check). 
