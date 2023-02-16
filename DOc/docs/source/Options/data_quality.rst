@@ -14,7 +14,7 @@ Thus, conceptually data quality results can be added in Aurelius Atlas. It consi
 
 * the actual data quality result
 *  an associated data quality Atlas entity
-*  a field which is assicated with the quality result 
+*  a field which is associated with the quality result 
 
 Data quality result
 ~~~~~~~~~~~~~~~~~~~
