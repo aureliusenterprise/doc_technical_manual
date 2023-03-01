@@ -248,7 +248,7 @@ These are they data quality rules that are applied on a dataset.
     11.Length:
         Checks if the number of characters of the values in the column with the given `column_name` are equal to the `required_length`. 
 
-
+#
     12. New operating model validity:
 
         Following the new operationg model, `hierarchical organisation` and `functional organisation` must be the same if `basket` is one of: 
