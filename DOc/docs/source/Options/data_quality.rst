@@ -317,7 +317,7 @@ We first run a test to see if the columns are bijacent. We are comparing "id" an
 
 
 This is the function that we are using: bijacency(data, "id", "name"). The inputs are the dataset and the column names.
-We have same id and name in this example, which means they are bijacent. We will get an output 0 1.
+We have same id and name in this example, which means they are bijacent. We will get an output 1.
 
 
 
