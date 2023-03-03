@@ -286,5 +286,413 @@ Cross-Column Validity         Checks whether or not the combination of values in
 
     
 
+Data Quality Rules Examples With Code
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#
+
+1.
+
+In our example,we are providing a dummy dataset and we are comparing the columns "id" and "name".
+
+    
+
+We provide a dummy data set in the code
+We first run a test to see if the columns are bijacent. We are comparing "id" and "name".
+    
+    
+       data = DataFrame([
+        {
+            "id": 1234,
+            "name": "John Doe",
+            "function": "Developer",
+            "from": "01-01-2021"
+        },
+        {
+            "id": 1234,
+            "name": "John Doe",
+            "function": "Senior developer",
+            "from": "01-01-2022"
+        }
+    ])
+
+This is the function that we use  bijacency(data, "id", "name"). The inputs are the dataset and the column names.
+We have same id and name in this example, which means they are bijacent. We will get an output 0 1.
+
+
+
+
+2.
+
+
+Checks whether the first 'number_of_characters 'values in `first_column_name` and `second_column_name` are similar, and if the values are None or NaN.
+
+1)In our first example we provide this dummy data and we will compare the first two characters of the id and name.
+
+ data = DataFrame([
+        {
+            "id": "NL.xxx",
+            "name": "NL.xxx",
+
+        }
+
+    Because they are the same the ouput will be 1.
+
+2) In our second example the first two characters are not the same. The output in this case will be 0
+
+    data = DataFrame([
+        {
+            "id": "NL.xxx",
+            "name": "BE.xxx",
+
+        }
+
+3) In this dummy dataset the values are empty. The output will be 0.
+
+    data = DataFrame([
+        {
+            "id": NaN,
+            "name": NaN,
+
+        }
+    ])
+   
+      
+
+
+3.
+
+
+This rule does three checks. It checks if the number of first characters are the same, if the have same frefixes, which we provide to are function
+  and if the values are Nan or none.
+
+
+1) In are first example we provide a dummy dataset with two columns, id and name
+
+   data = DataFrame([
+        {
+            "id": "NL.xxx",
+            "name": "NL.xxx",
+
+        }
+    ])
+
+    We use as a prefix BE, this is how we call are function: 
+        
+        compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
+        we provide the dataset we are using, the column names, yhe number of characters we want to compare and the prefix.
+    
+
+
+4.
+
+Checks whether the values in the column with the given `column_name` are None or NaN. 
+    
+    
+We provide a data dummy test in the unit test and we want to check if the column 'name' has a value or not. If it has a value the
+function will return 1, otherwise it will return 0
+    
+    data = DataFrame([
+        {
+            "id": 1234,
+            "name": NaN,
+            "function": "Developer",
+            "from": "01-01-2021"
+        }
+
+ This is the function tha we will use. The inputs are data and the name of the column we want to check.
+     
+     completeness(data, "name")
+ The output here will be 0, because the column 'name' has no value in it.
+
+
+5.
+
+
+We are checking that the columns "value" and "conditional" are 'None' or 'NaN'. But before we do that we filter out the rows
+ where the value of the 'key_column', in not a substring of the given value in the function. In ths example the key column in "conditional"
+ and we are seeing if it has a substring of the list values.
+
+  values = ['.TMP', '.FREE']
+ ['.TMP', '.FREE']
+    data = DataFrame([
+        {
+            "value": "Something",
+            "conditional": "xx.FREE.eur"
+        }
+    ])
+
+This is the function we are using. The inputs are data, the name of the columns and the list of given values.
+
+conditional_completeness(data, "conditional", "value", values)
+
+The output here will be 1, because they are no empty values in the columns and the column "conditional" has substrings of the given 
+values= ['.TMP', '.FREE']
+
+
+
+
+
+
+6.
+
+
+We are checking if there is unalllowed text in the columns of the dummy dataframe. 
+
+
+     values = ['.TMP', '.FREE']
+
+    unallowed_text_item = "("
+
+    data = DataFrame([
+        {
+            "value": "Something",
+            "conditional": "xx.FREE.eur"
+        }
+    ])
+
+This is the function we are using. The inputs are is the dataframe, the name of the two columns, the values of the substrings and the unallowed text.
+
+    conditional_unallowed_text(data, "conditional", "value", values, unallowed_text_item)
+
+The output will be 1 because it containf substrings in the 'conditional'  column and doesn't contain the unalloed text in column "Value". If it did the output would be 0.
+
+
+
+
+7.
+
+
+We are checking the 'value' and 'conditional' column to see if it contains the expected values of the 'key' values object.
+
+    values = {"xx.TMP": "XX No Grade"}    (this is dictionary with it's key and value)
+
+    data = DataFrame([                    (this is our dummy dataset)
+        {
+            "value": "XX No Grade",
+            "conditional": "xx.TMP"
+        }
+    ])
+
+this is the function we ae using. The inputs are data of the dummy dataset, the names of the columns which are "value" and "conditional" and the values, that are the substrings we want to check.
+    
+    result = conditional_value(data, "conditional", "value", values) 
+The output here will 1, because "value" column, contains an expecetd value. Otherwise it would be 0.
+
+
+
+8.
+
+
+ Checks how many times the values in the column with the given `column_name` contain a specific character. 
+
+
+
+
+We provide a dummy dataframe with one column called "id". 
+
+  data = DataFrame([
+        {
+            "id": "12.12"
+        }
+    ])
+
+This is the function that we use. The inputs are data, name of the column, the character we want to check and 1 is the expected count
+    
+    contains_character(data, "id", ".", 1)  
+
+We want to check if the the id containd "." . The output will be 1 because the "id" column contains "."
+
+
+9.
+
+
+In this example we are checking if the values in the column `name` match the given `pattern`.
+
+We provide a dummy dataset
+
+data = DataFrame([
+        {
+            "name": 'ExampleText'
+        }
+    ])
+
+
+This is the function that we are using. The inputs are the dataset we are using,the column "name" and the pattern we want to see match 
+
+formatting(data, "name", r'^[a-zA-Z]+$')
+
+The ouput will be 1 in this example, because 'ExampleText' matches the pattern.
+
+
+
+10.
+
+
+In this example we are checking if the values  in the column with the given name `value` does not exist in the given list of `exampleValues`.
+
+We provide a list of the example values and a dummy dataframe.
+
+  exampleValues = ['x', 'X', 'TBD', 'Name']
+
+    data = DataFrame([
+        {
+            "value": "X"
+        }
+    ])
+
+The funtion we are using is called invalidity. The inputs are data, column name and the list of values we want to check.
+
+    invalidity(data, "value", exampleValues)
+
+The output here will be 1 , becaue "X" is in the list of values.
+
+
+11.
+
+n this example we are checking if the number of characters of the values in the column `id` are equal to the `required_length`. 
+
+
+We provide a dummy dataframe with column name "id"
+
+ data = DataFrame([
+        {
+            "id": "1234"
+        }
+    ])
+
+We are using this function length. The inputs are data, column name and the length of required characters.
+    
+    length(data, "id", 4)
+
+The output will be 1 because the length of id is 4.
+
+
+12.
+
+
+In this example we checking if the values in the column  `column_name` are greater than or equal to the given `lower_bound` or less than or equal to the given `upper_bound`.
+
+We provide a dummy dataframe for this example with column name "value"
+
+ data = DataFrame([
+        {
+            "value": 0.1
+        }
+    ])
+
+
+We are using this function. Th inputs are the dataframe, the column name and the range (The upper and lower bound)
+
+    range(data, "value", 0, 1)
+
+The output will be 1 because o,1 is between 0 and 1.
+
+
+13.
+
+
+In this example we are checking if the values in the column `column_name` start with any of the given `prefixes`.
+
+
+ data = DataFrame([
+        {
+            "id": 1234
+        }
+    ])
+
+
+This is the function we are using. The inputs are the data the column name and the prefix.
+
+    starts_with(data, "id", "1")
+
+The output wil be 1, because "1" is in the value of the id column.
+
+
+
+14.
+
+In this example we are checking if the values in the column `Organisation` contain a specific unallowed `text`.
+
+We provide a dummy dataset.
+
+
+
+     data = DataFrame([
+        {
+            "Organisation": "Something Else"
+        }
+    ])
+
+This is the function we are using. The inputs are data, the column name and the unallowed text
+
+    unallowed_text(data, "Organisation", "BG Van Oord")
+
+The output will be 1 because "BG Van Oord" is not in the "Something Else" of the "Organisation" column.
+
+
+15.
+
+
+In this example we are checking if the values in the column `id` are unique. We are looking for duplicate values
+
+We provide a dummy dataset
+
+ data = DataFrame([
+        {
+            "id": "1234"
+        },
+        {
+            "id": "1234"
+        },
+        {
+            "id": "2345"
+        }
+    ])
+
+
+This is the function we are using. The inputs are the dataset and the name of the column.
+    
+    uniqueness(data, "id")
+
+The output will be 0, because the "id" column conatins duplicate values
+
+
+
+16.
+
+In this example we are checking if the values in the column `value` exist in the list of exampleValues.
+
+
+We provide the values in the example list and a dummy dataset
+
+exampleValues = ['Definite Contract', 'Indefinite Contract']
+
+    data = DataFrame([
+        {
+            "value": "Definite Contract"
+        }
+    ])
+
+This is the function we are using. The inputs are data, the column name and the list of example values.
+    
+    result = validity(data, "value", exampleValues)
+
+The output will 1, because the value of the column exists in the example list.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
