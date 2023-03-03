@@ -386,7 +386,8 @@ function will return 1, otherwise it will return 0
 
  This is the function tha we will use. The inputs are data and the name of the column we want to check.
      
-     completeness(data, "name")
+	 completeness(data, "name")
+ 
  The output here will be 0, because the column 'name' has no value in it.
 
 
@@ -394,8 +395,8 @@ function will return 1, otherwise it will return 0
 
 
 We are checking that the columns "value" and "conditional" are 'None' or 'NaN'. But before we do that we filter out the rows
- where the value of the 'key_column', in not a substring of the given value in the function. In ths example the key column in "conditional"
- and we are seeing if it has a substring of the list values.
+where the value of the 'key_column', in not a substring of the given value in the function. In ths example the key column in "conditional"
+and we are seeing if it has a substring of the list values.
 
   values = ['.TMP', '.FREE']
  ['.TMP', '.FREE']
@@ -471,8 +472,6 @@ The output here will 1, because "value" column, contains an expecetd value. Othe
  Checks how many times the values in the column with the given `column_name` contain a specific character. 
 
 
-
-
 We provide a dummy dataframe with one column called "id". 
 
   data = DataFrame([
@@ -485,7 +484,8 @@ This is the function that we use. The inputs are data, name of the column, the c
     
     contains_character(data, "id", ".", 1)  
 
-We want to check if the the id containd "." . The output will be 1 because the "id" column contains "."
+
+We want to check if the the id contains "." . The output will be 1 because the "id" column contains "."
 
 
 9. Check Matching Pattern
@@ -505,6 +505,7 @@ data = DataFrame([
 This is the function that we are using. The inputs are the dataset we are using,the column "name" and the pattern we want to see match 
 
 formatting(data, "name", r'^[a-zA-Z]+$')
+
 
 The ouput will be 1 in this example, because 'ExampleText' matches the pattern.
 
@@ -534,7 +535,7 @@ The output here will be 1 , becaue "X" is in the list of values.
 
 11. Check Length
 
-n this example we are checking if the number of characters of the values in the column `id` are equal to the `required_length`. 
+In this example we are checking if the number of characters of the values in the column `id` are equal to the `required_length`. 
 
 
 We provide a dummy dataframe with column name "id"
@@ -559,6 +560,7 @@ In this example we checking if the values in the column  `column_name` are great
 
 We provide a dummy dataframe for this example with column name "value"
 
+ 
  data = DataFrame([
         {
             "value": 0.1
@@ -569,6 +571,7 @@ We provide a dummy dataframe for this example with column name "value"
 We are using this function. Th inputs are the dataframe, the column name and the range (The upper and lower bound)
 
     range(data, "value", 0, 1)
+
 
 The output will be 1 because o,1 is between 0 and 1.
 
@@ -586,6 +589,7 @@ In this example we are checking if the values in the column `column_name` start 
     ])
 
 
+
 This is the function we are using. The inputs are the data the column name and the prefix.
 
     starts_with(data, "id", "1")
@@ -595,6 +599,7 @@ The output wil be 1, because "1" is in the value of the id column.
 
 
 14. Check Unallowed Text
+
 
 In this example we are checking if the values in the column `Organisation` contain a specific unallowed `text`.
 
@@ -607,6 +612,7 @@ We provide a dummy dataset.
             "Organisation": "Something Else"
         }
     ])
+
 
 This is the function we are using. The inputs are data, the column name and the unallowed text
 
