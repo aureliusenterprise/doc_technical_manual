@@ -290,7 +290,7 @@ Data Quality Rules Examples With Code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-1.
+1. Bijacency
 
 In our example,we are providing a dummy dataset and we are comparing the columns "id" and "name".
 
@@ -315,18 +315,19 @@ We first run a test to see if the columns are bijacent. We are comparing "id" an
         }
     ])
 
-This is the function that we use  bijacency(data, "id", "name"). The inputs are the dataset and the column names.
+
+This is the function that we are using: bijacency(data, "id", "name"). The inputs are the dataset and the column names.
 We have same id and name in this example, which means they are bijacent. We will get an output 0 1.
 
 
 
 
-2.
+2. Compare First characters
 
 
 Checks whether the first 'number_of_characters 'values in `first_column_name` and `second_column_name` are similar, and if the values are None or NaN.
 
-1)In our first example we provide this dummy data and we will compare the first two characters of the id and name.
+We provide this dummy data and we will compare the first two characters of the id and name.
 
  data = DataFrame([
         {
@@ -335,31 +336,15 @@ Checks whether the first 'number_of_characters 'values in `first_column_name` an
 
         }
 
-    Because they are the same the ouput will be 1.
+This is the function that we are using: compare_first_characters(data, "id", "name", 2). The inputs are the dataset,the column names and the number of characters we want to compare.
+Because they are the same the ouput will be 1.
 
-2) In our second example the first two characters are not the same. The output in this case will be 0
 
-    data = DataFrame([
-        {
-            "id": "NL.xxx",
-            "name": "BE.xxx",
-
-        }
-
-3) In this dummy dataset the values are empty. The output will be 0.
-
-    data = DataFrame([
-        {
-            "id": NaN,
-            "name": NaN,
-
-        }
-    ])
    
       
 
 
-3.
+3. Check First Characters using Prefix
 
 
 This rule does three checks. It checks if the number of first characters are the same, if the have same frefixes, which we provide to are function
@@ -383,7 +368,7 @@ This rule does three checks. It checks if the number of first characters are the
     
 
 
-4.
+4. Check Completeness
 
 Checks whether the values in the column with the given `column_name` are None or NaN. 
     
@@ -405,7 +390,7 @@ function will return 1, otherwise it will return 0
  The output here will be 0, because the column 'name' has no value in it.
 
 
-5.
+5. Check Conditional Completeness
 
 
 We are checking that the columns "value" and "conditional" are 'None' or 'NaN'. But before we do that we filter out the rows
@@ -433,7 +418,7 @@ values= ['.TMP', '.FREE']
 
 
 
-6.
+6. Check Unallowed Text
 
 
 We are checking if there is unalllowed text in the columns of the dummy dataframe. 
@@ -459,7 +444,7 @@ The output will be 1 because it containf substrings in the 'conditional'  column
 
 
 
-7.
+7. Check Conditional Value
 
 
 We are checking the 'value' and 'conditional' column to see if it contains the expected values of the 'key' values object.
@@ -480,7 +465,7 @@ The output here will 1, because "value" column, contains an expecetd value. Othe
 
 
 
-8.
+8. Check Character Count
 
 
  Checks how many times the values in the column with the given `column_name` contain a specific character. 
@@ -503,7 +488,7 @@ This is the function that we use. The inputs are data, name of the column, the c
 We want to check if the the id containd "." . The output will be 1 because the "id" column contains "."
 
 
-9.
+9. Check Matching Pattern
 
 
 In this example we are checking if the values in the column `name` match the given `pattern`.
@@ -525,7 +510,7 @@ The ouput will be 1 in this example, because 'ExampleText' matches the pattern.
 
 
 
-10.
+10. Check Invalidity
 
 
 In this example we are checking if the values  in the column with the given name `value` does not exist in the given list of `exampleValues`.
@@ -547,7 +532,7 @@ The funtion we are using is called invalidity. The inputs are data, column name 
 The output here will be 1 , becaue "X" is in the list of values.
 
 
-11.
+11. Check Length
 
 n this example we are checking if the number of characters of the values in the column `id` are equal to the `required_length`. 
 
@@ -567,7 +552,7 @@ We are using this function length. The inputs are data, column name and the leng
 The output will be 1 because the length of id is 4.
 
 
-12.
+12. Check Range
 
 
 In this example we checking if the values in the column  `column_name` are greater than or equal to the given `lower_bound` or less than or equal to the given `upper_bound`.
@@ -588,7 +573,7 @@ We are using this function. Th inputs are the dataframe, the column name and the
 The output will be 1 because o,1 is between 0 and 1.
 
 
-13.
+13. Check Prefix
 
 
 In this example we are checking if the values in the column `column_name` start with any of the given `prefixes`.
@@ -609,7 +594,7 @@ The output wil be 1, because "1" is in the value of the id column.
 
 
 
-14.
+14. Check Unallowed Text
 
 In this example we are checking if the values in the column `Organisation` contain a specific unallowed `text`.
 
@@ -630,7 +615,7 @@ This is the function we are using. The inputs are data, the column name and the 
 The output will be 1 because "BG Van Oord" is not in the "Something Else" of the "Organisation" column.
 
 
-15.
+15. Check Uniqueness
 
 
 In this example we are checking if the values in the column `id` are unique. We are looking for duplicate values
@@ -658,10 +643,9 @@ The output will be 0, because the "id" column conatins duplicate values
 
 
 
-16.
+16. Check Validity
 
 In this example we are checking if the values in the column `value` exist in the list of exampleValues.
-
 
 We provide the values in the example list and a dummy dataset
 
