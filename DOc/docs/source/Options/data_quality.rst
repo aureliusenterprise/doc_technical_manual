@@ -281,7 +281,7 @@ Cross-Column Validity         Checks whether or not the combination of values in
                               given `first_column_name` and `second_column_name`
                               exist in the given list of valid `value_combinations`.
 
-							  #
+							  
 ============================  =======================================================
 
     
