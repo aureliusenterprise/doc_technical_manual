@@ -213,7 +213,10 @@ Below is a brief description of each rule. (This file is found in the rules fold
 some insight for a first time user.
 
    
+.. rst-class:: no-scroll
 
+.. table:: My Table
+   :width: 100%
 
 ============================  =======================================================
 Rule                           Description
@@ -283,69 +286,7 @@ Cross-Column Validity         Checks whether or not the combination of values in
 							  
 ============================  =======================================================
 
-My Title
-========
 
-.. rst-class:: no-scroll
-
-.. table:: My Table
-   :width: 100%
-
-   +----------------+--------------------------------------------------------+
-   | Rule           | Description                                            |
-   +================+========================================================+
-   | Biijacency     | Checks whether or not the values in the given          |
-   |                | `column_a` and `column_b` only occur as a unique        |
-   |                | combination.                                           |
-   +----------------+--------------------------------------------------------+
-   | Compare first  | Checks whether the first 'number_of_characters' values|
-   | characters     | in `first_column_name` and `second_column_name` are     |
-   |                | similar, and if the values are None or NaN.            |
-   +----------------+--------------------------------------------------------+
-   | Compare first  | Checks whether the first 'number_of_characters' values|
-   | characters     | in `first_column_name` and `second_column_name` are     |
-   | starting       | similar, and if `column_name` does not start with any  |
-   | without        | of the given `prefixes`, and if the values are None or |
-   |                | NaN.                                                   |
-   +----------------+--------------------------------------------------------+
-   | Completeness   | Checks whether the values in the column with the given |
-   |                | `column_name` are None or NaN.                          |
-   +----------------+--------------------------------------------------------+
-   | Conditional    | Checks whether or not the values in the given          |
-   | completeness   | `value_column` are `None` or `NaN`.                     |
-   +----------------+--------------------------------------------------------+
-   | Conditional    | Checks if values in the column with the given          |
-   | unallowed text | `value_column` contain a specific unallowed `text`.    |
-   +----------------+--------------------------------------------------------+
-   | Conditional    | Checks whether the values in the given `value_column`  |
-   | value          | match (one of) the expected value(s) for a given key    |
-   |                | in the `key_column`.                                    |
-   +----------------+--------------------------------------------------------+
-   | Contains       | Checks how many times the values in the column with    |
-   | character      | the given `column_name` contain a specific character.  |
-   +----------------+--------------------------------------------------------+
-   | Formatting     | Checks whether or not the values in the column with    |
-   |                | the given `column_name` match the given `pattern`.      |
-   +----------------+--------------------------------------------------------+
-   | Invalidity     | Checks whether or not the values in the column with    |
-   |                | the given `column_name` does not exist in the given     |
-   |                | list of `values`.                                       |
-   +----------------+--------------------------------------------------------+
-   | Length         | Checks if the number of characters of the values in    |
-   |                | the column with the given `column_name` are equal to    |
-   |                | the `required_length`.                                  |
-   +----------------+--------------------------------------------------------+
-   | Range          | Checks whether or not the values in the column with    |
-   |                | the given `column_name` are:                            |
-   |                | - Greater than or equal to the given `lower_bound`.     |
-   |                | - Less than or equal to the given `upper_bound`.        |
-   +----------------+--------------------------------------------------------+
-   | Starts with    | Checks whether or not the values in the column with    |
-   |                | the given `column_name` start with any of the given     |
-   |                |
-
-
-    
 
 Data Quality Rules Examples With Code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
