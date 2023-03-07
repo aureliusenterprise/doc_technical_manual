@@ -309,6 +309,63 @@ some insight for a first time user.
 
 
 
+
++------------------+----------------------------------------------+
+| Rule             | Description                                  |
++==================+==============================================+
+| Biijacency       | Checks if values in `column_a` and `column_b`|
+|                  | only occur as a unique combination.          |
++------------------+----------------------------------------------+
+| Compare first    | Checks if the first `number_of_characters`  |
+| characters       | in `first_column_name` and `second_column_name`|
+|                  | are similar, and if the values are None/NaN. |
++------------------+----------------------------------------------+
+| Compare first    | Checks if the first `number_of_characters`  |
+| characters       | (starting without `prefixes`) in `first_column_name`|
+|                  | and `second_column_name` are similar, and if  |
+|                  | the values are None/NaN.                     |
++------------------+----------------------------------------------+
+| Completeness     | Checks if values in `column_name` are None/NaN.|
++------------------+----------------------------------------------+
+| Conditional      | Checks if values in `value_column` are None/NaN.|
+| completeness     |                                              |
++------------------+----------------------------------------------+
+| Conditional      | Checks if values in `value_column` contain a |
+| unallowed text   | specific unallowed `text`.                   |
++------------------+----------------------------------------------+
+| Conditional value| Checks if values in `value_column` match     |
+|                  | (one of) the expected value(s) for a key in   |
+|                  | `key_column`.                                 |
++------------------+----------------------------------------------+
+| Contains         | Checks how many times `column_name` contains |
+| character        | a specific character.                        |
++------------------+----------------------------------------------+
+| Formatting       | Checks if values in `column_name` match a    |
+|                  | given `pattern`.                             |
++------------------+----------------------------------------------+
+| Invalidity       | Checks if values in `column_name` are not in |
+|                  | given `values`.                              |
++------------------+----------------------------------------------+
+| Length           | Checks if number of characters of `column_name`|
+|                  | is equal to `required_length`.               |
++------------------+----------------------------------------------+
+| Range            | Checks if values in `column_name` are:       |
+|                  | - Greater than or equal to `lower_bound`.    |
+|                  | - Less than or equal to `upper_bound`.       |
++------------------+----------------------------------------------+
+| Starts with      | Checks if values in `column_name` start with |
+|                  | any of given `prefixes`.                     |
++------------------+----------------------------------------------+
+| Unallowed text   | Checks if values in `column_name` contain a  |
+|                  | specific unallowed `text`.                   |
++------------------+----------------------------------------------+
+| Uniqueness       | Checks if values in `column_name` are unique.|
++------------------+----------------------------------------------+
+| Validity         | Checks if values in `column_name` are in     |
+|                  | given `values`.                              |
++------------------+----------------------------------------------+
+
+
 Data Quality Rules Examples With Code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
