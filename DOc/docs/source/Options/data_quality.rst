@@ -216,94 +216,82 @@ some insight for a first time user.
   
 
 +------------------+-----------------------------------------------------------------+
-| Rule             |              Description                                        |
+| Rule             | Description                                                     |
++==================+=================================================================+
+|                  |                                                                 |
+| Biijacency       | Checks whether or not the values in the given `column_a` and    |
+|                  | `column_b` only occur as a unique combination.                  |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
-| Biijacency       |        Checks whether or not the values in the given `column_a` |
-|                  |         and `column_b` only occur as a unique combination.      |
-+------------------+-----------------------------------------------------------------+
-|                  |                                                                 |
-| Compare first    |                                                                 |
-|   characters     |           Checks whether the first 'number_of_characters' values|
-|                  |            in `first_column_name` and `second_column_name` are  |
-|                  |            similar, and if the values are None or NaN.          |
+| Compare first    | Checks whether the first 'number_of_characters' values in       |
+| characters       | `first_column_name` and `second_column_name` are similar, and if|
+|                  | the values are None or NaN.                                     |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |           
-| Compare first    |                                                                 |
-|   characters     |     Checks whether the first 'number_of_characters' values      |
-| starting without |     in `first_column_name` and `second_column_name` are         |
-|                  |     similar, and if `column_name` does not start with any       |
-|                  |     of the given `prefixes`, and if the values are None or NaN. |
+| Compare first    | Checks whether the first 'number_of_characters' values starting |
+| characters       | without in `first_column_name` and `second_column_name` are     |
+| starting without | similar, and if `column_name` does not start with any of the    |
+|                  | given `prefixes`, and if the values are None or NaN.            |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
-| Completeness     |      Checks whether the values in the column with the given     |
-|                  |       `column_name` are None or NaN.                            |
+| Completeness     | Checks whether the values in the column with the given          |
+|                  | `column_name` are None or NaN.                                  |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
-| Conditional      |                                                                 |
-|   completeness   |             Checks whether or not the values in the given       |
-|                  |            `value_column` are `None` or `NaN`.                  |
+| Conditional      | Checks whether or not the values in the given `value_column`    |
+| completeness     | are `None` or `NaN`.                                            |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
-| Conditional      |                                                                 |
-|  unallowed text  |               Checks if values in the column with the given     |
-|                  |            `value_column` contain a specific unallowed `text`.  |
+| Conditional      | Checks if values in the column with the given `value_column`    |
+| unallowed text   | contain a specific unallowed `text`.                            |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
-|Conditional value |            Checks whether the values in the given `value_column`|
-|                  |            match (one of) the expected value(s) for a given key |
-|                  |            in the `key_column`.                                 |
+| Conditional value| Checks whether the values in the given `value_column` match     |
+|                  | (one of) the expected value(s) for a given key in the           |
+|                  | `key_column`.                                                   |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
-|Contains character|            Checks how many times the values in the column with  |
-|                  |            the given `column_name` contain a specific character.|
+| Contains         | Checks how many times the values in the column with the given   |
+| character        | `column_name` contain a specific character.                     |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
-| Formatting       |             Checks whether or not the values in the column with |
-|                  |            the given `column_name` match the given `pattern`.   |
+| Formatting       | Checks whether or not the values in the column with the given   |
+|                  | `column_name` match the given `pattern`.                        |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
-| Invalidity       |             Checks whether or not the values in the column with |
-|                  |            the given `column_name` does not exist in the given  |
-|                  |            list of `values`.                                    |
+| Invalidity       | Checks whether or not the values in the column with the given   |
+|                  | `column_name` does not exist in the given list of `values`.     |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
-|  Length          |         Checks if the number of characters of the values in     |
-|                  |                                                                 |
-|                  |         the column with the given `column_name` are equal to    |
-|                  |           the `required_length`.                                |
-+------------------+-----------------------------------------------------------------+
-|                  |                                                                 |            
-|  Range           |            Checks whether or not the values in the column with  |
-|                  |            the given `column_name` are:                         |
-|                  |            - Greater than or equal to the given `lower_bound`.  |
-|                  |            - Less than or equal to the given `upper_bound`.     |
-+------------------+-----------------------------------------------------------------+
-|                  |                                                                 |        
-|  Starts with     |            Checks whether or not the values in the column with  |
-|                  |            the given `column_name` start with any of the given  |
-|                  |            `prefixes`.                                          |
+| Length           | Checks if the number of characters of the values in the column  |
+|                  | with the given `column_name` are equal to the `required_length`.|
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
-| Unallowed text   |             Checks if values in the column with the given       |
-|                  |           `column_name` contain a specific unallowed `text`.    |
+| Range            | Checks whether or not the values in the column with the given   |
+|                  | `column_name` are:                                              |
+|                  | - Greater than or equal to the given `lower_bound`.             |
+|                  | - Less than or equal to the given `upper_bound`.                |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
-|  Uniqueness      |           Checks whether the values in the column with the given|
-|                  |            `column_name` are unique (duplicate value check).    |
+| Starts with      | Checks whether or not the values in the column with the given   |
+|                  | `column_name` start with any of the given `prefixes`.           |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
-| Validity         |             Checks whether or not the values in the column with |
-|                  |            the given `column_name` exist in the given list of   |
-|                  |            `values`.                                            |
+| Unallowed text   | Checks if values in the column with the given `column_name`     |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
-|   Cross-Column   |                                                                 |
-|      Validity    |         Checks whether or not the combination of values in the  |
-|                  |            given `first_column_name` and `second_column_name`   |
-|                  |            exist in the given list of valid `value_combinations.|
-|                  |                                                                 |
+| Uniqueness       | Checks whether the values in the column with the given          |
+|                  | `column_name` are unique (duplicate value check).               |
 +------------------+-----------------------------------------------------------------+
+|                  |                                                                 |
+| Validity         | Checks whether or not the values in the column with the given   |
+|                  | `column_name` exist in the given list of `values`.              |
++------------------+-----------------------------------------------------------------+
+|                  |                                                                 |
+| Cross-Column     | Checks whether or not the combination of values in the given    |
+| Validity         | `first_column_name` and `second_column_name` exist in the given |
+|                  | list of valid `value_combinations`.                             |
++------------------+-----------------------------------------------------------------+                 
 
 
 
