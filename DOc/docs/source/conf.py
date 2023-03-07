@@ -36,5 +36,7 @@ html_logo = '_static/logo/logo1.png'
 html_favicon = '_static/favicon/fav.png'
 
 #
-html_style = 'theme1.css'
+#html_style = 'theme1.css'
 
+def setup(app): 
+    app.add_stylesheet('theme1.css')
