@@ -688,9 +688,9 @@ Apply Data Quality results
 
 1. First we want to upload a file, where we define the rules that we want to apply to the data. We push this file to atlas.
 
-2. Then we get the data quality rules from atlas and see our data quality results.
+2. Then we get the data quality rules from atlas and see our data quality results. Our quality results have a data quality score. 1 is compiant and 0 is non-compliant
 
-3. Finally we want to push our data quality results to kafka
+3. Finally we want to push our data quality results to kafka.
 
 
     
