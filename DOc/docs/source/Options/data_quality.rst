@@ -681,6 +681,18 @@ This is the function we are using. The inputs are data, the column name and the 
 The output will 1, because the value of the column exists in the example list.
 
 
+
+Apply Data Quality results
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+1. First we want to upload a file, where we define the rules that we want to apply to the data. We push this file to atlas.
+
+2. Then we get the data quality rules from atlas and see our data quality results.
+
+3. Finally we want to push our data quality results to kafka
+
+
     
 
 
