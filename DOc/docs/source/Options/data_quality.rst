@@ -302,6 +302,7 @@ Data Quality Rules Examples With Code
 
 
 1. Bijacency
+~~~~~~~~~~~~
 
 In our example,we are providing a dummy dataset and we are comparing the columns "id" and "name".
 
@@ -333,19 +334,26 @@ We have same id and name in this example, which means they are bijacent. We will
 
 
 
-2. Compare First characters
 
+
+2. Compare First characters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Checks whether the first 'number_of_characters 'values in `first_column_name` and `second_column_name` are similar, and if the values are None or NaN.
 
 We provide this dummy data and we will compare the first two characters of the id and name.
 
+ 
+ 
  data = DataFrame([
         {
             "id": "NL.xxx",
             "name": "NL.xxx",
-
         }
+    [)
+
+
+
 
 This is the function that we are using: compare_first_characters(data, "id", "name", 2). The inputs are the dataset,the column names and the number of characters we want to compare.
 Because they are the same the ouput will be 1.
@@ -355,31 +363,37 @@ Because they are the same the ouput will be 1.
       
 
 
+
 3. Check First Characters using Prefix
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 This rule does three checks. It checks if the first characters are the same, if the have same prefix and if the values are Nan or none.
 
 
-1) In are first example we provide a dummy dataset with two columns, id and name
+    We provide a dummy dataset with two columns, id and name
 
-   data = DataFrame([
-        {
-            "id": "BE.xxx",
-            "name": "BE.xxx",
+    
+    data = DataFrame([
+            {
+                "id": "BE.xxx",
+                "name": "BE.xxx",
 
-        }
+            }
     ])
 
 We use as a prefix BE and we use the function: 
-	compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
+	
+    
+    compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
 
-we provide the dataset we are using, the column names, the number of characters we want to compare and the prefix.
+The inputs the dataset we are using, the column names, the number of characters we want to compare and the prefix.
 The output will be 1, because the charaters are the same and have the prefix too.
     
 
 
 4. Check Completeness
+~~~~~~~~~~~~~~~~~~~~~~
 
 Checks whether the values in the column with the given `column_name` are None or NaN. 
     
@@ -394,15 +408,17 @@ function will return 1, otherwise it will return 0
             "function": "Developer",
             "from": "01-01-2021"
         }
+        })
 
  This is the function tha we will use. The inputs are data and the name of the column we want to check.
      
-	 completeness(data, "name")
+	  completeness(data, "name")
  
  The output here will be 0, because the column 'name' has no value in it.
 
 
 5. Check Conditional Completeness
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 We are checking that the columns "value" and "conditional" are 'None' or 'NaN'. But before we do that we filter out the rows
@@ -410,7 +426,7 @@ where the value of the 'key_column', in not a substring of the given value in th
 and we are seeing if it has a substring of the list values.
 
   values = ['.TMP', '.FREE']
- ['.TMP', '.FREE']
+ 
     data = DataFrame([
         {
             "value": "Something",
@@ -431,6 +447,7 @@ values= ['.TMP', '.FREE']
 
 
 6. Check Unallowed Text
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 We are checking if there is unalllowed text in the columns of the dummy dataframe. 
@@ -447,6 +464,7 @@ We are checking if there is unalllowed text in the columns of the dummy datafram
         }
     ])
 
+
 This is the function we are using. The inputs are is the dataframe, the name of the two columns, the values of the substrings and the unallowed text.
 
     conditional_unallowed_text(data, "conditional", "value", values, unallowed_text_item)
@@ -457,6 +475,7 @@ The output will be 1 because it containf substrings in the 'conditional'  column
 
 
 7. Check Conditional Value
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 We are checking the 'value' and 'conditional' column to see if it contains the expected values of the 'key' values object.
@@ -470,7 +489,8 @@ We are checking the 'value' and 'conditional' column to see if it contains the e
         }
     ])
 
-this is the function we ae using. The inputs are data of the dummy dataset, the names of the columns which are "value" and "conditional" and the values, that are the substrings we want to check.
+
+This is the function we ae using. The inputs are data of the dummy dataset, the names of the columns which are "value" and "conditional" and the values, that are the substrings we want to check.
     
     result = conditional_value(data, "conditional", "value", values) 
 The output here will 1, because "value" column, contains an expecetd value. Otherwise it would be 0.
@@ -478,6 +498,7 @@ The output here will 1, because "value" column, contains an expecetd value. Othe
 
 
 8. Check Character Count
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
  Checks how many times the values in the column with the given `column_name` contain a specific character. 
@@ -500,6 +521,7 @@ We want to check if the the id contains "." . The output will be 1 because the "
 
 
 9. Check Matching Pattern
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 In this example we are checking if the values in the column `name` match the given `pattern`.
@@ -523,6 +545,7 @@ The ouput will be 1 in this example, because 'ExampleText' matches the pattern.
 
 
 10. Check Invalidity
+~~~~~~~~~~~~~~~~~~~~
 
 
 In this example we are checking if the values  in the column with the given name `value` does not exist in the given list of `exampleValues`.
@@ -537,6 +560,7 @@ We provide a list of the example values and a dummy dataframe.
         }
     ])
 
+
 The funtion we are using is called invalidity. The inputs are data, column name and the list of values we want to check.
 
     invalidity(data, "value", exampleValues)
@@ -545,6 +569,7 @@ The output here will be 1 , becaue "X" is in the list of values.
 
 
 11. Check Length
+~~~~~~~~~~~~~~~~~
 
 In this example we are checking if the number of characters of the values in the column `id` are equal to the `required_length`. 
 
@@ -565,6 +590,7 @@ The output will be 1 because the length of id is 4.
 
 
 12. Check Range
+~~~~~~~~~~~~~~~~
 
 
 In this example we checking if the values in the column  `column_name` are greater than or equal to the given `lower_bound` or less than or equal to the given `upper_bound`.
@@ -588,6 +614,7 @@ The output will be 1 because o,1 is between 0 and 1.
 
 
 13. Check Prefix
+~~~~~~~~~~~~~~~~
 
 
 In this example we are checking if the values in the column `column_name` start with any of the given `prefixes`.
@@ -603,13 +630,16 @@ In this example we are checking if the values in the column `column_name` start 
 
 This is the function we are using. The inputs are the data the column name and the prefix.
 
+
     starts_with(data, "id", "1")
+
 
 The output wil be 1, because "1" is in the value of the id column.
 
 
 
 14. Check Unallowed Text
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 In this example we are checking if the values in the column `Organisation` contain a specific unallowed `text`.
@@ -625,6 +655,7 @@ We provide a dummy dataset.
     ])
 
 
+
 This is the function we are using. The inputs are data, the column name and the unallowed text
 
     unallowed_text(data, "Organisation", "BG Van Oord")
@@ -633,6 +664,7 @@ The output will be 1 because "BG Van Oord" is not in the "Something Else" of the
 
 
 15. Check Uniqueness
+~~~~~~~~~~~~~~~~~~~~~
 
 
 In this example we are checking if the values in the column `id` are unique. We are looking for duplicate values
@@ -661,6 +693,7 @@ The output will be 0, because the "id" column conatins duplicate values
 
 
 16. Check Validity
+~~~~~~~~~~~~~~~~~~
 
 In this example we are checking if the values in the column `value` exist in the list of exampleValues.
 
