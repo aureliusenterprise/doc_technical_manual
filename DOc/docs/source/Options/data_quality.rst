@@ -701,7 +701,9 @@ Conceptual model
 4. Push results to kafka topic
 
 (image here)
-image.png
+
+.. image:: imgs/conceptual.png 
+
 
 
 Logical model
