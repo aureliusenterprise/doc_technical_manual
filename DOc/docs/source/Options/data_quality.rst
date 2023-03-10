@@ -692,6 +692,19 @@ Apply Data Quality results
 
 3. Finally we want to push our data quality results to kafka
 
+    2. Then we get the data quality rules from atlas and see our data quality results. Our quality results have a data quality score. 1 is compiant and 0 is non-compliant
+       We use the Quality function of the m4i_data_management repository. This function has three inputs:
+
+            1. get_data(). We have to provide a dataset rules with the defined rules, we want to apply to each field.
+
+            2. atals_get_quality_dataset(). We get the data quality rules from atlas and apply them on on dataset.
+
+            3. write_data_quality_results(). We then take these results and push them to a kafka topic.
+
+
+3. Finally we push our data quality results to kafka.
+
+
 
     
 
