@@ -700,6 +700,8 @@ Conceptual model
 
 4. Push results to kafka topic
 
+(image here)
+image.png
 
 
 Logical model
@@ -719,6 +721,9 @@ Logical model
 
 
 3. Finally we push our data (json) quality results to kafka.
+
+
+(image here)
 
 
 
