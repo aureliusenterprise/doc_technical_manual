@@ -686,14 +686,30 @@ Apply Data Quality results
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-1. First we want to upload a file, where we define the rules that we want to apply to the data. We push this file to atlas.
 
-2. Then we get the data quality rules from atlas and see our data quality results.
 
-3. Finally we want to push our data quality results to kafka
 
-    2. Then we get the data quality rules from atlas and see our data quality results. Our quality results have a data quality score. 1 is compiant and 0 is non-compliant
-       We use the Quality function of the m4i_data_management repository. This function has three inputs:
+Conceptual model
+~~~~~~~~~~~~~~~~~
+
+1. For the data quality check, we provide a csv file with fields and rules we wish to check
+
+2. We retrieve the data quality rules from atlas
+
+3. Then we apply data quality check of rules
+
+4. Push results to kafka topic
+
+
+
+Logical model
+~~~~~~~~~~~~~~
+
+1. First we want to upload a dataset (csv file) and define the rules that we want to apply to the data. We push the data to atlas.
+
+
+2. Then we get the data quality rules from atlas and see our data quality results. Our quality results have a data quality score. 1 is compiant and 0 is non-compliant
+       We use the Quality class of the m4i_data_management repository. This function has three inputs:
 
             1. get_data(). We have to provide a dataset rules with the defined rules, we want to apply to each field.
 
@@ -702,7 +718,8 @@ Apply Data Quality results
             3. write_data_quality_results(). We then take these results and push them to a kafka topic.
 
 
-3. Finally we push our data quality results to kafka.
+3. Finally we push our data (json) quality results to kafka.
+
 
 
 
