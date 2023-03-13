@@ -719,54 +719,42 @@ Apply Data Quality results
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Our tool checks the quality of your data. To use it, you need to provide a csv file with your data and the rules you want to apply to it. The rules are basically the type
-checks you want to do on the attributes of your dataset. We store your data and rules on Atlas and use our tool to apply the rules to your data.
-We then calculate the quality score of your data based on the applied rules and send you the results of this check through a Kafka topic. 
-Below in an image that describes the whole process for your better understanding.
-
-
-
-
-
-Conceptual model
-~~~~~~~~~~~~~~~~~
-
-1. For the data quality check, we provide a csv file with fields and rules we wish to check
-
-2. We retrieve the data quality rules from atlas
-
-3. Then we apply data quality check of rules
-
-4. Push results to kafka topic
-
-
-
-.. image:: imgs/conceptual.png 
-
-
-
-Logical model
-~~~~~~~~~~~~~~
-
-1. First we want to upload a dataset (csv file) and define the rules that we want to apply to the data. We push the data to atlas.
-
-
-2. Then we get the data quality rules from atlas and see our data quality results. Our quality results have a data quality score. 1 is compiant and 0 is non-compliant
-       We use the Quality class of the m4i_data_management repository. This function has three inputs:
-
-            1. get_data(). We have to provide a dataset rules with the defined rules, we want to apply to each field.
-
-            2. atals_get_quality_dataset(). We get the data quality rules from atlas and apply them on on dataset.
-
-            3. write_data_quality_results(). We then take these results and push them to a kafka topic.
-
-
-3. Finally we push our data (json) quality results to kafka.
-
-
+of checks you want to do on the attributes of your dataset. We store your data and rules on Atlas and use our tool to apply the rules to your data.
+We then calculate the quality score of your data based on the applied rules and send the results to a Kafka topic. 
+Below is an image that describes the whole process for your better understanding.
 
 
 
 .. image:: imgs/logical.png 
+
+
+
+To begin, the first step is to upload a dataset in CSV format and define the data quality rules that need 
+to be applied to the data. This can be done using Atlas, which is a data governance platform that allows users to define, manage, and enforce data quality rules.
+Once the rules have been defined, the dataset can be pushed to Atlas.
+
+
+
+After uploading the dataset, the next step is to apply the defined rules and check the quality of the data. 
+This can be accomplished using the Quality class of the m4i_data_management repository. 
+The Quality class provides a get_data() function that takes as input a dataset and a set of rules, and applies 
+the rules to each field in the dataset to calculate the data quality scores.
+
+Once the scores have been calculated, the atlas_get_quality_dataset() function can be used to retrieve 
+the data quality rules from Atlas and apply them to the dataset. This function compares the rules 
+defined in Atlas with the scores calculated in the previous step, and returns a DataFrame containing the final data quality scores for each field.
+
+The final step is to store the data quality results in Kafka. To do this, a Kafka producer can be created using the KafkaProducer API. 
+The data quality scores can be serialized as JSON and sent as messages to a Kafka topic using the send() function of the producer. The write_data_quality_results() function of the Quality class can be used to format the data quality scores in a way that is suitable for Kafka.
+
+In summary, the workflow for uploading and processing a dataset, defining data quality rules, and storing the data quality results in Kafka consists of four steps: uploading the dataset and defining the data quality rules, applying the rules and checking the quality of the data, retrieving the data quality rules from Atlas and applying them to the dataset, and finally storing the data quality results in Kafka using a Kafka producer. 
+This workflow can be customized and extended to meet the specific needs of different use cases.
+
+
+
+
+
+
 
 
 
