@@ -745,7 +745,8 @@ the data quality rules from Atlas and apply them to the dataset. This function c
 defined in Atlas with the scores calculated in the previous step, and returns a DataFrame containing the final data quality scores for each field.
 
 The final step is to store the data quality results in Kafka. To do this, a Kafka producer can be created using the KafkaProducer API. 
-The data quality scores can be serialized as JSON and sent as messages to a Kafka topic using the send() function of the producer. The write_data_quality_results() function of the Quality class can be used to format the data quality scores in a way that is suitable for Kafka.
+The data quality scores can be serialized as JSON and sent as messages to a Kafka topic using the send() function of the producer. 
+The write_data_quality_results() function of the Quality class can be used to format the data quality scores in a way that is suitable for Kafka.
 
 In summary, the workflow for uploading and processing a dataset, defining data quality rules, and storing the data quality results in Kafka consists of four steps: uploading the dataset and defining the data quality rules, applying the rules and checking the quality of the data, retrieving the data quality rules from Atlas and applying them to the dataset, and finally storing the data quality results in Kafka using a Kafka producer. 
 This workflow can be customized and extended to meet the specific needs of different use cases.
