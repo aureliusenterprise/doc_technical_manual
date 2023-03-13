@@ -718,6 +718,11 @@ The output will 1, because the value of the column exists in the example list.
 Apply Data Quality results
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Our tool checks the quality of your data. To use it, you need to provide a csv file with your data and the rules you want to apply to it. The rules are basically the type
+checks you want to do on the attributes of your dataset. We store your data and rules on Atlas and use our tool to apply the rules to your data.
+We then calculate the quality score of your data based on the applied rules and send you the results of this check through a Kafka topic. 
+Below in an image that describes the whole process for your better understanding.
+
 
 
 
