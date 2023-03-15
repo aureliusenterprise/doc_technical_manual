@@ -18,7 +18,7 @@ Aurelius Atlas
 | m4i data management          | gitlab	            | writign and reading   | many dependencies like confluent kafka and elastic , which are not always required stale branch                       |
 |                              |                    | from kafka and elastic|                                                                                                                       | 
 +------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
-| linage_restAPI               | gitlab and github	| backend for publishing| in gitlab several unmerged branches                                                                                   |
+| linage_restAPI               | gitlab and github  | backend for publishing| in gitlab several unmerged branches                                                                                   |
 |                              |                    | data into atlas       |                                                                                                                       |
 |                              |                    | in a simplified way   |                                                                                                                       | 
 +------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
@@ -29,32 +29,32 @@ Aurelius Atlas
 +------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
 | atlas-m4i-connector          | gitlab             |                       | integration m4i with atlas; merge required                                                                            |
 +------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
-				
-				
+
+
 Models4Insight
---------------				
+--------------
 
 +---------------------------+-------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
-| library					| gitlab/github?	| purpose	  			| remarks																												|
+| library                   | gitlab/github?    | purpose               | remarks                                                                                                               |
 +===========================+===================+=======================+=======================================================================================================================+
-| Models4Insight  			| gitlab and github | Frontend    			| gitlab version more up to date then github version; 54 branches! Cleanup required?									|
+| Models4Insight            | gitlab and github | Frontend              | gitlab version more up to date then github version; 54 branches! Cleanup required?                                    |
 +---------------------------+-------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
-| m4i-keycloak-bulma 		| gitlab			| keycloak 	  			| templates for M4I																										|
+| m4i-keycloak-bulma        | gitlab            | keycloak              | templates for M4I                                                                                                     |
 +---------------------------+-------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
-| m4i_analytics_extension 	| gitlab			| 			  			| extensions to m4i_analytics																							|
+| m4i_analytics_extension   | gitlab            |                       | extensions to m4i_analytics                                                                                           |
 +---------------------------+-------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
-| analytics library			| gitlab and github	| functionality to 		| lot of stuff which is no longer relevant… requires thorough check whether the APIs are still all ok.					|
-|                           | 					| interact with m4i		|																														|
+| analytics library         | gitlab and github | functionality to      | lot of stuff which is no longer relevant… requires thorough check whether the APIs are still all ok.                  |
+|                           |                   | interact with m4i     |                                                                                                                       |
 +---------------------------+-------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
-| RestApi2 					| gitlab			| backend for M4I		|																														|
+| RestApi2                  | gitlab            | backend for M4I       |                                                                                                                       |
 +---------------------------+-------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
-| RestUser					| gitlab			| keycloak integration 	|																														|
-|							|					| backend for M4I		|																														|
+| RestUser                  | gitlab            | keycloak integration  |                                                                                                                       |
+|                           |                   | backend for M4I       |                                                                                                                       |
 +---------------------------+-------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
-| Data2model backend		| 					|						|																														|
+| Data2model backend        |                   |                       |                                                                                                                       |
 +---------------------------+-------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
-| model comparison backend	| 					|						|																														|
+| model comparison backend  |                   |                       |                                                                                                                       |
 +---------------------------+-------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
-| Consistency check backend	| 					|						|																														|
+| Consistency check backend |                   |                       |                                                                                                                       |
 +---------------------------+-------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
-	
+
