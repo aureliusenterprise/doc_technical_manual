@@ -22,8 +22,8 @@ Aurelius Atlas
 |                              |                    | data into atlas       |                                                                                                                       |
 |                              |                    | in a simplified way   |                                                                                                                       | 
 +------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
-| m4i_data_dictionary_io       | gitlab             | importing Data        | main branch is rc_1.0.0. should be changed to main																	|
-|                              |                    | Dictionary excels     |                                                                                                                       | 
+| m4i_data_dictionary_io       | gitlab             | importing Data        | main branch is rc_1.0.0. should be changed to main                                                                    |
+|                              |                    | Dictionary excels     |                                                                                                                       |
 +------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
 | Gov UI Backend               | gitlab             |                       | backend for providing data for the governance dashboard in old UI; main branch is rc_1.0.0. should be changed to main |
 +------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
