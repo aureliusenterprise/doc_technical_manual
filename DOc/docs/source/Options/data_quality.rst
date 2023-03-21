@@ -821,25 +821,14 @@ Please remember to set the configuration parameters you want to use.
 How to set up config and credentials file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-
-# provide guid of data set you pushed on aurelius atlas2 ,https://aureliusdev.westeurope.cloudapp.azure.com/anwo/atlas2/ (The admin can provide you with username and password to log in)
-    1.You provide `atlas_dataset_guid` with the guid which you can find at the link provided. You have to find the dataset you have pushed to atlas with the corresponding guid.
-
-    2. "dataset_quality_name". You can give it any name you want.
-
-    3. "atlas". Provide link to atlas server "https://aureliusdev.westeurope.cloudapp.azure.com/anwo/atlas/atlas"
-
-    4. We then have to provide kecloak credentials, which is the link to the server  "https://aureliusdev.westeurope.cloudapp.azure.com/anwo/auth/", the keycloak id "m4i_public", the keycloak real name "m4i" and the keycloak secret key which is empty here.
-
 Here is the exact configuration of the config and credentials, use this to run the example.
 
 config = {
 
 
      "atlas_dataset_guid": "f686adca-00c4-4509-b73b-1c51ae597ebe",
-    "dataset_quality_name": "example_name",
-    "atlas": {
+     "dataset_quality_name": "example_name",
+     "atlas": {
         "atlas.server.url": "https://aureliusdev.westeurope.cloudapp.azure.com/anwo/atlas/atlas",
     
     },
@@ -853,7 +842,7 @@ config = {
     "keycloak.client.secret.key": ""
 
 
-## In our credentials file we provide The server link of atlas,username,password and the keycloak username and password.
+In our credentials file we provide The server link of atlas,username,password and the keycloak username and password.
 
 credentials = {
     
@@ -871,14 +860,20 @@ Our tool checks the quality of your data. To use it, you need to provide a csv f
 
 These are the steps on how to do it:
     
-    1. First you have to push a dataset with the data quality rules you define and push it to atlas. This can be done using the m4_data_dictionary
-    repository. 
+    
 
     
-    2. In the run_quality_rules.py we can now run our check. We have to provide a dataset so we can do a quality check.
+    1. In the run_quality_rules.py we can now run our check. We have to provide a dataset so we can do a quality check.
+       Fill in the path in the get_data_csv(). You will see it on line 63. Make a csv file with example data. Here is a simple example below.
+
+       .. image:: imgs/sample_data_pic.png
+
+
+    Just One Column named UID and provide a name.
+
 
     
-    3. Finally we run our check in the run_quality_rules.py In debug mode run the 'asyncio.run(atlas_dataset_quality.run())' it's on line 87
+    2. Finally we run our check in the run_quality_rules.py In debug mode run the 'asyncio.run(atlas_dataset_quality.run())' it's on line 59
 
 
 
