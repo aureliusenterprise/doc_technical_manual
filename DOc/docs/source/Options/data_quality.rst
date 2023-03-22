@@ -847,10 +847,10 @@ In our credentials file we provide The server link of atlas,username,password an
 credentials = {
     
     "keycloak.credentials.username": "atlas",
-    "keycloak.credentials.password": "4n6ERGJJPDWV4ijK",
+    "keycloak.credentials.password": "",
      "atlas.server.url":"https://aureliusdev.westeurope.cloudapp.azure.com/anwo/atlas/atlas", 
     "atlas.credentials.username":"atlas",
-    "atlas.credentials.password":"4n6ERGJJPDWV4ijK"
+    "atlas.credentials.password":""
 }
 
 
