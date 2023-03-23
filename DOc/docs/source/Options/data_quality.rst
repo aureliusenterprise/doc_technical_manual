@@ -671,8 +671,7 @@ In this example we are checking if the values in the column `id` are unique. We 
 
 We provide a dummy dataset and this is the function we are using. The inputs are the dataset and the name of the column.
     
-    uniqueness(data, "id")
-
+    
 
 .. code-block:: python
     
@@ -728,6 +727,9 @@ We provide a dummy dataset and this is the function we are using. The inputs are
 
         return data[column_name].apply(check)
     # END uniqueness
+
+    result=uniqueness(data, "id")
+
 
 
 
