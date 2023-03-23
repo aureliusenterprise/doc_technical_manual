@@ -737,16 +737,16 @@ Once the rules have been defined, the dataset can be pushed to Atlas.
 
 After uploading the dataset, the next step is to apply the defined rules and check the quality of the data. 
 This can be accomplished using the Quality class of the m4i_data_management repository. 
-The Quality class provides a get_data() function that takes as input a dataset and a set of rules, and applies 
+The Quality class provides a get_data function that takes as input a dataset and a set of rules, and applies 
 the rules to each field in the dataset to calculate the data quality scores.
 
-Once the scores have been calculated, the atlas_get_quality_dataset() function can be used to retrieve 
+Once the scores have been calculated, the atlas_get_quality_dataset function can be used to retrieve 
 the data quality rules from Atlas and apply them to the dataset. This function compares the rules 
 defined in Atlas with the scores calculated in the previous step, and returns a DataFrame containing the final data quality scores for each field.
 
 The final step is to store the data quality results in Kafka. To do this, a Kafka producer can be created using the KafkaProducer API. 
-The data quality scores can be serialized as JSON and sent as messages to a Kafka topic using the send() function of the producer. 
-The write_data_quality_results() function of the Quality class can be used to format the data quality scores in a way that is suitable for Kafka.
+The data quality scores can be serialized as JSON and sent as messages to a Kafka topic using the send function of the producer. 
+The write_data_quality_results function of the Quality class can be used to format the data quality scores in a way that is suitable for Kafka.
 
 In summary, the workflow for uploading and processing a dataset, defining data quality rules, and storing the data quality results in Kafka consists of four steps: uploading the dataset and defining the data quality rules, applying the rules and checking the quality of the data, retrieving the data quality rules from Atlas and applying them to the dataset, and finally storing the data quality results in Kafka using a Kafka producer. 
 This workflow can be customized and extended to meet the specific needs of different use cases.
@@ -780,33 +780,27 @@ Please ensure your `Python` environment is on version `3.7`. Some dependencies d
 
 To install `m4i-data-management` and all required dependencies to your active `Python` environment, please run the following command from the project root folder:
 
-1)Set up a virtual environment: Use this command in the root folder,
-```
-virtualenv --python "C:\\Python37\\python.exe" venv.
-```
-
-2) Then activate the virtual enviroment with this command: 
-```
-.\env\Scripts\activate  
-```
-
-3) Install the library
-```
-pip install -e .
-```
 
 To install `m4i-data-management` including development dependencies, please run the following command instead:
 
 ```
-How do i install this, do i add a path?
 pip install -e .[dev]
 
 ```
  Install m4i_data_management:
  You can clone m4i_data_management from this link https://gitlab.com/m4i/m4i_data_management
  Then you install with this command
+
  ```
  pip install {path to m4i_data_management}
+ 
+ ```
+
+ Do the same for m4i_atlas_core
+
+ ```
+ pip install {path to m4i_atlas_core}
+ 
  ```
 
 
