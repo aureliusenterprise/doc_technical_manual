@@ -675,6 +675,7 @@ We provide a dummy dataset and this is the function we are using. The inputs are
 
 
 .. code-block:: python
+    
     data = DataFrame([
         {
             "id": "1234"
@@ -727,6 +728,7 @@ We provide a dummy dataset and this is the function we are using. The inputs are
 
         return data[column_name].apply(check)
     # END uniqueness
+
 
 
 
