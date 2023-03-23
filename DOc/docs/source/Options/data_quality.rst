@@ -701,6 +701,8 @@ The output will be 1 because it containf substrings in the 'conditional'  column
 
 We are checking the 'value' and 'conditional' column to see if it contains the expected values of the 'key' values object.
 .. code-block:: python 
+
+    
  
             values = {"xx.TMP": "XX No Grade"}    (this is dictionary with it's key and value)
 
@@ -779,38 +781,40 @@ The output here will 1, because "value" column, contains an expecetd value. Othe
 We provide a dummy dataframe with one column called "id". 
 .. code-block:: python 
 
-    data = DataFrame([
-            {
-                "id": "12.12"
-            }
-        ])
-
-        from pandas import DataFrame, Series, isna
 
 
-        def contains_character(data: DataFrame, column_name: str, substring: str, expected_count: int = 1) -> Series:
-            """
-            Checks how many times the values in the column with the given `column_name` contain a specific character. 
+        data = DataFrame([
+                {
+                    "id": "12.12"
+                }
+            ])
 
-            This only works for textual values.
-            If a value is not a string, it is converted to a string before comparison.
+            from pandas import DataFrame, Series, isna
 
-            If the number of occurrences is at least the `expected_count`, or if the value is empty, assign a score of 1.
-            Otherwise, assigns a score of 1.
-            """
 
-            def check(value):
-                if isna(value):
-                    return 1
-                # END IF
+            def contains_character(data: DataFrame, column_name: str, substring: str, expected_count: int = 1) -> Series:
+                """
+                Checks how many times the values in the column with the given `column_name` contain a specific character. 
 
-                return 1 if str(value).count(substring) >= expected_count else 0
-            # END check
+                This only works for textual values.
+                If a value is not a string, it is converted to a string before comparison.
 
-            return data[column_name].apply(check)
-        # END contains_character
+                If the number of occurrences is at least the `expected_count`, or if the value is empty, assign a score of 1.
+                Otherwise, assigns a score of 1.
+                """
 
-        result=contains_character(data, "id", ".", 1)
+                def check(value):
+                    if isna(value):
+                        return 1
+                    # END IF
+
+                    return 1 if str(value).count(substring) >= expected_count else 0
+                # END check
+
+                return data[column_name].apply(check)
+            # END contains_character
+
+            result=contains_character(data, "id", ".", 1)
 
 
 This is the function that we use. The inputs are data, name of the column, the character we want to check and 1 is the expected count
