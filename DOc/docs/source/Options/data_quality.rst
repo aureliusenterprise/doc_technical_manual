@@ -56,7 +56,7 @@ A data quality rule consists of :
 Associated field
 ~~~~~~~~~~~~~~~~~
 
-A field can be used in multiple data quality rules, thus a field may have multiple data quality results of different data quality rule dimensions. A field is referenced by the followign information:
+A field can be used in multiple data quality rules, thus a field may have multiple data quality results of different data quality rule dimensions. A field is referenced by the following information:
 
 * qualified name of the field used for the assessment
 * fieldguid, that is the guid of the referenced field
@@ -67,7 +67,7 @@ Technical view
 --------------
 
 Technically, data quality is represented in Aurelius Atlas as Apache Atlas concepts and as data in the metadata store (elastic app search).
-The field as well as a description of the data quality rule are entities in Aurelius Atlas, while the data actual data quality result is stored as metadata in elastic app search.
+The field as well as a description of the data quality rule are entities in Aurelius Atlas, while the actual data quality result is stored as metadata in elastic app search.
 
 Data quality result
 ~~~~~~~~~~~~~~~~~~~
