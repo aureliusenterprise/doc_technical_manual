@@ -66,7 +66,7 @@ A field can be used in multiple data quality rules, thus a field may have multip
 Technical view
 --------------
 
-Technically, data quality is represented in Aurelius Atlas as Apache Atlas concepts and as data in the metadata store (elastic app search).
+Technically, data quality is represented in Aurelius Atlas as an Apache Atlas entity and as data in the metadata store (elastic app search).
 The field as well as a description of the data quality rule are entities in Aurelius Atlas, while the actual data quality result is stored as metadata in elastic app search.
 
 Data quality result
@@ -699,6 +699,9 @@ In this example we are checking if the values in the column `value` exist in the
 
 We provide the values in the example list and a dummy dataset
 
+.. code-block:: python
+
+
 exampleValues = ['Definite Contract', 'Indefinite Contract']
 
     data = DataFrame([
@@ -804,37 +807,6 @@ How to set up config and credentials file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Here is the exact configuration of the config and credentials, use this to run the example.
-
-config = {
-
-
-     "atlas_dataset_guid": "f686adca-00c4-4509-b73b-1c51ae597ebe",
-     "dataset_quality_name": "example_name",
-     "atlas": {
-        "atlas.server.url": "https://aureliusdev.westeurope.cloudapp.azure.com/anwo/atlas/atlas",
-    
-    },
-
-
-
-
-    "keycloak.server.url": "https://aureliusdev.westeurope.cloudapp.azure.com/anwo/auth/",
-    "keycloak.client.id": "m4i_public",
-    "keycloak.realm.name": "m4i",
-    "keycloak.client.secret.key": ""
-
-
-In our credentials file we provide The server link of atlas,username,password and the keycloak username and password.
-
-credentials = {
-    
-    "keycloak.credentials.username": "atlas",
-    "keycloak.credentials.password": "",
-     "atlas.server.url":"https://aureliusdev.westeurope.cloudapp.azure.com/anwo/atlas/atlas", 
-    "atlas.credentials.username":"atlas",
-    "atlas.credentials.password":""
-}
-
 
 .. code-block:: python
 
