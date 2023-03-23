@@ -701,8 +701,9 @@ We provide the values in the example list and a dummy dataset
 
 .. code-block:: python
 
-
-exampleValues = ['Definite Contract', 'Indefinite Contract']
+    from pandas import DataFrame
+    
+    exampleValues = ['Definite Contract', 'Indefinite Contract']
 
     data = DataFrame([
         {
@@ -710,9 +711,14 @@ exampleValues = ['Definite Contract', 'Indefinite Contract']
         }
     ])
 
-This is the function we are using. The inputs are data, the column name and the list of example values.
+    def validity(data, column_name, example_values):
+        if data[column_name].isin(example_values).any():
+            return 1
+        else:
+            return 0
     
     result = validity(data, "value", exampleValues)
+
 
 The output will 1, because the value of the column exists in the example list.
 
