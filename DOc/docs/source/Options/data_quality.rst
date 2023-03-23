@@ -780,10 +780,11 @@ The output here will 1, because "value" column, contains an expecetd value. Othe
  Checks how many times the values in the column with the given `column_name` contain a specific character. 
 
 
-We provide a dummy dataframe with one column called "id". 
+We provide a dummy dataframe with one column called "id".
+
+
 .. code-block:: python 
-
-
+    
 
         data = DataFrame([
                 {
