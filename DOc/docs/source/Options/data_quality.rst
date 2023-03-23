@@ -597,19 +597,48 @@ In this example we checking if the values in the column  `column_name` are great
 
 We provide a dummy dataframe for this example with column name "value"
 
- 
- data = DataFrame([
-        {
-            "value": 0.1
-        }
-    ])
+.. code-block:: python 
+    data = DataFrame([
+            {
+                "value": 0.1
+            }
+        ])
+
+        from pandas import DataFrame, Series, isna
 
 
-We are using this function. Th inputs are the dataframe, the column name and the range (The upper and lower bound)
+        def range(data: DataFrame, column_name: str, lower_bound: int = 0, upper_bound: int = 1) -> Series:
+            """
+            Checks whether or not the values in the column with the given `column_name` are:
 
-    range(data, "value", 0, 1)
+            - Greater than or equal to the given `lower_bound`.
+            - Less than or equal to the given `upper_bound`.
+
+            This only works for numeric values.
+            If a value is not a number, it is converted to a number before comparison.
+
+            If the value is within the given `lower_bound` and `upper_bound`, assign a score of 1.
+            Otherwise, assign a score of 0.
+            """
+
+            def check(value):
+                is_in_range = (
+                    not isna(value)
+                    and int(value) >= lower_bound
+                    and int(value) <= upper_bound
+                )
+
+                return 1 if is_in_range else 0
+            # END check
+
+            return data[column_name].apply(check)
+        # END range
+
+        result=range(data, "value", 0, 1)
 
 
+
+The inputs are the dataframe, the column name and the range (The upper and lower bound)
 The output will be 1 because o,1 is between 0 and 1.
 
 
@@ -619,21 +648,46 @@ The output will be 1 because o,1 is between 0 and 1.
 
 In this example we are checking if the values in the column `column_name` start with any of the given `prefixes`.
 
+.. code-block:: python
+    data = DataFrame([
+            {
+                "id": 1234
+            }
+        ])
 
- data = DataFrame([
-        {
-            "id": 1234
-        }
-    ])
-
-
-
-This is the function we are using. The inputs are the data the column name and the prefix.
+        from pandas import DataFrame, Series, isna
 
 
-    starts_with(data, "id", "1")
+    def starts_with(data: DataFrame, column_name: str, *prefixes: str) -> Series:
+        """
+        Checks whether or not the values in the column with the given `column_name` start with any of the given `prefixes`.
+
+        This only works for textual values.
+        If a value is not a string, it is converted to a string before comparison.
+
+        If the value starts with any of the given `prefixes`, or if the value is empty, assign a score of 1.
+        Otherwise, assign a score of 0.
+        """
+
+        def check(value):
+
+            if isna(value):
+                return 1
+            # END IF
+
+            str_value = str(value)
+
+            return 1 if str_value.startswith(prefixes) else 0
+        # END check
+
+        return data[column_name].apply(check)
+    # END starts_with
+
+    result=starts_with(data, "id", "1") 
 
 
+
+The inputs are the data the column name and the prefix.
 The output wil be 1, because "1" is in the value of the id column.
 
 
