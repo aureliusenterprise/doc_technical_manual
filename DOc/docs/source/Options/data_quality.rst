@@ -598,6 +598,9 @@ In this example we checking if the values in the column  `column_name` are great
 We provide a dummy dataframe for this example with column name "value"
 
 .. code-block:: python 
+    
+    
+    
     data = DataFrame([
             {
                 "value": 0.1
@@ -638,6 +641,7 @@ We provide a dummy dataframe for this example with column name "value"
 
 
 
+
 The inputs are the dataframe, the column name and the range (The upper and lower bound)
 The output will be 1 because o,1 is between 0 and 1.
 
@@ -649,6 +653,8 @@ The output will be 1 because o,1 is between 0 and 1.
 In this example we are checking if the values in the column `column_name` start with any of the given `prefixes`.
 
 .. code-block:: python
+    
+    
     data = DataFrame([
             {
                 "id": 1234
@@ -684,6 +690,7 @@ In this example we are checking if the values in the column `column_name` start 
     # END starts_with
 
     result=starts_with(data, "id", "1") 
+
 
 
 
