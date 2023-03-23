@@ -701,64 +701,63 @@ The output will be 1 because it containf substrings in the 'conditional'  column
 
 We are checking the 'value' and 'conditional' column to see if it contains the expected values of the 'key' values object.
 .. code-block:: python 
+ 
+            values = {"xx.TMP": "XX No Grade"}    (this is dictionary with it's key and value)
+
+            data = DataFrame([                    (this is our dummy dataset)
+                {
+                    "value": "XX No Grade",
+                    "conditional": "xx.TMP"
+                }
+            ])
+
+            from typing import Iterable, Mapping, Union
+            from pandas import DataFrame, Series, isna
 
 
-        values = {"xx.TMP": "XX No Grade"}    (this is dictionary with it's key and value)
+            def conditional_value(
+                data: DataFrame,
+                key_column: str,
+                value_column: str,
+                value_mapping: Mapping[str, Union[str, Iterable[str]]]
+            ) -> Series:
+                """
+                Checks whether the values in the given `value_column` match (one of) the expected value(s) for a given key in the `key_column`. 
 
-        data = DataFrame([                    (this is our dummy dataset)
-            {
-                "value": "XX No Grade",
-                "conditional": "xx.TMP"
-            }
-        ])
+                If the `value_column` contains an expected value, assign a score of 1.
+                Otherwise, assign a score of 0.
+                """
 
-        from typing import Iterable, Mapping, Union
-        from pandas import DataFrame, Series, isna
+                def check(row):
 
+                    key = row[key_column]
 
-        def conditional_value(
-            data: DataFrame,
-            key_column: str,
-            value_column: str,
-            value_mapping: Mapping[str, Union[str, Iterable[str]]]
-        ) -> Series:
-            """
-            Checks whether the values in the given `value_column` match (one of) the expected value(s) for a given key in the `key_column`. 
+                    if isna(key):
+                        return 0
+                    # END IF
 
-            If the `value_column` contains an expected value, assign a score of 1.
-            Otherwise, assign a score of 0.
-            """
+                    expected_value = value_mapping[key]
 
-            def check(row):
+                    if isinstance(expected_value, (list, set)):
+                        has_valid_value = row[value_column] in expected_value
+                    else:
+                        has_valid_value = row[value_column] == expected_value
+                    # END IF
 
-                key = row[key_column]
+                    return 1 if has_valid_value else 0
+                # END check
 
-                if isna(key):
-                    return 0
+                # Limit the sample to rows containing a value we want to check for
+                rows_to_check = data[data[key_column].isin(value_mapping)]
+
+                if len(rows_to_check) == 0:
+                    return Series()
                 # END IF
 
-                expected_value = value_mapping[key]
+                return rows_to_check[[value_column, key_column]].apply(check, axis=1)
+            # END conditional_value
 
-                if isinstance(expected_value, (list, set)):
-                    has_valid_value = row[value_column] in expected_value
-                else:
-                    has_valid_value = row[value_column] == expected_value
-                # END IF
-
-                return 1 if has_valid_value else 0
-            # END check
-
-            # Limit the sample to rows containing a value we want to check for
-            rows_to_check = data[data[key_column].isin(value_mapping)]
-
-            if len(rows_to_check) == 0:
-                return Series()
-            # END IF
-
-            return rows_to_check[[value_column, key_column]].apply(check, axis=1)
-        # END conditional_value
-
-        result= conditional_value(data, "conditional", "value", values) 
+            result= conditional_value(data, "conditional", "value", values) 
 
 
 
