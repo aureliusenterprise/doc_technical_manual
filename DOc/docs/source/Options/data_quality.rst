@@ -669,9 +669,13 @@ The output will be 1 because "BG Van Oord" is not in the "Something Else" of the
 
 In this example we are checking if the values in the column `id` are unique. We are looking for duplicate values
 
-We provide a dummy dataset
+We provide a dummy dataset and this is the function we are using. The inputs are the dataset and the name of the column.
+    
+    uniqueness(data, "id")
 
- data = DataFrame([
+
+.. code-block:: python
+    data = DataFrame([
         {
             "id": "1234"
         },
@@ -683,10 +687,48 @@ We provide a dummy dataset
         }
     ])
 
+    from collections import defaultdict
 
-This is the function we are using. The inputs are the dataset and the name of the column.
-    
-    uniqueness(data, "id")
+    from pandas import DataFrame, Series, isna
+
+
+    def uniqueness(data: DataFrame, column_name: str) -> Series:
+        """
+        Checks whether the values in the column with the given `column_name` are unique (duplicate value check). 
+
+        This only works for textual values.
+        If a value is not a string, it is converted to a string before comparison.
+
+        If a value is unique, or if the value is empty, assigns a score of 1. 
+        Otherwise, assigns a score of 0.
+        """
+
+        records_per_value = defaultdict(set)
+
+        for index, row in data.iterrows():
+            value = row[column_name]
+
+            if isna(value):
+                continue
+            # END IF
+
+            records_per_value[str(value)].add(str(index))
+        # END LOOP
+
+        def check(value):
+            if isna(value):
+                return 1
+            # END IF
+
+            occurrences = records_per_value[str(value)]
+
+            return 1 if len(occurrences) == 1 else 0
+        # END check
+
+        return data[column_name].apply(check)
+    # END uniqueness
+
+
 
 The output will be 0, because the "id" column conatins duplicate values
 
@@ -702,6 +744,9 @@ We provide the values in the example list and a dummy dataset
 .. code-block:: python
 
     from pandas import DataFrame
+    from typing import Any, Iterable
+    from pandas import DataFrame, Series
+
     
     exampleValues = ['Definite Contract', 'Indefinite Contract']
 
@@ -711,11 +756,23 @@ We provide the values in the example list and a dummy dataset
         }
     ])
 
-    def validity(data, column_name, example_values):
-        if data[column_name].isin(example_values).any():
-            return 1
-        else:
-            return 0
+   
+
+    def validity(data: DataFrame, column_name: str, values: Iterable[Any]) -> Series:
+        """
+        Checks whether or not the values in the column with the given `column_name` exist in the given list of `values`.
+
+        If the value exists in the given list of `values`, assign a score of 1.
+        Otherwise, assign a score of 0.
+        """
+
+        def check(value):
+            return 0 if not value in values else 1
+        # END check
+
+        return data[column_name].apply(check)
+    # END validity
+
     
     result = validity(data, "value", exampleValues)
 
