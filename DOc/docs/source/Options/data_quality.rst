@@ -518,6 +518,8 @@ We provide a data dummy test in the unit test and we want to check if the column
 function will return 1, otherwise it will return 0
 
 .. code-block:: python     
+        
+        
         data = DataFrame([
             {
                 "id": 1234,
@@ -702,7 +704,7 @@ The output will be 1 because it containf substrings in the 'conditional'  column
 We are checking the 'value' and 'conditional' column to see if it contains the expected values of the 'key' values object.
 .. code-block:: python 
 
-    
+
  
             values = {"xx.TMP": "XX No Grade"}    (this is dictionary with it's key and value)
 
