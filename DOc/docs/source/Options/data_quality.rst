@@ -311,7 +311,9 @@ In our example,we are providing a dummy dataset and we are comparing the columns
 We provide a dummy data set in the code
 We first run a test to see if the columns are bijacent. We are comparing "id" and "name".
     
-    
+.. code-block:: python
+
+
        data = DataFrame([
         {
             "id": 1234,
@@ -327,8 +329,55 @@ We first run a test to see if the columns are bijacent. We are comparing "id" an
         }
     ])
 
+    from pandas import DataFrame, Series
 
-This is the function that we are using: bijacency(data, "id", "name"). The inputs are the dataset and the column names.
+    from .....core.utils import BidirectionalMutliMap
+
+
+    def bijacency(data: DataFrame, column_a: str, column_b: str) -> Series:
+        """
+        Checks whether or not the values in the given `column_a` and `column_b` only occur as a unique combination.
+
+        This only works for textual values.
+        If a value is not a string, it is converted to a string before comparison.
+
+        If the values occur as a unique combination, assign a score of 1.
+        Otherwise, assign a score of 0.
+        """
+
+        def get_values(row: Series):
+            return str(row[column_a]), str(row[column_b])
+        # END get_values
+
+        combinations = BidirectionalMutliMap()
+
+        for _, row in data.iterrows():
+            a, b = get_values(row)
+            combinations.add(a, b)
+        # END LOOP
+
+        def check(row: Series):
+            a, b = get_values(row)
+
+            unique = len(combinations[a]) <= 1
+            inverse_unique = len(combinations.inverse[b]) <= 1
+
+            return 1 if unique and inverse_unique else 0
+        # END check
+
+        return data[[column_a, column_b]].apply(check, axis='columns')
+
+    # END bijacency
+
+    result=bijacency(data, "id", "name")
+
+
+
+
+This is the function that we are using 
+    
+    bijacency(data, "id", "name"). The inputs are the dataset and the column names.
+
 We have same id and name in this example, which means they are bijacent. We will get an output 1.
 
 
@@ -343,19 +392,54 @@ Checks whether the first 'number_of_characters 'values in `first_column_name` an
 
 We provide this dummy data and we will compare the first two characters of the id and name.
 
+.. code-block:: python  
+
  
- 
- data = DataFrame([
-        {
-            "id": "NL.xxx",
-            "name": "NL.xxx",
-        }
-    [)
+        data = DataFrame([
+                {
+                    "id": "NL.xxx",
+                    "name": "NL.xxx",
+                }
+            [)
+
+            from pandas import DataFrame, Series, isna
+
+            def compare_first_characters(data: DataFrame, first_column_name: str, second_column_name: str, number_of_characters: int = 1) -> Series:
+                """
+                Checks whether the first 'number_of_characters 'values in `first_column_name` and `second_column_name` are similar, and if the values are None or NaN.
+
+                If the characters are not equal, assigns a score of 0.
+                If the characters are equal, assigns a score of 1.
+                """
+
+                def check(value):
+
+                    if isna(value[first_column_name]):
+                        return 0
+                    # END IF
+
+                    if isna(value[second_column_name]):
+                        return 0
+                    # END IF
+
+                    str_first_value = str(value[first_column_name])
+                    str_second_value = str(value[second_column_name])
+
+                    return 1 if str_first_value[:number_of_characters] == str_second_value[:number_of_characters] else 0
+                # END check
+
+                return data[[first_column_name, second_column_name]].apply(check, axis=1)
+            # END compare_first_characters
+
+            result=compare_first_characters(data, "id", "name", 2)
 
 
 
 
-This is the function that we are using: compare_first_characters(data, "id", "name", 2). The inputs are the dataset,the column names and the number of characters we want to compare.
+This is the function that we are using 
+
+compare_first_characters(data, "id", "name", 2). The inputs are the dataset,the column names and the number of characters we want to compare.
+
 Because they are the same the ouput will be 1.
 
 
@@ -373,17 +457,50 @@ This rule does three checks. It checks if the first characters are the same, if 
 
     We provide a dummy dataset with two columns, id and name
 
-    
-    data = DataFrame([
-            {
-                "id": "BE.xxx",
-                "name": "BE.xxx",
+.. code-block:: python
 
-            }
-    ])
+
+        data = DataFrame([
+                {
+                    "id": "BE.xxx",
+                    "name": "BE.xxx",
+
+                }
+        ])
+
+        from pandas import DataFrame, Series
+        from ..compare_first_characters import compare_first_characters
+        from ..starts_with import starts_with
+
+
+        def compare_first_characters_starting_without(data: DataFrame, first_column_name: str, second_column_name: str,
+                                                    number_of_characters: int, *prefixes: str) -> Series:
+        """
+        Checks whether the first 'number_of_characters 'values in `first_column_name` and `second_column_name` are similar,
+        and if  `column_name` does not start with any of the given `prefixes` , and if the values are None or NaN.
+
+        If the characters are not equal or contain nan, assigns a score of 0.
+        If the first_column character does start with prefix, or is nan, assign a score of 0
+        If the characters are equal AND first_column character does not start with prefix, assigns a score of 1.
+        """
+
+        def check(value):
+            return 1 if value["same_first_char"] == 1 and value['start_with'] == 0 else 0
+        # END check
+
+        same_first_char = compare_first_characters(data, first_column_name, second_column_name, number_of_characters)
+        start_with = starts_with(data, first_column_name, *prefixes)
+
+        return DataFrame({"same_first_char": same_first_char, "start_with": start_with}).apply(check, axis=1)
+        # END compare_first_characters_starting_without
+
+
+        result=compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
+
+
+
 
 We use as a prefix BE and we use the function: 
-	
     
     compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
 
@@ -396,25 +513,52 @@ The output will be 1, because the charaters are the same and have the prefix too
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Checks whether the values in the column with the given `column_name` are None or NaN. 
-    
-    
+        
 We provide a data dummy test in the unit test and we want to check if the column 'name' has a value or not. If it has a value the
 function will return 1, otherwise it will return 0
-    
-    data = DataFrame([
-        {
-            "id": 1234,
-            "name": NaN,
-            "function": "Developer",
-            "from": "01-01-2021"
-        }
-        })
 
- This is the function tha we will use. The inputs are data and the name of the column we want to check.
-     
-	  completeness(data, "name")
+.. code-block:: python     
+        data = DataFrame([
+            {
+                "id": 1234,
+                "name": NaN,
+                "function": "Developer",
+                "from": "01-01-2021"
+            }
+            })
+
+            from pandas import DataFrame, Series, isna
+
+
+        def completeness(data: DataFrame, column_name: str) -> Series:
+            """
+            Checks whether the values in the column with the given `column_name` are None or NaN. 
+            
+            If there is no value, assigns a score of 0. 
+            If there is a value, assigns a score of 1.
+            """
+
+            def check(value):
+                return 0 if isna(value) else 1
+            # END check
+
+            return data[column_name].apply(check)
+            # END completeness
+
+            result=  completeness(data, "name")
+
+
  
- The output here will be 0, because the column 'name' has no value in it.
+ 
+ 
+ 
+ 
+
+This is the function tha we will use. The inputs are data and the name of the column we want to check.
+     
+     completeness(data, "name")
+ 
+The output here will be 0, because the column 'name' has no value in it.
 
 
 5. Check Conditional Completeness
@@ -425,14 +569,55 @@ We are checking that the columns "value" and "conditional" are 'None' or 'NaN'. 
 where the value of the 'key_column', in not a substring of the given value in the function. In ths example the key column in "conditional"
 and we are seeing if it has a substring of the list values.
 
-  values = ['.TMP', '.FREE']
- 
-    data = DataFrame([
-        {
-            "value": "Something",
-            "conditional": "xx.FREE.eur"
-        }
-    ])
+.. code-block:: python 
+
+
+
+        values = ['.TMP', '.FREE']
+        
+            data = DataFrame([
+                {
+                    "value": "Something",
+                    "conditional": "xx.FREE.eur"
+                }
+            ])
+
+            from typing import Iterable
+
+            from pandas import DataFrame, Series
+
+            from ..completeness import completeness
+
+
+            def conditional_completeness(data: DataFrame, key_column: str, value_column: str, values: Iterable[str]) -> Series:
+                """
+                Checks whether or not the values in the given `value_column` are `None` or `NaN`.
+
+                Before applying the metric, filter out all rows where the value in the given `key_column` is not a substring of the given `values`.
+
+                This metric is derived from the `completeness` metric.
+
+                If there is a value, assign a score of 1.
+                Otherwise, assign a score of 0.
+                """
+
+                def filter(key: str):
+                    return any(value in key for value in values)
+                # END FILTER
+
+                # Values can also be substrings of the values in the rows to check
+                row_matches_values = data[key_column].apply(filter)
+                rows_to_check = data[row_matches_values]
+
+                if len(rows_to_check) == 0:
+                    return Series()
+                # END IF
+
+                return completeness(rows_to_check, value_column)
+            # END conditional_completeness
+
+            result=conditional_completeness(data, "conditional", "value", values) 
+
 
 This is the function we are using. The inputs are data, the name of the columns and the list of given values.
 
@@ -452,6 +637,7 @@ values= ['.TMP', '.FREE']
 
 We are checking if there is unalllowed text in the columns of the dummy dataframe. 
 
+.. code-block:: python
 
      values = ['.TMP', '.FREE']
 
@@ -463,6 +649,41 @@ We are checking if there is unalllowed text in the columns of the dummy datafram
             "conditional": "xx.FREE.eur"
         }
     ])
+
+    from typing import Iterable
+
+    from pandas import DataFrame, Series
+
+    from ..unallowed_text import unallowed_text
+
+    def conditional_unallowed_text(data: DataFrame, key_column: str, value_column: str, values: Iterable[str], text: str) -> Series:
+        """
+        Checks if values in the column with the given `value_column` contain a specific unallowed `text`. 
+
+        Before applying the metric, filter out all rows where the value in the given `key_column` is not a substring of the given `values`.
+
+        This metric is derived from the `unallowed_text` metric.
+
+        If there is no unallowed value, assign a score of 1.
+        Otherwise, assign a score of 0.
+        """
+
+        # Values can also be substrings of the values in the rows to check
+        def filter(key: str):
+            return any(value in key for value in values)
+        # END FILTER
+
+        row_matches_values = data[key_column].apply(filter)
+        rows_to_check = data[row_matches_values]
+
+        if len(rows_to_check) == 0:
+            return Series()
+        # END IF
+
+        return unallowed_text(rows_to_check, value_column, text)
+    # END conditional_unallowed_text
+
+    result=conditional_unallowed_text(data, "conditional", "value", values, unallowed_text_item)
 
 
 This is the function we are using. The inputs are is the dataframe, the name of the two columns, the values of the substrings and the unallowed text.
@@ -479,20 +700,72 @@ The output will be 1 because it containf substrings in the 'conditional'  column
 
 
 We are checking the 'value' and 'conditional' column to see if it contains the expected values of the 'key' values object.
+.. code-block:: python 
 
-    values = {"xx.TMP": "XX No Grade"}    (this is dictionary with it's key and value)
 
-    data = DataFrame([                    (this is our dummy dataset)
-        {
-            "value": "XX No Grade",
-            "conditional": "xx.TMP"
-        }
-    ])
+        values = {"xx.TMP": "XX No Grade"}    (this is dictionary with it's key and value)
+
+        data = DataFrame([                    (this is our dummy dataset)
+            {
+                "value": "XX No Grade",
+                "conditional": "xx.TMP"
+            }
+        ])
+
+        from typing import Iterable, Mapping, Union
+        from pandas import DataFrame, Series, isna
+
+
+        def conditional_value(
+            data: DataFrame,
+            key_column: str,
+            value_column: str,
+            value_mapping: Mapping[str, Union[str, Iterable[str]]]
+        ) -> Series:
+            """
+            Checks whether the values in the given `value_column` match (one of) the expected value(s) for a given key in the `key_column`. 
+
+            If the `value_column` contains an expected value, assign a score of 1.
+            Otherwise, assign a score of 0.
+            """
+
+            def check(row):
+
+                key = row[key_column]
+
+                if isna(key):
+                    return 0
+                # END IF
+
+                expected_value = value_mapping[key]
+
+                if isinstance(expected_value, (list, set)):
+                    has_valid_value = row[value_column] in expected_value
+                else:
+                    has_valid_value = row[value_column] == expected_value
+                # END IF
+
+                return 1 if has_valid_value else 0
+            # END check
+
+            # Limit the sample to rows containing a value we want to check for
+            rows_to_check = data[data[key_column].isin(value_mapping)]
+
+            if len(rows_to_check) == 0:
+                return Series()
+            # END IF
+
+            return rows_to_check[[value_column, key_column]].apply(check, axis=1)
+        # END conditional_value
+
+        result= conditional_value(data, "conditional", "value", values) 
+
 
 
 This is the function we ae using. The inputs are data of the dummy dataset, the names of the columns which are "value" and "conditional" and the values, that are the substrings we want to check.
     
-    result = conditional_value(data, "conditional", "value", values) 
+    conditional_value(data, "conditional", "value", values) 
+
 The output here will 1, because "value" column, contains an expecetd value. Otherwise it would be 0.
 
 
@@ -505,17 +778,45 @@ The output here will 1, because "value" column, contains an expecetd value. Othe
 
 
 We provide a dummy dataframe with one column called "id". 
+.. code-block:: python 
 
-  data = DataFrame([
-        {
-            "id": "12.12"
-        }
-    ])
+    data = DataFrame([
+            {
+                "id": "12.12"
+            }
+        ])
+
+        from pandas import DataFrame, Series, isna
+
+
+        def contains_character(data: DataFrame, column_name: str, substring: str, expected_count: int = 1) -> Series:
+            """
+            Checks how many times the values in the column with the given `column_name` contain a specific character. 
+
+            This only works for textual values.
+            If a value is not a string, it is converted to a string before comparison.
+
+            If the number of occurrences is at least the `expected_count`, or if the value is empty, assign a score of 1.
+            Otherwise, assigns a score of 1.
+            """
+
+            def check(value):
+                if isna(value):
+                    return 1
+                # END IF
+
+                return 1 if str(value).count(substring) >= expected_count else 0
+            # END check
+
+            return data[column_name].apply(check)
+        # END contains_character
+
+        result=contains_character(data, "id", ".", 1)
+
 
 This is the function that we use. The inputs are data, name of the column, the character we want to check and 1 is the expected count
     
     contains_character(data, "id", ".", 1)  
-
 
 We want to check if the the id contains "." . The output will be 1 because the "id" column contains "."
 
@@ -528,11 +829,47 @@ In this example we are checking if the values in the column `name` match the giv
 
 We provide a dummy dataset
 
-data = DataFrame([
-        {
-            "name": 'ExampleText'
-        }
-    ])
+.. code-block:: python 
+
+
+        data = DataFrame([
+                {
+                    "name": 'ExampleText'
+                }
+            ])
+
+        import re
+
+        from pandas import DataFrame, Series, isna
+
+
+        def formatting(data: DataFrame, column_name: str, pattern: str) -> Series:
+            """
+            Checks whether or not the values in the column with the given `column_name` match the given `pattern`.
+
+            This only works for textual values.
+            If a value is not a string, it is converted to a string before comparison.
+
+            If the value matches the given `pattern`, or if the value is empty, assign a score of 1.
+            Otherwise, assign a score of 0.
+            """
+
+            regex = re.compile(pattern)
+
+            def check(value):
+
+                if isna(value):
+                    return 0
+                # END IF
+
+                return 1 if regex.match(str(value)) else 0
+            # END check
+
+            return data[column_name].apply(check)
+        # END formatting
+
+        result= formatting(data, "name", r'^[a-zA-Z]+$')
+
 
 
 This is the function that we are using. The inputs are the dataset we are using,the column "name" and the pattern we want to see match 
@@ -552,6 +889,7 @@ In this example we are checking if the values  in the column with the given name
 
 We provide a list of the example values and a dummy dataframe.
 
+.. code-block:: python 
   exampleValues = ['x', 'X', 'TBD', 'Name']
 
     data = DataFrame([
@@ -560,11 +898,41 @@ We provide a list of the example values and a dummy dataframe.
         }
     ])
 
+    from pandas import DataFrame, Series, isna
+
+
+    def length(data: DataFrame, column_name: str, required_length: int) -> Series:
+        """
+        Checks if the number of characters of the values in the column with the given `column_name` are equal to the `required_length`. 
+
+        This function only works for array-like values such as strings or lists.
+        
+        If the length of a value is equal or greater than the `required_length`, assigns a score of 1. 
+        Otherwise, or if the value is empty, assigns a score of 0.
+        """
+
+        def check(value):
+
+            if not isinstance(value, list) and isna(value):
+                return 0
+            # END IF
+
+            has_required_length = (
+                required_length <= len(value)
+            )
+
+            return 1 if has_required_length else 0
+        # END check
+
+        return data[column_name].apply(check)
+    # END length
+
+    result=invalidity(data, "value", exampleValues) 
+
+
+
 
 The funtion we are using is called invalidity. The inputs are data, column name and the list of values we want to check.
-
-    invalidity(data, "value", exampleValues)
-
 The output here will be 1 , becaue "X" is in the list of values.
 
 
