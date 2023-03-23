@@ -836,7 +836,30 @@ credentials = {
 }
 
 
-## How to use quality rules
+.. code-block:: python
+
+    config = {
+        "atlas_dataset_guid": "f686adca-00c4-4509-b73b-1c51ae597ebe",
+        "dataset_quality_name": "example_name",
+        "atlas": {
+            "atlas.server.url": "https://aureliusdev.westeurope.cloudapp.azure.com/anwo/atlas/atlas",
+        },
+        "keycloak.server.url": "https://aureliusdev.westeurope.cloudapp.azure.com/anwo/auth/",
+        "keycloak.client.id": "m4i_public",
+        "keycloak.realm.name": "m4i",
+        "keycloak.client.secret.key": ""
+    }
+
+    credentials = {
+        "keycloak.credentials.username": "atlas",
+        "keycloak.credentials.password": "",
+        "atlas.server.url":"https://aureliusdev.westeurope.cloudapp.azure.com/anwo/atlas/atlas", 
+        "atlas.credentials.username":"atlas",
+        "atlas.credentials.password":""
+    }
+
+How to run data quality check
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Our tool checks the quality of your data. To use it, you need to provide a csv file with your data and the rules you want to apply to it. The rules are basically the type of checks you want to do on the attributes of your dataset. We store your data and rules on Atlas and use our tool to apply the rules to your data. We then calculate the quality score of your data based on the applied rules and provied a csv output with the results.
 
