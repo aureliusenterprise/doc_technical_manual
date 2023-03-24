@@ -1330,7 +1330,7 @@ M4I Data Management
 
 This library contains all core functionality around data management for Models4Insight.
 
-Installation
+Installation 
 ~~~~~~~~~~~~~
 
 Please ensure your `Python` environment is on version `3.7`. Some dependencies do not work with any later versions of `Python`.
