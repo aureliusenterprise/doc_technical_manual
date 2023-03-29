@@ -1,5 +1,6 @@
 How to Deploy Aurelius Atlas
 ============================
+.. _helm_deployment:
 
 Getting started
 ---------------

@@ -8,4 +8,4 @@ Deployment options
 
 There are multiple deployment options:
 
-- :ref:`using helm charts in a kubernetes cluster <Deployment/helm_deployment>`
+- :ref:`using helm charts in a kubernetes cluster <helm_deployment>`
