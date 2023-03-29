@@ -127,11 +127,11 @@ Submodules
 
 The M4I Atlas Core library consists of several submodules to help you efficiently interact with the Aurelius Atlas platform. Each submodule serves a specific purpose and contains related functionality. Below is a brief description of each submodule:
 
--  :ref:```api`` <m4i_atlas_core_api>`: This submodule provides a set of functions that facilitate communication with the Apache Atlas API. It includes functions for creating, retrieving, updating, and deleting entities, as well as handling relationships, classifications, and other aspects of the Aurelius Atlas platform.
+-  :ref:`api <m4i_atlas_core_api>`: This submodule provides a set of functions that facilitate communication with the Apache Atlas API. It includes functions for creating, retrieving, updating, and deleting entities, as well as handling relationships, classifications, and other aspects of the Aurelius Atlas platform.
 
--  :ref:```config`` <m4i_atlas_core_config>`: This submodule includes the ``ConfigStore`` class, which is responsible for managing configuration settings for the library. It allows you to store, access, and update the configuration settings required to interact with the Atlas API.
+-  :ref:`config <m4i_atlas_core_config>`: This submodule includes the ``ConfigStore`` class, which is responsible for managing configuration settings for the library. It allows you to store, access, and update the configuration settings required to interact with the Atlas API.
 
--  :ref:```entities`` <m4i_atlas_core_entities>`: This submodule contains the data objects related to the Apache Atlas API and the Aurelius Atlas metamodel.
+-  :ref:`entities <m4i_atlas_core_entities>`: This submodule contains the data objects related to the Apache Atlas API and the Aurelius Atlas metamodel.
 
 Authentication
 ~~~~~~~~~~~~~~
