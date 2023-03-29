@@ -20,7 +20,7 @@ release = '0.1'
 extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.autosectionlabel',
-    'myst_parser',
+    #'myst_parser',
 ]
 
 source_suffix = ['.rst', '.md']
