@@ -18,6 +18,7 @@ release = '0.1'
 
 extensions = [
     'sphinx.ext.intersphinx',
+    'sphinx.ext.autosectionlabel',
 ]
 
 templates_path = ['_templates']
