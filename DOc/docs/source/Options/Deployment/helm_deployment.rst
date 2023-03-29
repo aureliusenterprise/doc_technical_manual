@@ -18,31 +18,43 @@ Installation Requirements
 -------------------------
 
 This installation assumes that you have: - a kubernetes cluster running
-- with 2 Node of CPU 4 and 16GB - Chosen cloud Cli installed -
-`gcloud <https://cloud.google.com/sdk/docs/install#deb>`__ -
-`az <https://learn.microsoft.com/en-us/cli/azure/install-azure-cli>`__ -
-kubectl installed and linked to chosen cloud Cli - `gcloud
-linked <https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#gcloud>`__
-- `az
-linked <https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster>`__
+
+- with 2 Node of CPU 4 and 16GB - Chosen cloud Cli installed 
+
+  - `gcloud <https://cloud.google.com/sdk/docs/install#deb>`__ 
+
+  - `az <https://learn.microsoft.com/en-us/cli/azure/install-azure-cli>`__
+
+- kubectl installed and linked to chosen cloud Cli
+
+  - `gcloud linked <https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#gcloud>`__
+
+  - `az linked <https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster>`__
+
 - A DomainName - Not necessary for Azure
 
 Required Packages
 -----------------
 
-The deployment requires the following packages: - Certificate Manager -
-To handel and manage the creation of certificates - Used in demo:
-cert-manager - Ingress Controller - Used to create an entry point to the
-cluster through an external IP. - Used in demo: Nginx Controller -
-Elastic - Used to deploy elastic on the kubernetes cluster - In order to
-deploy elastic, ``Elastic Cluster on Kubernetes (ECK)`` must be
+The deployment requires the following packages:
+
+- Certificate Manager
+  - To handel and manage the creation of certificates
+  - Used in demo: cert-manager
+- Ingress Controller
+  - Used to create an entry point to the cluster through an external IP.
+  - Used in demo: Nginx Controller 
+- Elastic
+ - Used to deploy elastic on the kubernetes cluster
+ - In order to deploy elastic, ``Elastic Cluster on Kubernetes (ECK)`` must be
 installed on the cluster. To install ECK on the cluster, please follow
-the instructions provided on
-https://www.elastic.co/guide/en/cloud-on-k8s/master/k8s-deploy-eck.html
-- For more details about this elastic helm chart look at `elastic
-readme <./charts/elastic/README.md>`__ - Reflector - Used to reflect
-secrets across namespaces - Used in demo to share the DNS certificate to
-different namespace
+the instructions provided on https://www.elastic.co/guide/en/cloud-on-k8s/master/k8s-deploy-eck.html
+
+  - For more details about this elastic helm chart look at `elastic
+readme <./charts/elastic/README.md>`__ 
+- Reflector
+  - Used to reflect secrets across namespaces
+  - Used in demo to share the DNS certificate to different namespace
 
 The steps on how to install the required packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

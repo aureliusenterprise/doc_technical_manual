@@ -19,8 +19,10 @@ Installation Requirements
 -------------------------
 
 This installation assumes that you have:
+
 - a kubernetes cluster running
   - with 2 Node of CPU 4 and 16GB
+
 - Chosen cloud Cli installed 
 
   - `gcloud <https://cloud.google.com/sdk/docs/install#deb>`__
