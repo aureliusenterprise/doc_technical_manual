@@ -1,5 +1,6 @@
 API
 ===
+.. _m4i_atlas_core_api:
 
 This README provides documentation for the M4I Atlas Core ``api`` module, which is designed for interacting with the Apache Atlas API and retrieving authentication tokens from Keycloak.
 

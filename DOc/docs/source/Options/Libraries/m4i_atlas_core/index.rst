@@ -1,5 +1,6 @@
 M4I Atlas Core
 ==============
+.. _m4i_atlas_core_index:
 
 Welcome to the M4I Atlas Core library!
 

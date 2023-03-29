@@ -1,5 +1,6 @@
 Data Object Model
 =================
+.. _m4i_atlas_core_entities:
 
 This section provides an overview of how to use the data object model provided in the library. The data objects are designed to represent various types of entities, attributes, classifications, and other components in Aurelius Atlas. They are used extensively when interacting with the Atlas API.
 

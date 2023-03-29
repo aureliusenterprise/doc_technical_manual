@@ -1,5 +1,6 @@
 ConfigStore
 ===========
+.. _m4i_atlas_core_config:
 
 ``ConfigStore`` is a powerful, singleton-based configuration store providing an easy-to-use interface to store, retrieve, and manage configuration settings.
 
