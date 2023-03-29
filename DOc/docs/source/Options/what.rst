@@ -129,6 +129,7 @@ the integration options:
 -  `Azure <https://docs.microsoft.com/en-us/azure/?product=popular>`__
 
 -  `AWS <https://docs.aws.amazon.com/>`__
+
 ..
    -  GCP
 

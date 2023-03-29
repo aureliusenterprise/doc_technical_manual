@@ -41,15 +41,15 @@ A data quality rule consists of :
 +----------------+-------------------------------------------------------------+
 | Rule Category  | Rule Description                                            |
 +================+=============================================================+
-| completeness	 | degree to which data is not null                            |
+| completeness   | degree to which data is not null                            |
 +----------------+-------------------------------------------------------------+
 | accuracy       | degree to which a column conforms to a standard             |
 +----------------+-------------------------------------------------------------+
 | validity       | degree to which the data comply with a predefined structure |
 +----------------+-------------------------------------------------------------+
-| uniqueness   	 | degree to which the data has a unique value                 |
+| uniqueness     | degree to which the data has a unique value                 |
 +----------------+-------------------------------------------------------------+
-| timeliness	 | the data should be up to date			                   |
+| timeliness	 | the data should be up to date                               |
 +----------------+-------------------------------------------------------------+
 
 
