@@ -2,17 +2,9 @@ How to deploy Aurelius Atlas
 ============================
 .. _how:
 
-Deployment of Aurelius Atlas can be done in the following steps:
+There are different means on how Aurelius Atlas can be deployed:
 
-* create a fork of the github repository https://github.com/aureliusenterprise/helm-governance/ in your own github environment and adjust the permissions accordingly
-* configure Aurelus Atlas to deploy it in your own environment
-* deploy the helm chart in your own kubernetes cluster
-* enjoy Aurelius Atlas
+.. toctree::
+   :includehidden:
 
-In the following each step is explained in more detail.
-
-Create a fork in github
------------------------
-
-
-
+   Deployment/helm_deployment
