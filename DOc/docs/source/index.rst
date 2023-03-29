@@ -22,9 +22,9 @@ the Elastic V2 license agreement.
       Options/tech
       Options/demo
       Options/integration
-      Options/libraries
       Options/support
       Options/about
       Options/data_quality
+      Options/libraries
 
     

@@ -1,5 +1,5 @@
 Libraries
-============
+=========
 .. _libraries:
 
 
@@ -13,7 +13,7 @@ Aurelius Atlas
 | m4i_governance_data_quality                   | gitlab	         | data governance       | merge or branches required                                                                                            |
 |                                               |                    | quality checks        |                                                                                                                       | 
 +-----------------------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
-| m4i_atlas_core                                | github             |                       | core entities for apache atlas                                                                                        |
+| `m4i_atlas_core <./Libraries/m4i_atlas_core>` | github             |                       | core entities for apache atlas                                                                                        |
 +-----------------------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
 | m4i data management                           | gitlab             | writign and reading   | many dependencies like confluent kafka and elastic , which are not always required stale branch                       |
 |                                               |                    | from kafka and elastic|                                                                                                                       | 
