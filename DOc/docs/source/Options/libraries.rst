@@ -30,6 +30,16 @@ Aurelius Atlas
 | atlas-m4i-connector                                 | gitlab             |                       | integration m4i with atlas; merge required                                                                            |
 +-----------------------------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
 
+1-  `m4i_atlas_core <./Libraries/m4i_atlas_core/index>`
+
+2-  m4i_atlas_core_index_
+
+3- :ref:`m4i_atlas_core <./Libraries/m4i_atlas_core/index>`
+
+4- :ref:`m4i_atlas_core <m4i_atlas_core_index_>`
+
+
+
 
 Models4Insight
 --------------
