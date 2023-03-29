@@ -148,10 +148,3 @@ options.
 
     provide a link to the page with more details.
 
-How to Deploy Aurelius Atlas
-----------------------------
-
-To start using Aurelius Atlas here is a guide to easily learn how to
-deploy the application `Click here <how>`__
-
-
