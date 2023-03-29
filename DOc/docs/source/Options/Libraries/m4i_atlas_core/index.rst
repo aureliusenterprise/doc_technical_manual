@@ -2,6 +2,14 @@ M4I Atlas Core
 ==============
 .. _m4i_atlas_core_index:
 
+.. toctree::
+      :hidden:
+
+    api
+    config
+    entities
+
+
 Welcome to the M4I Atlas Core library!
 
 This library is designed to streamline your interactions with Aurelius Atlas, providing a comprehensive data object model for all entities related to Aurelius Atlas and a set of functions to facilitate communication with the Aurelius Atlas API.
