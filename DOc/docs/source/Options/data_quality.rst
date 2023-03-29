@@ -1530,10 +1530,11 @@ of checks you want to do on the attributes of your dataset. We store the rules y
 We then calculate the quality score of your data based on the applied rules and send the results to a Kafka topic. 
 Below is an image that describes the whole process for your better understanding.
 
-
-
 .. image:: imgs/logical.png 
 
+1. First we want to upload a file, where we define the rules that we want to apply to the data. We push this file to atlas.
+2. Then we get the data quality rules from atlas and see our data quality results. Our quality results have a data quality score. 1 is compiant and 0 is non-compliant
+3. Finally we want to push our data quality results to kafka.
 
 
 first we define what rules we want to apply to our data and push these rules to Aurelius atlas.After we retrieve these rules from aurelius atlas
