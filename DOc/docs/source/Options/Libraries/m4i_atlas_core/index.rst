@@ -3,7 +3,7 @@ M4I Atlas Core
 .. _m4i_atlas_core_index:
 
 .. toctree::
-      :hidden:
+    :hidden:
 
     api
     config
