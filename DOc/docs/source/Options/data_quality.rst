@@ -340,14 +340,16 @@ We provide this dummy data and we will compare the first two characters of the i
 
  
  .. code-block:: python
-    data = DataFrame([
-            {
-                "id": "NL.xxx",
-                "name": "NL.xxx",
-            }
-        [)
 
-        result= compare_first_characters(data, "id", "name", 2)
+    
+        data = DataFrame([
+                {
+                    "id": "NL.xxx",
+                    "name": "NL.xxx",
+                }
+            [)
+
+            result= compare_first_characters(data, "id", "name", 2)
 
 This is the function that we are using: compare_first_characters(data, "id", "name", 2). The inputs are the dataset,the column names and the number of characters we want to compare.   
       
