@@ -361,9 +361,9 @@ This is the function that we are using: compare_first_characters(data, "id", "na
 This rule does three checks. It checks if the first characters are the same, if the have same prefix and if the values are Nan or none.
 
 1) In are first example we provide a dummy dataset with two columns, id and name
-.. code-block:: python
-    
 
+
+ .. code-block:: python
         data = DataFrame([
                 {
                     "id": "BE.xxx",
@@ -380,7 +380,9 @@ This rule does three checks. It checks if the first characters are the same, if 
 
                     result=compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
 
-We use as a prefix BE and we use the function: 
+
+We use as a prefix BE and we use the function
+
 	compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
 
 we provide the dataset we are using, the column names, the number of characters we want to compare and the prefix.
@@ -504,15 +506,16 @@ Checks how many times the values in the column with the given `column_name` cont
 
 
 We provide a dummy dataframe with one column called "id". 
-.. code-block:: python
+  
+  .. code-block:: python
         
-            data = DataFrame([
-                    {
-                        "id": "12.12"
-                    }
-                ])
+        data = DataFrame([
+                {
+                    "id": "12.12"
+                }
+            ])
 
-                result=contains_character(data, "id", ".", 1) 
+            result=contains_character(data, "id", ".", 1) 
 
 This is the function that we use. The inputs are data, name of the column, the character we want to check and 1 is the expected count
     
@@ -528,7 +531,8 @@ We want to check if the the id contains "." . The output will be 1 because the "
 In this example we are checking if the values in the column `name` match the given `pattern`.
 
 We provide a dummy dataset
-.. code-block:: python
+
+ .. code-block:: python
             
             data = DataFrame([
                     {
@@ -583,15 +587,17 @@ In this example we are checking if the number of characters of the values in the
 
 
 We provide a dummy dataframe with column name "id"
-.. code-block:: python
 
-            data = DataFrame([
-                    {
-                        "id": "1234"
-                    }
-                ])
+ .. code-block:: python
 
-                result=length(data, "id", 4)
+        data = DataFrame([
+                {
+                    "id": "1234"
+                }
+            ])
+
+            result=length(data, "id", 4)
+
 
 We are using this function length. The inputs are data, column name and the length of required characters.
     
