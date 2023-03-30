@@ -219,7 +219,7 @@ some insight for a first time user.
 | Rule             | Description                                                     |
 +==================+=================================================================+
 |                  |                                                                 |
-| Biijacency       | Checks whether or not the values in the given `column_a` and    |
+| link=[Biijacency][https://gitlab.com/m4i/m4i-data-management/-/tree/master/m4i_data_management/core/quality/rules/bijacency]       | Checks whether or not the values in the given `column_a` and    |
 |                  | `column_b` only occur as a unique combination.                  |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
