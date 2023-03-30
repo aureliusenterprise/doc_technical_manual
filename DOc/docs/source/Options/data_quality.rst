@@ -364,21 +364,23 @@ This rule does three checks. It checks if the first characters are the same, if 
 
 
  .. code-block:: python
-        data = DataFrame([
-                {
-                    "id": "BE.xxx",
-                    "name": "BE.xxx",
 
-            .. code-block:: python
-                    data = DataFrame([
-                            {
-                                "id": "BE.xxx",
-                                "name": "BE.xxx",
 
-                            }
-                    ])
+    data = DataFrame([
+            {
+                "id": "BE.xxx",
+                "name": "BE.xxx",
 
-                    result=compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
+        .. code-block:: python
+                data = DataFrame([
+                        {
+                            "id": "BE.xxx",
+                            "name": "BE.xxx",
+
+                        }
+                ])
+
+                result=compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
 
 
 We use as a prefix BE and we use the function
