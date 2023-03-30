@@ -41,22 +41,22 @@ A data quality rule consists of :
 +----------------+-------------------------------------------------------------+
 | Rule Category  | Rule Description                                            |
 +================+=============================================================+
-| completeness	 | degree to which data is not null                            |
+| completeness   | degree to which data is not null                            |
 +----------------+-------------------------------------------------------------+
 | accuracy       | degree to which a column conforms to a standard             |
 +----------------+-------------------------------------------------------------+
 | validity       | degree to which the data comply with a predefined structure |
 +----------------+-------------------------------------------------------------+
-| uniqueness   	 | degree to which the data has a unique value                 |
+| uniqueness     | degree to which the data has a unique value                 |
 +----------------+-------------------------------------------------------------+
-| timeliness	 | the data should be up to date			                   |
+| timeliness	 | the data should be up to date                               |
 +----------------+-------------------------------------------------------------+
 
 
 Associated field
 ~~~~~~~~~~~~~~~~~
 
-A field can be used in multiple data quality rules, thus a field may have multiple data quality results of different data quality rule dimensions. A field is referenced by the followign information:
+A field can be used in multiple data quality rules, thus a field may have multiple data quality results of different data quality rule dimensions. A field is referenced by the following information:
 
 * qualified name of the field used for the assessment
 * fieldguid, that is the guid of the referenced field
@@ -66,8 +66,8 @@ A field can be used in multiple data quality rules, thus a field may have multip
 Technical view
 --------------
 
-Technically, data quality is represented in Aurelius Atlas as Apache Atlas concepts and as data in the metadata store (elastic app search).
-The field as well as a description of the data quality rule are entities in Aurelius Atlas, while the data actual data quality result is stored as metadata in elastic app search.
+Technically, data quality is represented in Aurelius Atlas as an Apache Atlas entity and as data in the metadata store (elastic app search).
+The field as well as a description of the data quality rule are entities in Aurelius Atlas, while the actual data quality result is stored as metadata in elastic app search.
 
 Data quality result
 ~~~~~~~~~~~~~~~~~~~
@@ -294,9 +294,6 @@ some insight for a first time user.
 +------------------+-----------------------------------------------------------------+                 
 
 
-
-
-
 Data Quality Rules Examples With Code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -330,11 +327,8 @@ We first run a test to see if the columns are bijacent. We are comparing "id" an
         result=  bijacency(data, "id", "name") 
 
 This is the function that we are using: bijacency(data, "id", "name"). The inputs are the dataset and the column names.
+
 We have same id and name in this example, which means they are bijacent. We will get an output 1.
-
-
-
-
 
 
 2. Compare First characters
@@ -355,26 +349,19 @@ We provide this dummy data and we will compare the first two characters of the i
 
         result= compare_first_characters(data, "id", "name", 2)
 
-
-
-
-This is the function that we are using: compare_first_characters(data, "id", "name", 2). The inputs are the dataset,the column names and the number of characters we want to compare.
-Because they are the same the ouput will be 1.
-
-
-   
+This is the function that we are using: compare_first_characters(data, "id", "name", 2). The inputs are the dataset,the column names and the number of characters we want to compare.   
       
-
-
-
 3. Check First Characters using Prefix
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
 This rule does three checks. It checks if the first characters are the same, if the have same prefix and if the values are Nan or none.
 
+1) In are first example we provide a dummy dataset with two columns, id and name
 
-    We provide a dummy dataset with two columns, id and name
+   data = DataFrame([
+        {
+            "id": "BE.xxx",
+            "name": "BE.xxx",
 
     .. code-block:: python
             data = DataFrame([
@@ -388,17 +375,15 @@ This rule does three checks. It checks if the first characters are the same, if 
             result=compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
 
 We use as a prefix BE and we use the function: 
-	
-    
-    compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
+	compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
 
-The inputs the dataset we are using, the column names, the number of characters we want to compare and the prefix.
+we provide the dataset we are using, the column names, the number of characters we want to compare and the prefix.
 The output will be 1, because the charaters are the same and have the prefix too.
     
 
 
 4. Check Completeness
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 Checks whether the values in the column with the given `column_name` are None or NaN. 
     
@@ -419,21 +404,20 @@ function will return 1, otherwise it will return 0
 
  This is the function tha we will use. The inputs are data and the name of the column we want to check.
      
-	  completeness(data, "name")
+	 completeness(data, "name")
  
  The output here will be 0, because the column 'name' has no value in it.
 
 
 5. Check Conditional Completeness
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We are checking that the columns "value" and "conditional" are 'None' or 'NaN'. But before we do that we filter out the rows
 where the value of the 'key_column', in not a substring of the given value in the function. In ths example the key column in "conditional"
 and we are seeing if it has a substring of the list values.
  .. code-block:: python
   values = ['.TMP', '.FREE']
- 
+ ['.TMP', '.FREE']
     data = DataFrame([
         {
             "value": "Something",
@@ -451,13 +435,8 @@ The output here will be 1, because they are no empty values in the columns and t
 values= ['.TMP', '.FREE']
 
 
-
-
-
-
 6. Check Unallowed Text
-~~~~~~~~~~~~~~~~~~~~~~~~
-
+~~~~~~~~~~~~~~~~~~~~~~~
 
 We are checking if there is unalllowed text in the columns of the dummy dataframe. 
 
@@ -483,11 +462,8 @@ This is the function we are using. The inputs are is the dataframe, the name of 
 The output will be 1 because it containf substrings in the 'conditional'  column and doesn't contain the unalloed text in column "Value". If it did the output would be 0.
 
 
-
-
 7. Check Conditional Value
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We are checking the 'value' and 'conditional' column to see if it contains the expected values of the 'key' values object.
   .. code-block:: python
@@ -500,7 +476,7 @@ We are checking the 'value' and 'conditional' column to see if it contains the e
         }
     ])
 
-     rwsult=conditional_value(data, "conditional", "value", values) 
+     result=conditional_value(data, "conditional", "value", values) 
 
 
 This is the function we ae using. The inputs are data of the dummy dataset, the names of the columns which are "value" and "conditional" and the values, that are the substrings we want to check.
@@ -513,8 +489,7 @@ The output here will 1, because "value" column, contains an expecetd value. Othe
 8. Check Character Count
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
- Checks how many times the values in the column with the given `column_name` contain a specific character. 
+Checks how many times the values in the column with the given `column_name` contain a specific character. 
 
 
 We provide a dummy dataframe with one column called "id". 
@@ -536,8 +511,7 @@ We want to check if the the id contains "." . The output will be 1 because the "
 
 
 9. Check Matching Pattern
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this example we are checking if the values in the column `name` match the given `pattern`.
 
@@ -564,7 +538,6 @@ The ouput will be 1 in this example, because 'ExampleText' matches the pattern.
 10. Check Invalidity
 ~~~~~~~~~~~~~~~~~~~~
 
-
 In this example we are checking if the values  in the column with the given name `value` does not exist in the given list of `exampleValues`.
 
 We provide a list of the example values and a dummy dataframe.
@@ -589,7 +562,7 @@ The output here will be 1 , becaue "X" is in the list of values.
 
 
 11. Check Length
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 In this example we are checking if the number of characters of the values in the column `id` are equal to the `required_length`. 
 
@@ -613,8 +586,7 @@ The output will be 1 because the length of id is 4.
 
 
 12. Check Range
-~~~~~~~~~~~~~~~~
-
+~~~~~~~~~~~~~~~
 
 In this example we checking if the values in the column  `column_name` are greater than or equal to the given `lower_bound` or less than or equal to the given `upper_bound`.
 
@@ -635,13 +607,11 @@ We are using this function. Th inputs are the dataframe, the column name and the
 
     range(data, "value", 0, 1)
 
-
 The output will be 1 because o,1 is between 0 and 1.
 
 
 13. Check Prefix
 ~~~~~~~~~~~~~~~~
-
 
 In this example we are checking if the values in the column `column_name` start with any of the given `prefixes`.
 
@@ -657,20 +627,21 @@ In this example we are checking if the values in the column `column_name` start 
 
 
 
-
 This is the function we are using. The inputs are the data the column name and the prefix.
-
 
     starts_with(data, "id", "1")
 
-
 The output wil be 1, because "1" is in the value of the id column.
+    result=starts_with(data, "id", "1") 
 
 
+
+
+The inputs are the data the column name and the prefix.
+The output wil be 1, because "1" is in the value of the id column.
 
 14. Check Unallowed Text
 ~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 In this example we are checking if the values in the column `Organisation` contain a specific unallowed `text`.
 
@@ -688,7 +659,6 @@ We provide a dummy dataset.
     result=unallowed_text(data, "Organisation", "BG Van Oord")
 
 
-
 This is the function we are using. The inputs are data, the column name and the unallowed text
 
     unallowed_text(data, "Organisation", "BG Van Oord")
@@ -697,8 +667,7 @@ The output will be 1 because "BG Van Oord" is not in the "Something Else" of the
 
 
 15. Check Uniqueness
-~~~~~~~~~~~~~~~~~~~~~
-
+~~~~~~~~~~~~~~~~~~~~
 
 In this example we are checking if the values in the column `id` are unique. We are looking for duplicate values
 
@@ -750,7 +719,7 @@ We provide the values in the example list and a dummy dataset
     result=validity(data, "value", exampleValues)
 
 This is the function we are using. The inputs are data, the column name and the list of example values.
-    
+
     result = validity(data, "value", exampleValues)
 
 The output will 1, because the value of the column exists in the example list.
@@ -761,47 +730,122 @@ Apply Data Quality results
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Our tool checks the quality of your data. To use it, you need to provide a csv file with your data and the rules you want to apply to it. The rules are basically the type
-of checks you want to do on the attributes of your dataset. We store your data and rules on Atlas and use our tool to apply the rules to your data.
+of checks you want to do on the attributes of your dataset. We store the rules you want to define of your dataset on Aurelius Atlas and use our tool to apply the rules to your data.
 We then calculate the quality score of your data based on the applied rules and send the results to a Kafka topic. 
 Below is an image that describes the whole process for your better understanding.
 
-
-
 .. image:: imgs/logical.png 
 
-
-
-To begin, the first step is to upload a dataset in CSV format and define the data quality rules that need 
-to be applied to the data. This can be done using Atlas, which is a data governance platform that allows users to define, manage, and enforce data quality rules.
-Once the rules have been defined, the dataset can be pushed to Atlas.
-
-
-
-After uploading the dataset, the next step is to apply the defined rules and check the quality of the data. 
-This can be accomplished using the Quality class of the m4i_data_management repository. 
-The Quality class provides a get_data() function that takes as input a dataset and a set of rules, and applies 
-the rules to each field in the dataset to calculate the data quality scores.
-
-Once the scores have been calculated, the atlas_get_quality_dataset() function can be used to retrieve 
-the data quality rules from Atlas and apply them to the dataset. This function compares the rules 
-defined in Atlas with the scores calculated in the previous step, and returns a DataFrame containing the final data quality scores for each field.
-
-The final step is to store the data quality results in Kafka. To do this, a Kafka producer can be created using the KafkaProducer API. 
-The data quality scores can be serialized as JSON and sent as messages to a Kafka topic using the send() function of the producer. 
-The write_data_quality_results() function of the Quality class can be used to format the data quality scores in a way that is suitable for Kafka.
-
-In summary, the workflow for uploading and processing a dataset, defining data quality rules, and storing the data quality results in Kafka consists of four steps: uploading the dataset and defining the data quality rules, applying the rules and checking the quality of the data, retrieving the data quality rules from Atlas and applying them to the dataset, and finally storing the data quality results in Kafka using a Kafka producer. 
-This workflow can be customized and extended to meet the specific needs of different use cases.
+1. First we want to upload a file, where we define the rules that we want to apply to the data. We push this file to atlas.
+2. Then we get the data quality rules from atlas and see our data quality results. Our quality results have a data quality score. 1 is compiant and 0 is non-compliant
+3. Finally we want to push our data quality results to kafka.
 
 
 
+How To Run Data Quality Rules Check Of atlas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Here is a detailed guide on how to perform a data quality check of your data
+
+Here is a link of the repositories you will need:
+
+    1. https://github.com/aureliusenterprise/m4i_atlas_core
+
+    2. https://gitlab.com/m4i/m4i-data-management
+
+
+Clone all of these repositories
+
+M4I Data Management
+~~~~~~~~~~~~~~~~~~~~
+
+This library contains all core functionality around data management for Models4Insight.
+
+Installation 
+~~~~~~~~~~~~~
+
+Please ensure your `Python` environment is on version `3.7`. Some dependencies do not work with any later versions of `Python`.
+
+To install `m4i-data-management` and all required dependencies to your active `Python` environment, please run the following command from the project root folder:
+
+
+To install `m4i-data-management` including development dependencies, please run the following command instead:
+
+```
+pip install -e .[dev]
+
+```
+
+ Install m4i_data_management:
+ You can clone m4i_data_management from this link https://gitlab.com/m4i/m4i_data_management
+ Then you install with this command
+
+ ```
+ pip install {path to m4i_data_management}
+ 
+ ```
+
+ Do the same for m4i_atlas_core
+
+ ```
+ pip install {path to m4i_atlas_core}
+ 
+ ```
+
+
+Please make a copy of `config.sample.py` and `credentials.sample.py` and rename the files to `config.py` and `credentials.py` respectively.
+
+The `config.py` and `credentials.py` files should be located in the root folder of the project, or otherwise on the `PYTHON_PATH`.
+
+Please remember to set the configuration parameters you want to use.
 
 
 
+How to set up config and credentials file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Here is the exact configuration of the config and credentials, use this to run the example.
+
+.. code-block:: python
+
+    config = {
+        "atlas_dataset_guid": "f686adca-00c4-4509-b73b-1c51ae597ebe",
+        "dataset_quality_name": "example_name",
+        "atlas": {
+            "atlas.server.url": "https://aureliusdev.westeurope.cloudapp.azure.com/anwo/atlas/atlas",
+        },
+        "keycloak.server.url": "https://aureliusdev.westeurope.cloudapp.azure.com/anwo/auth/",
+        "keycloak.client.id": "m4i_public",
+        "keycloak.realm.name": "m4i",
+        "keycloak.client.secret.key": ""
+    }
+
+    credentials = {
+        "keycloak.credentials.username": "atlas",
+        "keycloak.credentials.password": "",
+        "atlas.server.url":"https://aureliusdev.westeurope.cloudapp.azure.com/anwo/atlas/atlas", 
+        "atlas.credentials.username":"atlas",
+        "atlas.credentials.password":""
+    }
+
+How to run data quality check
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Our tool checks the quality of your data. To use it, you need to provide a csv file with your data and the rules you want to apply to it. The rules are basically the type of checks you want to do on the attributes of your dataset. We store your data and rules on Atlas and use our tool to apply the rules to your data. We then calculate the quality score of your data based on the applied rules and provied a csv output with the results.
+
+These are the steps on how to do it:
+    
+    
+
+    
+    1. In the run_quality_rules.py we can now run our check. We have to provide a dataset so we can do a quality check.
+       Fill in the path in the get_data_csv(). You will see it on line 63. Make a csv file with example data. Here is a simple example below.
+
+       .. image:: imgs/sample_data_pic.png
 
 
+    Just One Column named UID and provide a name.
 
 
     
-
-
+    2. Finally we run our check in the run_quality_rules.py In debug mode run the 'asyncio.run(atlas_dataset_quality.run())' it's on line 59
