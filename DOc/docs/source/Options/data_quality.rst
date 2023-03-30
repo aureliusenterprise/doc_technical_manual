@@ -363,22 +363,21 @@ This rule does three checks. It checks if the first characters are the same, if 
 1) In are first example we provide a dummy dataset with two columns, id and name
 .. code-block:: python
 
-        
-        data = DataFrame([
-                {
-                    "id": "BE.xxx",
-                    "name": "BE.xxx",
+            data = DataFrame([
+                    {
+                        "id": "BE.xxx",
+                        "name": "BE.xxx",
 
-            .. code-block:: python
-                    data = DataFrame([
-                            {
-                                "id": "BE.xxx",
-                                "name": "BE.xxx",
+                .. code-block:: python
+                        data = DataFrame([
+                                {
+                                    "id": "BE.xxx",
+                                    "name": "BE.xxx",
 
-                            }
-                    ])
+                                }
+                        ])
 
-                    result=compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
+                        result=compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
 
 We use as a prefix BE and we use the function: 
 	compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
@@ -506,7 +505,6 @@ Checks how many times the values in the column with the given `column_name` cont
 We provide a dummy dataframe with one column called "id". 
 .. code-block:: python
         
-        
         data = DataFrame([
                 {
                     "id": "12.12"
@@ -530,8 +528,7 @@ In this example we are checking if the values in the column `name` match the giv
 
 We provide a dummy dataset
 .. code-block:: python
-        
-        
+            
         data = DataFrame([
                 {
                     "name": 'ExampleText'
@@ -587,13 +584,14 @@ In this example we are checking if the number of characters of the values in the
 We provide a dummy dataframe with column name "id"
 .. code-block:: python
 
-            data = DataFrame([
-                    {
-                        "id": "1234"
-                    }
-                ])
+        
+        data = DataFrame([
+                {
+                    "id": "1234"
+                }
+            ])
 
-                result=length(data, "id", 4)
+            result=length(data, "id", 4)
 
 We are using this function length. The inputs are data, column name and the length of required characters.
     
