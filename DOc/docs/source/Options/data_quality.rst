@@ -311,7 +311,7 @@ In our example,we are providing a dummy dataset and we are comparing the columns
 We provide a dummy data set in the code
 We first run a test to see if the columns are bijacent. We are comparing "id" and "name".
     
-    
+    .. code-block:: python
        data = DataFrame([
         {
             "id": 1234,
@@ -327,6 +327,7 @@ We first run a test to see if the columns are bijacent. We are comparing "id" an
         }
     ])
 
+        result=  bijacency(data, "id", "name") 
 
 This is the function that we are using: bijacency(data, "id", "name"). The inputs are the dataset and the column names.
 We have same id and name in this example, which means they are bijacent. We will get an output 1.
@@ -344,13 +345,15 @@ Checks whether the first 'number_of_characters 'values in `first_column_name` an
 We provide this dummy data and we will compare the first two characters of the id and name.
 
  
- 
- data = DataFrame([
-        {
-            "id": "NL.xxx",
-            "name": "NL.xxx",
-        }
-    [)
+ .. code-block:: python
+    data = DataFrame([
+            {
+                "id": "NL.xxx",
+                "name": "NL.xxx",
+            }
+        [)
+
+        result= compare_first_characters(data, "id", "name", 2)
 
 
 
@@ -373,14 +376,16 @@ This rule does three checks. It checks if the first characters are the same, if 
 
     We provide a dummy dataset with two columns, id and name
 
-    
-    data = DataFrame([
-            {
-                "id": "BE.xxx",
-                "name": "BE.xxx",
+    .. code-block:: python
+            data = DataFrame([
+                    {
+                        "id": "BE.xxx",
+                        "name": "BE.xxx",
 
-            }
-    ])
+                    }
+            ])
+
+            result=compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
 
 We use as a prefix BE and we use the function: 
 	
@@ -401,14 +406,16 @@ Checks whether the values in the column with the given `column_name` are None or
 We provide a data dummy test in the unit test and we want to check if the column 'name' has a value or not. If it has a value the
 function will return 1, otherwise it will return 0
     
-    data = DataFrame([
-        {
-            "id": 1234,
-            "name": NaN,
-            "function": "Developer",
-            "from": "01-01-2021"
-        }
-        })
+    .. code-block:: python
+        data = DataFrame([
+            {
+                "id": 1234,
+                "name": NaN,
+                "function": "Developer",
+                "from": "01-01-2021"
+            }
+            })
+            result= completeness(data, "name")
 
  This is the function tha we will use. The inputs are data and the name of the column we want to check.
      
@@ -424,7 +431,7 @@ function will return 1, otherwise it will return 0
 We are checking that the columns "value" and "conditional" are 'None' or 'NaN'. But before we do that we filter out the rows
 where the value of the 'key_column', in not a substring of the given value in the function. In ths example the key column in "conditional"
 and we are seeing if it has a substring of the list values.
-
+ .. code-block:: python
   values = ['.TMP', '.FREE']
  
     data = DataFrame([
@@ -433,6 +440,8 @@ and we are seeing if it has a substring of the list values.
             "conditional": "xx.FREE.eur"
         }
     ])
+
+    result=conditional_completeness(data, "conditional", "value", values)
 
 This is the function we are using. The inputs are data, the name of the columns and the list of given values.
 
@@ -452,7 +461,7 @@ values= ['.TMP', '.FREE']
 
 We are checking if there is unalllowed text in the columns of the dummy dataframe. 
 
-
+ .. code-block:: python
      values = ['.TMP', '.FREE']
 
     unallowed_text_item = "("
@@ -463,6 +472,8 @@ We are checking if there is unalllowed text in the columns of the dummy datafram
             "conditional": "xx.FREE.eur"
         }
     ])
+
+    result=conditional_unallowed_text(data, "conditional", "value", values, unallowed_text_item)
 
 
 This is the function we are using. The inputs are is the dataframe, the name of the two columns, the values of the substrings and the unallowed text.
@@ -479,7 +490,7 @@ The output will be 1 because it containf substrings in the 'conditional'  column
 
 
 We are checking the 'value' and 'conditional' column to see if it contains the expected values of the 'key' values object.
-
+  .. code-block:: python
     values = {"xx.TMP": "XX No Grade"}    (this is dictionary with it's key and value)
 
     data = DataFrame([                    (this is our dummy dataset)
@@ -488,6 +499,8 @@ We are checking the 'value' and 'conditional' column to see if it contains the e
             "conditional": "xx.TMP"
         }
     ])
+
+     rwsult=conditional_value(data, "conditional", "value", values) 
 
 
 This is the function we ae using. The inputs are data of the dummy dataset, the names of the columns which are "value" and "conditional" and the values, that are the substrings we want to check.
@@ -505,12 +518,14 @@ The output here will 1, because "value" column, contains an expecetd value. Othe
 
 
 We provide a dummy dataframe with one column called "id". 
-
+.. code-block:: python
   data = DataFrame([
         {
             "id": "12.12"
         }
     ])
+
+    result=contains_character(data, "id", ".", 1) 
 
 This is the function that we use. The inputs are data, name of the column, the character we want to check and 1 is the expected count
     
@@ -527,12 +542,14 @@ We want to check if the the id contains "." . The output will be 1 because the "
 In this example we are checking if the values in the column `name` match the given `pattern`.
 
 We provide a dummy dataset
+.. code-block:: python
+    data = DataFrame([
+            {
+                "name": 'ExampleText'
+            }
+        ])
 
-data = DataFrame([
-        {
-            "name": 'ExampleText'
-        }
-    ])
+        result=formatting(data, "name", r'^[a-zA-Z]+$')
 
 
 This is the function that we are using. The inputs are the dataset we are using,the column "name" and the pattern we want to see match 
@@ -552,6 +569,7 @@ In this example we are checking if the values  in the column with the given name
 
 We provide a list of the example values and a dummy dataframe.
 
+.. code-block:: python
   exampleValues = ['x', 'X', 'TBD', 'Name']
 
     data = DataFrame([
@@ -559,6 +577,8 @@ We provide a list of the example values and a dummy dataframe.
             "value": "X"
         }
     ])
+
+    result=invalidity(data, "value", exampleValues)
 
 
 The funtion we are using is called invalidity. The inputs are data, column name and the list of values we want to check.
@@ -575,12 +595,15 @@ In this example we are checking if the number of characters of the values in the
 
 
 We provide a dummy dataframe with column name "id"
+.. code-block:: python
 
  data = DataFrame([
         {
             "id": "1234"
         }
     ])
+
+    result=length(data, "id", 4)
 
 We are using this function length. The inputs are data, column name and the length of required characters.
     
@@ -597,12 +620,15 @@ In this example we checking if the values in the column  `column_name` are great
 
 We provide a dummy dataframe for this example with column name "value"
 
+.. code-block:: python
  
  data = DataFrame([
         {
             "value": 0.1
         }
     ])
+
+    result=range(data, "value", 0, 1)
 
 
 We are using this function. Th inputs are the dataframe, the column name and the range (The upper and lower bound)
@@ -619,12 +645,16 @@ The output will be 1 because o,1 is between 0 and 1.
 
 In this example we are checking if the values in the column `column_name` start with any of the given `prefixes`.
 
+.. code-block:: python
 
  data = DataFrame([
         {
             "id": 1234
         }
     ])
+
+    result=starts_with(data, "id", "1")
+
 
 
 
@@ -647,12 +677,15 @@ In this example we are checking if the values in the column `Organisation` conta
 We provide a dummy dataset.
 
 
+ .. code-block:: python
 
      data = DataFrame([
         {
             "Organisation": "Something Else"
         }
     ])
+
+    result=unallowed_text(data, "Organisation", "BG Van Oord")
 
 
 
@@ -671,17 +704,22 @@ In this example we are checking if the values in the column `id` are unique. We 
 
 We provide a dummy dataset
 
- data = DataFrame([
-        {
-            "id": "1234"
-        },
-        {
-            "id": "1234"
-        },
-        {
-            "id": "2345"
-        }
-    ])
+ .. code-block:: python
+
+    data = DataFrame([
+            {
+                "id": "1234"
+            },
+            {
+                "id": "1234"
+            },
+            {
+                "id": "2345"
+            }
+        ])
+
+    result=uniqueness(data, "id")
+
 
 
 This is the function we are using. The inputs are the dataset and the name of the column.
@@ -699,13 +737,17 @@ In this example we are checking if the values in the column `value` exist in the
 
 We provide the values in the example list and a dummy dataset
 
-exampleValues = ['Definite Contract', 'Indefinite Contract']
+ .. code-block:: python
 
-    data = DataFrame([
-        {
-            "value": "Definite Contract"
-        }
-    ])
+
+    exampleValues = ['Definite Contract', 'Indefinite Contract']
+
+        data = DataFrame([
+            {
+                "value": "Definite Contract"
+            }
+        ])
+    result=validity(data, "value", exampleValues)
 
 This is the function we are using. The inputs are data, the column name and the list of example values.
     
