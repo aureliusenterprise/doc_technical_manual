@@ -754,7 +754,7 @@ The output will 1, because the value of the column exists in the example list.
 
 
 Apply Data Quality results
----------------------------
+---------------------------s
 
 Our tool checks the quality of your data. To use it, you need to provide a csv file with your data and the rules you want to apply to it. The rules are basically the type
 of checks you want to do on the attributes of your dataset. We store the rules you want to define of your dataset on Aurelius Atlas and use our tool to apply the rules to your data.
