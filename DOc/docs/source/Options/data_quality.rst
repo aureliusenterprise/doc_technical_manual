@@ -135,7 +135,7 @@ The data quality result in elastic app search is stored in the atlas-dev-quality
 	}
 
 Data quality rules
-===================
+~~~~~~~~~~~~~~~~~~~~
 
 Data quality rules are Apache Atlas entities, which can not be entered via the Aurelius Atlas frontend at the moment. We are working on it.
 
@@ -193,7 +193,7 @@ An example of a data quality rule entity in json format as it is stored in Apach
 The relationship attribute fields is referencing the related field. The remaining values are local to the entity and some of them are referenced and/or taken over in the data quality result data structure.
 
 Propagation of data quality results
------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 After creating the data quality rule entity in Apache Atlas and data quality results in the metadata store, the data quality is accessible at the field. 
 To propagate data quality results through the complete governance tree, currently there is a script required which can be called periodically. 
@@ -754,7 +754,7 @@ The output will 1, because the value of the column exists in the example list.
 
 
 Apply Data Quality results
-===========================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Our tool checks the quality of your data. To use it, you need to provide a csv file with your data and the rules you want to apply to it. The rules are basically the type
 of checks you want to do on the attributes of your dataset. We store the rules you want to define of your dataset on Aurelius Atlas and use our tool to apply the rules to your data.
@@ -770,7 +770,7 @@ Below is an image that describes the whole process for your better understanding
 
 
 How To Run Data Quality Rules Check Of atlas
-----------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To run the data quality rules on your follow the steps of this link https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md
 
