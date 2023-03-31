@@ -295,7 +295,7 @@ some insight for a first time user.
 
 
 Data Quality Rules and Examples
-================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 1. Bijacency
