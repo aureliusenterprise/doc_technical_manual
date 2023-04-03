@@ -779,7 +779,7 @@ How To Create Entities And Relationships
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  The previous example was for a specific user case. A user may want to create his own entities and relationships for his specific problem.
 
- To see how to how to do this here is the link https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md
+ To see how to how to do this here is the link, at the how to create entities and relationships section https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md
 
 
 
