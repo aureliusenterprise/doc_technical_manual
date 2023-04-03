@@ -788,8 +788,6 @@ How To Run Data Quality Rules Check Of atlas
 3.Run the asyncio.run(atlas_dataset_quality.run()) in debug mode to apply the rules and get the quality score of your data as output.
 
 
-
-
 To run the data quality rules on your follow the steps of this link https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md
 
 
@@ -797,9 +795,13 @@ How To Create Entities And Relationships
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  
 1.Define the attributes for each instance: dataset, field, and data quality.
+
 2.Create instances of BusinessDataset, BusinessField, and BusinessDataQuality using the from_json() method.
+
 3.Add relationship between the field and dataset instances.
+
 4.Push the entities to Atlas using the create_entities() function in m4i_atlas_core.py. The inputs are the instance we created, referred entities, and access token.
+
 5.Push the dataset instance, field instance, and data quality instance to Atlas using the create_in_atlas() functions.
 
 To see how to how to do this here is the link, at the how to create entities and relationships section https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md
