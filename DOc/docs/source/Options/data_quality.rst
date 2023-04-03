@@ -781,26 +781,12 @@ Below is an image that describes the whole process for your better understanding
 How To Run Data Quality Rules Check Of atlas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Running Data Quality Check
-To run a data quality check using our tool, follow these steps:
+1.Create a csv file with example data that you want to check and provide its path in the get_data_csv() function in run_quality_rules.py.
 
-Prepare your data: You will need to provide a csv file with your data for the tool to analyze. The csv file should contain a header row with the names of the columns and data in the subsequent rows. Make sure that your data is clean and consistent to get accurate results.
+2.Specify the rules you want to apply to your data in quality_rules.py file.
 
-Define your quality rules: You will need to specify the rules you want the tool to apply to your data. These rules can include checks for missing values, outliers, invalid data types, or any other quality issues that are important for your use case.
+3.Run the asyncio.run(atlas_dataset_quality.run()) in debug mode to apply the rules and get the quality score of your data as output.
 
-Run the quality check: Use our tool to apply the quality rules to your data and generate a quality score report. To do this, follow these steps:
-
-a. Download or clone the tool from our GitHub repository.
-
-b. Open the run_quality_rules.py file in your preferred text editor.
-
-c. Fill in the path to your data csv file in the get_data_csv() function. This function is located on line 63 of the run_quality_rules.py file.
-
-d. Modify the quality rules as needed. The rules are defined in the apply_rules() function in the quality_rules.py file. You can add or remove rules or modify the existing ones to fit your needs.
-
-e. Run the tool by calling the asyncio.run(atlas_dataset_quality.run()) function in the run_quality_rules.py file. This will execute the quality check and generate a csv file with the quality score report.
-
-Analyze the results: Once the quality check is complete, you can analyze the results in the output csv file. The file will contain information on the quality of each attribute in your data, including any issues that were detected by the quality rules.
 
 
 
@@ -810,20 +796,11 @@ To run the data quality rules on your follow the steps of this link https://gitl
 How To Create Entities And Relationships
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  
-Define your entities: You will need to specify the attributes for each entity you want to create. For example, you might define a dataset entity with attributes for the name, description, and type of data it contains.
-
-Create instances of the entities: You can create instances of the entities you defined using the from_json() method provided by the BusinessDataset, BusinessField, and BusinessDataQuality classes in the create_push_to_atlas.py file.
-
-Define the relationships: To define a relationship between two entities, you need to specify the relationshipAttributes attribute in the JSON definition of the child entity. The relationshipAttributes attribute should contain an object with the following properties:
-
-guid: The GUID of the parent entity.
-typeName: The name of the parent entity's type.
-relationshipType: The name of the relationship type. This should match the name of the relationship type that you defined in Atlas.
-Push the entities to Atlas: Once you have created instances of your entities and defined their relationships, you can push them to Atlas using the create_entities() function provided by the m4i_atlas_core module. The create_entities() function takes three arguments:
-
-entity_instance: The instance of the entity you want to create.
-referred_entities: A list of instances of other entities that the entity being created refers to. This is needed when the entity you want to create has a relationship with other entities.
-access_token: An access token that allows you to authenticate with Atlas.
+1.Define the attributes for each instance: dataset, field, and data quality.
+2.Create instances of BusinessDataset, BusinessField, and BusinessDataQuality using the from_json() method.
+3.Add relationship between the field and dataset instances.
+4.Push the entities to Atlas using the create_entities() function in m4i_atlas_core.py. The inputs are the instance we created, referred entities, and access token.
+5.Push the dataset instance, field instance, and data quality instance to Atlas using the create_in_atlas() functions.
 
 To see how to how to do this here is the link, at the how to create entities and relationships section https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md
 
