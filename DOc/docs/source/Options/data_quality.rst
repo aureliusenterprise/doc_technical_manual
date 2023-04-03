@@ -775,6 +775,12 @@ How To Run Data Quality Rules Check Of atlas
 To run the data quality rules on your follow the steps of this link https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md
 
 
+How To Create Entities And Relationships
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ The previous example was for a specific user case. A user may want to create his own entities and relationships for his specific problem.
+
+ To see how to how to do this here is the link https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md
+
 
 
 
