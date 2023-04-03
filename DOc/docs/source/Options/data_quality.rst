@@ -811,7 +811,63 @@ How To Create Entities And Relationships
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  The previous example was for a specific user case. A user may want to create his own entities and relationships for his specific problem.
 
- To see how to how to do this here is the link, at the how to create entities and relationships section https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md
+
+ Define your entities: You will need to specify the attributes for each entity you want to create. For example, you might define a dataset entity with attributes for the name, description, and type of data it contains.
+
+Create instances of the entities: You can create instances of the entities you defined by using the from_json() method provided by the BusinessDataset, BusinessField, and BusinessDataQuality classes in the create_push_to_atlas.py file. For example, you might create an instance of a dataset entity using the following code:
+
+makefile
+Copy code
+json_dataset={
+    "attributes": {
+        "name": "example",
+        "qualifiedName": "example100"
+    },
+    "typeName": "m4i_dataset"
+    }
+dataset_instance = BusinessDataset.from_json(json.dumps(json_dataset))
+Define the relationships: To define a relationship between two entities, you need to specify the relationshipAttributes attribute in the JSON definition of the child entity. The relationshipAttributes attribute should contain an object with the following properties:
+
+guid: The GUID of the parent entity.
+typeName: The name of the parent entity's type.
+relationshipType: The name of the relationship type. This should match the name of the relationship type that you defined in Atlas.
+For example, to define a relationship between a dataset and a field entity, you might use the following code:
+
+makefile
+Copy code
+json_field={
+    "attributes": {
+        "name": "field",
+        "qualifiedName": "example--field"
+    },
+    "typeName": "m4i_field",
+    "relationshipAttributes": {
+        "dataset": {
+            "guid": "<guid-of-json_dataset>",
+            "typeName": "m4i_dataset",
+            "relationshipType": "m4i_dataset_fields"
+        }
+    }
+}
+field_instance= BusinessField.from_json(json.dumps(json_field))
+Push the entities to Atlas: Once you have created instances of your entities and defined their relationships, you can push them to Atlas using the create_entities() function provided by the m4i_atlas_core module. The create_entities() function takes three arguments:
+
+entity_instance: The instance of the entity you want to create.
+referred_entities: A list of instances of other entities that the entity being created refers to. This is needed when the entity you want to create has a relationship with other entities.
+access_token: An access token that allows you to authenticate with Atlas.
+For example, to push a dataset entity and a related field entity to Atlas, you might use the following code:
+
+scss
+Copy code
+async def create_in_atlas(dataset, field, access_token=access_token):
+    referred_entities = [field]
+    mutations_dataset = await create_entities(dataset, referred_entities, access_token)
+    print(mutations_dataset)
+push_to_atlas = asyncio.run(create_in_atlas(dataset_instance, field_instance, access_token=access_token))
+Note that the create_in_atlas() function takes the dataset_instance and field_instance objects as arguments, and passes them to the create_entities() function along with the access_token. The referred_entities parameter is set to a list containing the field_instance object, since the field entity has a relationship with the dataset entity.
+
+
+To see how to how to do this here is the link, at the how to create entities and relationships section https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md
 
 
 
