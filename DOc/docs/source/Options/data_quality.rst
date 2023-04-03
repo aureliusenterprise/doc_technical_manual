@@ -781,6 +781,29 @@ Below is an image that describes the whole process for your better understanding
 How To Run Data Quality Rules Check Of atlas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Running Data Quality Check
+To run a data quality check using our tool, follow these steps:
+
+Prepare your data: You will need to provide a csv file with your data for the tool to analyze. The csv file should contain a header row with the names of the columns and data in the subsequent rows. Make sure that your data is clean and consistent to get accurate results.
+
+Define your quality rules: You will need to specify the rules you want the tool to apply to your data. These rules can include checks for missing values, outliers, invalid data types, or any other quality issues that are important for your use case.
+
+Run the quality check: Use our tool to apply the quality rules to your data and generate a quality score report. To do this, follow these steps:
+
+a. Download or clone the tool from our GitHub repository.
+
+b. Open the run_quality_rules.py file in your preferred text editor.
+
+c. Fill in the path to your data csv file in the get_data_csv() function. This function is located on line 63 of the run_quality_rules.py file.
+
+d. Modify the quality rules as needed. The rules are defined in the apply_rules() function in the quality_rules.py file. You can add or remove rules or modify the existing ones to fit your needs.
+
+e. Run the tool by calling the asyncio.run(atlas_dataset_quality.run()) function in the run_quality_rules.py file. This will execute the quality check and generate a csv file with the quality score report.
+
+Analyze the results: Once the quality check is complete, you can analyze the results in the output csv file. The file will contain information on the quality of each attribute in your data, including any issues that were detected by the quality rules.
+
+
+
 To run the data quality rules on your follow the steps of this link https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md
 
 
