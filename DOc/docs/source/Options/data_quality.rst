@@ -213,8 +213,13 @@ Below is a brief description of each rule. (This file is found in the rules fold
 some insight for a first time user.
 
 
-  
+.. toctree::
+    :hidden:
+    
+    Libraries/m4i_atlas_core/index 
 
+    
+:ref:`m4i_atlas_core <m4i_atlas_core_index>` 
 +------------------+-----------------------------------------------------------------+
 | Rule             | Description                                                     |
 +==================+=================================================================+
