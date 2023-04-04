@@ -312,12 +312,11 @@ Data Quality Rules and Examples
 1. Bijacency
 ~~~~~~~~~~~~
 
-In our example,we are providing a dummy dataset and we are comparing the columns "id" and "name".
+In this example, a dummy dataset is provided and the columns "id" and "name" are compared.
 
     
-
-We provide a dummy data set in the code
-We first run a test to see if the columns are bijacent. We are comparing "id" and "name".
+A dummy data set is seen in the code
+First run a test to see if the columns are bijacent. The columns "id" and "name" are compared.
     
     .. code-block:: python
             
@@ -341,7 +340,7 @@ We first run a test to see if the columns are bijacent. We are comparing "id" an
 
 This is the function that we are using: bijacency(data, "id", "name"). The inputs are the dataset and the column names.
 
-We have same id and name in this example, which means they are bijacent. We will get an output 1.
+The id and name are the same in this example, which means they are bijacent. The output will be 1.
 
 
 2. Compare First characters
@@ -349,7 +348,7 @@ We have same id and name in this example, which means they are bijacent. We will
 
 Checks whether the first 'number_of_characters 'values in `first_column_name` and `second_column_name` are similar, and if the values are None or NaN.
 
-We provide this dummy data and we will compare the first two characters of the id and name.
+A dummy datasetis provided and the first two characters of the id and name will be compared.
 
  
  .. code-block:: python
@@ -364,14 +363,14 @@ We provide this dummy data and we will compare the first two characters of the i
 
             result= compare_first_characters(data, "id", "name", 2)
 
-This is the function that we are using: compare_first_characters(data, "id", "name", 2). The inputs are the dataset,the column names and the number of characters we want to compare.   
+This is the function used in this example: compare_first_characters(data, "id", "name", 2). The inputs are the dataset,the column names and the number of characters.   
       
 3. Check First Characters using Prefix
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This rule does three checks. It checks if the first characters are the same, if the have same prefix and if the values are Nan or none.
 
-1) In are first example we provide a dummy dataset with two columns, id and name
+1) A dummy dataset with two columns, id and name is provided
 
 
  .. code-block:: python
@@ -394,7 +393,7 @@ This rule does three checks. It checks if the first characters are the same, if 
                 result=compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
 
 
-We use as a prefix BE and we use the function
+A prefix BE is used and the function is
 
 	compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
 
@@ -424,7 +423,7 @@ function will return 1, otherwise it will return 0
                     })
                     result= completeness(data, "name")
 
- This is the function tha we will use. The inputs are data and the name of the column we want to check.
+ This is the function. The inputs are data and the name of the column we want to check.
      
 	 completeness(data, "name")
  
@@ -434,8 +433,8 @@ function will return 1, otherwise it will return 0
 5. Check Conditional Completeness
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We are checking that the columns "value" and "conditional" are 'None' or 'NaN'. But before we do that we filter out the rows
-where the value of the 'key_column', in not a substring of the given value in the function. In ths example the key column in "conditional"
+The columns "value" and "conditional" are 'None' or 'NaN'. The rows are filtered,
+where the value of the 'key_column', is not a substring of the given value in the function. In this example the key column in "conditional"
 and we are seeing if it has a substring of the list values.
  .. code-block:: python
         
@@ -451,7 +450,7 @@ and we are seeing if it has a substring of the list values.
 
             result=conditional_completeness(data, "conditional", "value", values)
 
-This is the function we are using. The inputs are data, the name of the columns and the list of given values.
+This is the function of use. The inputs are data, the name of the columns and the list of given values.
 
 conditional_completeness(data, "conditional", "value", values)
 
@@ -462,7 +461,7 @@ values= ['.TMP', '.FREE']
 6. Check Unallowed Text
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-We are checking if there is unalllowed text in the columns of the dummy dataframe. 
+The check here is to see if there is unalllowed text in the columns of the dummy dataframe. 
 
  .. code-block:: python
             
@@ -480,7 +479,7 @@ We are checking if there is unalllowed text in the columns of the dummy datafram
             result=conditional_unallowed_text(data, "conditional", "value", values, unallowed_text_item)
 
 
-This is the function we are using. The inputs are is the dataframe, the name of the two columns, the values of the substrings and the unallowed text.
+This is the function used for this example. The inputs are is the dataframe, the name of the two columns, the values of the substrings and the unallowed text.
 
     conditional_unallowed_text(data, "conditional", "value", values, unallowed_text_item)
 
@@ -490,7 +489,7 @@ The output will be 1 because it containf substrings in the 'conditional'  column
 7. Check Conditional Value
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We are checking the 'value' and 'conditional' column to see if it contains the expected values of the 'key' values object.
+The 'value' and 'conditional' column are being checked to see if it contains the expected values of the 'key' values object.
   .. code-block:: python
         
         values = {"xx.TMP": "XX No Grade"}    (this is dictionary with it's key and value)
@@ -505,7 +504,7 @@ We are checking the 'value' and 'conditional' column to see if it contains the e
         result=conditional_value(data, "conditional", "value", values) 
 
 
-This is the function we ae using. The inputs are data of the dummy dataset, the names of the columns which are "value" and "conditional" and the values, that are the substrings we want to check.
+This is the function used for this example. The inputs are data of the dummy dataset, the names of the columns which are "value" and "conditional" and the values, that are the substrings we want to check.
     
     result = conditional_value(data, "conditional", "value", values) 
 The output here will 1, because "value" column, contains an expecetd value. Otherwise it would be 0.
@@ -518,7 +517,7 @@ The output here will 1, because "value" column, contains an expecetd value. Othe
 Checks how many times the values in the column with the given `column_name` contain a specific character. 
 
 
-We provide a dummy dataframe with one column called "id". 
+A dummy dataframe is provided with one column called "id". 
   
   .. code-block:: python
         
@@ -530,20 +529,20 @@ We provide a dummy dataframe with one column called "id".
 
             result=contains_character(data, "id", ".", 1) 
 
-This is the function that we use. The inputs are data, name of the column, the character we want to check and 1 is the expected count
+This is the function used in this example. The inputs are data, name of the column, the character we want to check and 1 is the expected count
     
     contains_character(data, "id", ".", 1)  
 
 
-We want to check if the the id contains "." . The output will be 1 because the "id" column contains "."
+The check performed here is to if the the id contains "." . The output will be 1 because the "id" column contains "."
 
 
 9. Check Matching Pattern
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this example we are checking if the values in the column `name` match the given `pattern`.
+Checks if the values in the column `name` match the given `pattern`.
 
-We provide a dummy dataset
+A dummy dataset is provided
 
  .. code-block:: python
             
@@ -556,7 +555,7 @@ We provide a dummy dataset
                 result=formatting(data, "name", r'^[a-zA-Z]+$')
 
 
-This is the function that we are using. The inputs are the dataset we are using,the column "name" and the pattern we want to see match 
+This is the function used for this example. The inputs are the dataset,the column "name" and the pattern to see if it matches 
 
 formatting(data, "name", r'^[a-zA-Z]+$')
 
@@ -568,9 +567,9 @@ The ouput will be 1 in this example, because 'ExampleText' matches the pattern.
 10. Check Invalidity
 ~~~~~~~~~~~~~~~~~~~~
 
-In this example we are checking if the values  in the column with the given name `value` does not exist in the given list of `exampleValues`.
+The values in the column with the given name `value` are checked if they do not exist in the given list of `exampleValues`.
 
-We provide a list of the example values and a dummy dataframe.
+A list of the example values and a dummy dataframe are provided.
 
 .. code-block:: python
         
@@ -586,20 +585,20 @@ We provide a list of the example values and a dummy dataframe.
             result=invalidity(data, "value", exampleValues)
 
 
-The funtion we are using is called invalidity. The inputs are data, column name and the list of values we want to check.
+The funtion is called invalidity. The inputs are data, column name and the list of values.
 
     invalidity(data, "value", exampleValues)
 
-The output here will be 1 , becaue "X" is in the list of values.
+The output will be 1 , becaue "X" is in the list of values.
 
 
 11. Check Length
 ~~~~~~~~~~~~~~~~
 
-In this example we are checking if the number of characters of the values in the column `id` are equal to the `required_length`. 
+The check performed here is the number of characters of the values in the column `id` are equal to the `required_length`. 
 
 
-We provide a dummy dataframe with column name "id"
+A dummy dataframe with column name "id"
 
  .. code-block:: python
 
@@ -612,19 +611,19 @@ We provide a dummy dataframe with column name "id"
             result=length(data, "id", 4)
 
 
-We are using this function length. The inputs are data, column name and the length of required characters.
+The function is called length. The inputs are data, column name and the length of required characters.
     
     length(data, "id", 4)
 
-The output will be 1 because the length of id is 4.
+The output is 1 because the length of id is 4.
 
 
 12. Check Range
 ~~~~~~~~~~~~~~~
 
-In this example we checking if the values in the column  `column_name` are greater than or equal to the given `lower_bound` or less than or equal to the given `upper_bound`.
+The check performed here is the values in the column  `column_name` are greater than or equal to the given `lower_bound` or less than or equal to the given `upper_bound`.
 
-We provide a dummy dataframe for this example with column name "value"
+A dummy dataframe for this example with column name "value"
 
 .. code-block:: python
  
@@ -638,7 +637,7 @@ We provide a dummy dataframe for this example with column name "value"
             result=range(data, "value", 0, 1)
 
 
-We are using this function. Th inputs are the dataframe, the column name and the range (The upper and lower bound)
+The function is called range. The inputs are the dataframe, the column name and the range (The upper and lower bound)
 
     range(data, "value", 0, 1)
 
@@ -648,7 +647,7 @@ The output will be 1 because o,1 is between 0 and 1.
 13. Check Prefix
 ~~~~~~~~~~~~~~~~
 
-In this example we are checking if the values in the column `column_name` start with any of the given `prefixes`.
+This example checks if the values in the column `column_name` start with any of the given `prefixes`.
 
 .. code-block:: python
 
@@ -662,25 +661,19 @@ In this example we are checking if the values in the column `column_name` start 
 
 
 
-This is the function we are using. The inputs are the data the column name and the prefix.
+The function is called starts_with. The inputs are the data the column name and the prefix.
 
     starts_with(data, "id", "1")
 
-The output wil be 1, because "1" is in the value of the id column.
-    result=starts_with(data, "id", "1") 
-
-
-
-
-The inputs are the data the column name and the prefix.
-The output wil be 1, because "1" is in the value of the id column.
+The output is 1, because "1" is in the value of the id column.
+    
 
 14. Check Unallowed Text
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this example we are checking if the values in the column `Organisation` contain a specific unallowed `text`.
+This example checks if the values in the column `Organisation` contain a specific unallowed `text`.
 
-We provide a dummy dataset.
+A dummy dataset is provided.
 
 
  .. code-block:: python
@@ -695,19 +688,19 @@ We provide a dummy dataset.
         result=unallowed_text(data, "Organisation", "BG Van Oord")
 
 
-This is the function we are using. The inputs are data, the column name and the unallowed text
+The function is called unalllowed_text. The inputs are data, the column name and the unallowed text
 
     unallowed_text(data, "Organisation", "BG Van Oord")
 
-The output will be 1 because "BG Van Oord" is not in the "Something Else" of the "Organisation" column.
+The output is 1 because "BG Van Oord" is not in the "Something Else" of the "Organisation" column.
 
 
 15. Check Uniqueness
 ~~~~~~~~~~~~~~~~~~~~
 
-In this example we are checking if the values in the column `id` are unique. We are looking for duplicate values
+This example checks  if the values in the column `id` are unique. It checks for duplicate values
 
-We provide a dummy dataset
+A dummy dataset is provided
 
  .. code-block:: python
 
@@ -728,7 +721,7 @@ We provide a dummy dataset
 
 
 
-This is the function we are using. The inputs are the dataset and the name of the column.
+The function is called uniqueness. The inputs are the dataset and the name of the column.
     
     uniqueness(data, "id")
 
@@ -739,9 +732,9 @@ The output will be 0, because the "id" column conatins duplicate values
 16. Check Validity
 ~~~~~~~~~~~~~~~~~~
 
-In this example we are checking if the values in the column `value` exist in the list of exampleValues.
+This example checks if the values in the column `value` exist in the list of exampleValues.
 
-We provide the values in the example list and a dummy dataset
+The values in the example list and a dummy dataset are provided
 
  .. code-block:: python
 
@@ -756,27 +749,27 @@ We provide the values in the example list and a dummy dataset
             
         result=validity(data, "value", exampleValues)
 
-This is the function we are using. The inputs are data, the column name and the list of example values.
+The function is called validity. The inputs are data, the column name and the list of example values.
 
-    result = validity(data, "value", exampleValues)
+    validity(data, "value", exampleValues)
 
-The output will 1, because the value of the column exists in the example list.
+The output is 1, because the value of the column exists in the example list.
 
 
 
 Apply Data Quality results
 ---------------------------
 
-Our tool checks the quality of your data. To use it, you need to provide a csv file with your data and the rules you want to apply to it. The rules are basically the type
-of checks you want to do on the attributes of your dataset. We store the rules you want to define of your dataset on Aurelius Atlas and use our tool to apply the rules to your data.
-We then calculate the quality score of your data based on the applied rules and send the results to a Kafka topic. 
+The tool checks the quality of your data. To use it, you need to provide a csv file with your data and the rules you want to apply to it. The rules are basically the type
+of checks you want to do on the attributes of your dataset. The rules you want to define are stored, on Aurelius Atlas and is used to apply the rules to your data.
+The quality score of your data is calculated based on the applied rules and the results are sent to a Kafka topic. 
 Below is an image that describes the whole process for your better understanding.
 
 .. image:: imgs/logical.png 
 
-1. First we want to upload a file, where we define the rules that we want to apply to the data. We push this file to atlas.
-2. Then we get the data quality rules from atlas and see our data quality results. Our quality results have a data quality score. 1 is compiant and 0 is non-compliant
-3. Finally we want to push our data quality results to kafka.
+1. First upload a file, define the rules that we want to apply to the data. Then push this file to atlas.
+2. Then get the data quality rules from atlas and see the data quality results. The quality results have a data quality score. 1 is compiant and 0 is non-compliant
+3. Finally push the data quality results to kafka.
 
 
 
@@ -787,7 +780,7 @@ How To Run Data Quality Rules Check Of atlas
 
 2.Specify the rules you want to apply to your data in quality_rules.py file.
 
-3.Run the asyncio.run(atlas_dataset_quality.run()) in debug mode to apply the rules and get the quality score of your data as output.
+3.Run the atlas_dataset_quality found in m4i data management,to apply the rules and get the quality score of your data as output.
 
 
 To run the data quality rules on your follow the steps of this link https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md
@@ -798,7 +791,7 @@ How To Create Entities And Relationships
  
 1.Define the attributes for each instance: dataset, field, and data quality.
 
-2.Create instances of BusinessDataset, BusinessField, and BusinessDataQuality using the from_json() method.
+2.Create instances of BusinessDataset, BusinessField, and BusinessDataQuality.
 
 3.Add relationship between the field and dataset instances.
 
