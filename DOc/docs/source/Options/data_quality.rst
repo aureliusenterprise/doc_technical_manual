@@ -302,7 +302,9 @@ some insight for a first time user.
 |                  | list of valid `value_combinations`.                             |
 +------------------+-----------------------------------------------------------------+
 
-Link to quality rules: [`quality rules`](./m4i_data_management/core/quality/rules)
+Link to quality rules: :link:`https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules` for more information.
+
+`Link text <https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules>`_
 
 
 Data Quality Rules and Examples
