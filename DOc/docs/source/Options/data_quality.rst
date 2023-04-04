@@ -300,7 +300,9 @@ some insight for a first time user.
 | Cross-Column     | Checks whether or not the combination of values in the given    |
 | Validity         | `first_column_name` and `second_column_name` exist in the given |
 |                  | list of valid `value_combinations`.                             |
-+------------------+-----------------------------------------------------------------+                 
++------------------+-----------------------------------------------------------------+
+
+Link to quality rules: [`quality rules`](./m4i_data_management/core/quality/rules)
 
 
 Data Quality Rules and Examples
