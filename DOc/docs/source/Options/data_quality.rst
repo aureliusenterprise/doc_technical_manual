@@ -210,17 +210,7 @@ on gitlab. In the rules file you can find all the data quality rules, that you c
 These are they data quality rules that are applied on a dataset.
 
 Below is a brief description of each rule. (This file is found in the rules folder of m4i-data-management). The reason we provide this information is to give
-some insight for a first time user.
-
-
-.. toctree::
-    :hidden:
-    
-    Libraries/m4i_atlas_core/index 
-
-    
-:ref:`m4i_atlas_core <m4i_atlas_core_index>` 
-
+some insight for a first time user. 
 
 
 
