@@ -207,7 +207,7 @@ A description on how to setup the script and how to run it will follow shortly.
 Definitions of data quality rules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-They are located at the m4i-data-management repository `Quality rules <https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules>`_
+They are located at the m4i-data-management repository `quality rules <https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules>`_
 You can find all the data quality rules, that you wish to apply on a dataset. They are explanations of each rule and examples on how to use them.
 These are they data quality rules that are applied on a dataset.
 
@@ -767,7 +767,7 @@ How To Run Data Quality Rules Check Of atlas
 
 3.Run the atlas_dataset_quality found in m4i data management,to apply the rules and get the quality score of your data as output.
 
-To run the data quality rules on your follow the steps, clich `here. <https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md>`_
+To run the data quality rules on your follow the steps, click `here. <https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md>`_
 
 
 How To Create Entities And Relationships
