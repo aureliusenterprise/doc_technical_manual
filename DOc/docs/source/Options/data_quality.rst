@@ -762,7 +762,7 @@ Below is an image that describes the whole process for your better understanding
 
 
 
-# How to perform a data quality check of your data
+How to perform a data quality check of your data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Here is a link of the repositories you will need:
@@ -774,7 +774,8 @@ Here is a link of the repositories you will need:
 
 
 
-# M4I Data Management
+Install M4I Data Management
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This library contains all core functionality around data management.
 
@@ -817,7 +818,8 @@ Please remember to set the configuration parameters you want to use.
 
 
 
-# How to set up config and credentials file
+How to set up config and credentials file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 Here is the exact configuration of the config and credentials, use this to run the example.
@@ -844,11 +846,8 @@ Here is the exact configuration of the config and credentials, use this to run t
         "atlas.credentials.password":""
     }
 
-
-
- # How to run data quality check
-
-
+How to run data quality check
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 Our tool checks the quality of your data. To use it, you need to provide a csv file with your data and the rules you want to apply to it. The rules are basically the type of checks you want to do on the attributes of your dataset. We store your data and rules on Atlas and use our tool to apply the rules to your data. We then calculate the quality score of your data based on the applied rules and provied a csv output with the results.
@@ -863,7 +862,7 @@ These are the steps on how to do it
 
 
 
-    Just One Column named UID and provide a name. Make an excel file.
+       Just One Column named UID and provide a name. Make an excel file.
 
        UID
        example_name
@@ -876,15 +875,17 @@ These are the steps on how to do it
 
 
 
-#How to create entities and relationships
+
+How to create entities and relationships
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 In the create_push_to_atlas.py a user can create a dataset, field and data quality rule entity and push it to atlas. He can create a relationship between the field and dataset. I will explain how to do it with an example.
 
 
-# 1.First we define the attributes for each instance
+1.First we define the attributes for each instance
+ Define the attributes for the dataset instance
 
-## Define the attributes for the dataset instance
  .. code-block:: python
 
         json_dataset={
@@ -895,7 +896,8 @@ In the create_push_to_atlas.py a user can create a dataset, field and data quali
             "typeName": "m4i_dataset"
             }
 
-## Define the attributes for the field instance
+Define the attributes for the field instance
+
  .. code-block:: python
 
         json_field={
@@ -913,7 +915,8 @@ In the create_push_to_atlas.py a user can create a dataset, field and data quali
             }
         }
 
-## Define the attributes for the data quality instance
+Define the attributes for the data quality instance
+
  .. code-block:: python
 
 
@@ -926,9 +929,10 @@ In the create_push_to_atlas.py a user can create a dataset, field and data quali
             "typeName": "m4i_data_quality"
             }
 
-# 2. Create instances 
+2. Create instances 
 
-## Create instances of BusinessDataset, BusinessField, and BusinessDataQuality using the from_json method
+Create instances of BusinessDataset, BusinessField, and BusinessDataQuality using the from_json method
+
 .. code-block:: python
         json_str = json.dumps(json_dataset)
         dataset_instance = BusinessDataset.from_json(json_str)
@@ -939,7 +943,8 @@ In the create_push_to_atlas.py a user can create a dataset, field and data quali
         json_str2 = json.dumps(json_quality)
         quality_instance = BusinessDataQuality.from_json(json_str2)
 
-## Add relationship between the field and dataset instances
+Add relationship between the field and dataset instances
+
 .. code-block:: python
 
 
@@ -953,19 +958,20 @@ In the create_push_to_atlas.py a user can create a dataset, field and data quali
 
 
 
-# 3. Push the entities to atlas.
+3. Push the entities to atlas.
 
- We use the create_entities function that can be found in the m4i_atlas_core. It is important to undertstand what are the inputs.
-    create_entites(dataset_instance,referred_entites,accesss_token). The first input is the instance we created, then the referred entities, which here are non because we are just creating an entity with no relationships and finally the access token.
+We use the create_entities function that can be found in the m4i_atlas_core. It is important to undertstand what are the inputs.
+create_entites(dataset_instance,referred_entites,accesss_token). The first input is the instance we created, then the referred entities, which here are non because we are just creating an entity with no relationships and finally the access token.
 
-## Push the dataset instance to Atlas
+Push the dataset instance to Atlas
+
      .. code-block:: python
         async def create_in_atlas(dataset,access_token=access_token):
             mutations_dataset = await create_entities(dataset,referred_entities=None,access_token=access_token)
             print(mutations_dataset)
         push_to_atlas= asyncio.run(create_in_atlas(dataset_instance,access_token=access_token))
 
-## Push the field instance to Atlas
+Push the field instance to Atlas
 
      .. code-block:: python
         async def create_in_atlas_field(field,access_token=access_token):
@@ -973,7 +979,8 @@ In the create_push_to_atlas.py a user can create a dataset, field and data quali
             print(mutations_field)
         push_field = asyncio.run(create_in_atlas_field(field_instance,access_token=access_token))
 
-## Push the data quality instance to Atlas
+Push the data quality instance to Atlas
+
      .. code-block:: python
         async def create_in_atlas_rule(rule,access_token=access_token):
             for i in range(100):
@@ -984,6 +991,14 @@ In the create_push_to_atlas.py a user can create a dataset, field and data quali
                     print("This is not working")
             print(mutations_rule)
         push_rule = asyncio.run(create_in_atlas_rule(rule,access_token=access_token))
+
+
+
+
+
+
+
+Here is a link to the git, click `here. <https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md>`_
         
 
 
@@ -1020,34 +1035,6 @@ In the create_push_to_atlas.py a user can create a dataset, field and data quali
 
 
 
-
-
-How To Run Data Quality Rules Check Of atlas
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1.Create a csv file with example data that you want to check and provide its path in the get_data_csv() function in run_quality_rules.py.
-
-2.Specify the rules you want to apply to your data in quality_rules.py file.
-
-3.Run the atlas_dataset_quality found in m4i data management,to apply the rules and get the quality score of your data as output.
-
-To run the data quality rules on your follow the steps, click `here. <https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md>`_
-
-
-How To Create Entities And Relationships
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 
-1.Define the attributes for each instance: dataset, field, and data quality.
-
-2.Create instances of BusinessDataset, BusinessField, and BusinessDataQuality.
-
-3.Add relationship between the field and dataset instances.
-
-4.Push the entities to Atlas using the create_entities() function in m4i_atlas_core.py. The inputs are the instance we created, referred entities, and access token.
-
-5.Push the dataset instance, field instance, and data quality instance to Atlas using the create_in_atlas() functions.
-
-To see how to how to do this, click `here. <https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md>`_ 
 
 
 
