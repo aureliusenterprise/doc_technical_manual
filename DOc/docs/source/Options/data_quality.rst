@@ -742,7 +742,7 @@ The output is 1, because the value of the column exists in the example list.
 
 
 
-Apply Data Quality results
+Apply Data Quality Results
 ---------------------------
 
 The tool checks the quality of your data. To use it, you need to provide a csv file with your data and the rules you want to apply to it. The rules are basically the type
@@ -762,7 +762,7 @@ Below is an image that describes the whole process for your better understanding
 
 
 
-How to perform a data quality check of your data
+How To Perform A Data Quality Check Of Your Data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Here is a link of the repositories you will need:
@@ -788,27 +788,24 @@ To install `m4i-data-management` and all required dependencies to your active `P
 
 To install `m4i-data-management` including development dependencies, please run the following command instead:
 
-```
+
 pip install -e .[dev]
 
-```
 
- Install m4i_data_management:
- You can clone m4i_data_management from this link https://gitlab.com/m4i/m4i_data_management
- Then you install with this command
 
- ```
- pip install {path to m4i_data_management}
+Install m4i_data_management:
+You can clone m4i_data_management from this link https://gitlab.com/m4i/m4i_data_management
+Then you install with this command
+
+
+pip install {path to m4i_data_management}
  
- ```
 
- Do the same for m4i_atlas_core
 
- ```
- pip install {path to m4i_atlas_core}
+Do the same for m4i_atlas_core
+
+pip install {path to m4i_atlas_core}
  
- ```
-
 
 Please make a copy of `config.sample.py` and `credentials.sample.py` and rename the files to `config.py` and `credentials.py` respectively.
 
@@ -824,6 +821,7 @@ How to set up config and credentials file
 
 Here is the exact configuration of the config and credentials, use this to run the example.
 
+.. code-block:: python
 
 
     config = {
@@ -883,8 +881,9 @@ How to create entities and relationships
 In the create_push_to_atlas.py a user can create a dataset, field and data quality rule entity and push it to atlas. He can create a relationship between the field and dataset. I will explain how to do it with an example.
 
 
-1.First we define the attributes for each instance
- Define the attributes for the dataset instance
+1. Define the attributes for each instance
+
+Define the attributes for the dataset instance
 
  .. code-block:: python
 
@@ -931,7 +930,7 @@ Define the attributes for the data quality instance
 
 2. Create instances 
 
-Create instances of BusinessDataset, BusinessField, and BusinessDataQuality using the from_json method
+Create instances of BusinessDataset, BusinessField, and BusinessDataQuality
 
 .. code-block:: python
         json_str = json.dumps(json_dataset)
@@ -943,7 +942,7 @@ Create instances of BusinessDataset, BusinessField, and BusinessDataQuality usin
         json_str2 = json.dumps(json_quality)
         quality_instance = BusinessDataQuality.from_json(json_str2)
 
-Add relationship between the field and dataset instances
+3. Add relationship between the field and dataset instances
 
 .. code-block:: python
 
@@ -958,7 +957,7 @@ Add relationship between the field and dataset instances
 
 
 
-3. Push the entities to atlas.
+4. Push the entities to atlas.
 
 We use the create_entities function that can be found in the m4i_atlas_core. It is important to undertstand what are the inputs.
 create_entites(dataset_instance,referred_entites,accesss_token). The first input is the instance we created, then the referred entities, which here are non because we are just creating an entity with no relationships and finally the access token.
@@ -988,16 +987,13 @@ Push the data quality instance to Atlas
      .. code-block:: python
 
 
-        
+
         async def create_in_atlas_rule(rule,access_token=access_token):
-            for i in range(100):
-                try:
-                    mutations_rule = await create_entities(rule,referred_entities=None,access_token=access_token)
-                    break
-                except:
-                    print("This is not working")
+            mutations_rule = await create_entities(rule,referred_entities=None,access_token=access_token)
             print(mutations_rule)
         push_rule = asyncio.run(create_in_atlas_rule(rule,access_token=access_token))
+
+
 
 
 
