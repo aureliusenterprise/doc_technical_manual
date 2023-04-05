@@ -1,7 +1,9 @@
 Data Quality
 ==============
 
-Data quality can be measured on the actual data. It describes the percentage e.g. a column in a database table is fulfilling a certain condition, like e.g. to be not empty.
+Data quality refers to the overall fitness for use of data. It describes the degree to which data meets the requirements of its intended use, which can vary depending on the context, application, and user. 
+Evaluating data quality ensures that the data is reliable, relevant, and actionable, and can help identify areas for improvement in data collection, storage, and management processes. 
+Ultimately, the goal of data quality management is to ensure that data can be trusted and used effectively to support decision-making, analysis, and other business processes.
 Since actual data is required for this assessment, this analysis can not be done in Aurelius Atlas itself, but is performed on the related data storage system. The quality results however,
 can be documented in Aurelius Atlas. This documentation contains the checked rules as well as the actual data quality complaince results.
 
@@ -10,7 +12,7 @@ Data quality results are then propagated along the breadcrumb of the field to da
 Conceptual view
 ---------------
 
-Thus, conceptually data quality results can be added in Aurelius Atlas. It consits of 3 parts:
+Thus, conceptually data quality results can be added in Aurelius Atlas. It consists of 3 parts:
 
 * the actual data quality result
 *  an associated data quality Atlas entity
@@ -21,9 +23,9 @@ Data quality result
 
 Data quality result consists of multiple fields:
 
-* a unique ID, which can be human readable, but must be unique
+* a unique ID, which can be human readable
 * a qualityguid, which is a guid of the actual quality result	
-* a data quality result (dqscore), which is a value between 0 and 1, where 0 mean 0% compliance and 1 means 100% compliance
+* a data quality result (dqscore), which is a boolean value of 0 or 1, where 0 mean 0% compliance and 1 means 100% compliance
 
 Data quality rule
 ~~~~~~~~~~~~~~~~~
@@ -32,11 +34,11 @@ A data quality rule is described in Aurelius Atlas as type data quality rule. Cu
 
 A data quality rule consists of :
 
-* name of the associated data quality rule
-* data quality rule description: explaining the thought behind the data quality rule
-* expression, which is constructuced from an expression language on the level of the data quality 
-* business rule ID, which is usually just a number used for ordering the rules when presenting in the front end
-* data quality rule dimension: 
+* name: of the associated rule
+* description: explaining the thought behind the rule
+* expression: which is constructuced from an expression language on the level of the data quality 
+* business rule ID: which is usually just a number used for ordering the rules when presented in the front end
+* dimension 
 
 +----------------+-------------------------------------------------------------+
 | Rule Category  | Rule Description                                            |
@@ -205,12 +207,11 @@ A description on how to setup the script and how to run it will follow shortly.
 Definitions of data quality rules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-They are located at the m4i-data-management repository https://gitlab.com/m4i/m4i-data-management/-/tree/master/m4i_data_management/core/quality/rules
-on gitlab. In the rules file you can find all the data quality rules, that you can apply on a dataset. They are explanations of each rule and examples on how to use them.
+They are located at the m4i-data-management repository `Quality rules <https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules>`_
+You can find all the data quality rules, that you wish to apply on a dataset. They are explanations of each rule and examples on how to use them.
 These are they data quality rules that are applied on a dataset.
 
-Below is a brief description of each rule. (This file is found in the rules folder of m4i-data-management). The reason we provide this information is to give
-some insight for a first time user. 
+Below is a brief description of each rule.
 
 
 
@@ -292,8 +293,6 @@ some insight for a first time user.
 |                  | list of valid `value_combinations`.                             |
 +------------------+-----------------------------------------------------------------+
 
-For more information about quality rules click on link: `Quality rules <https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules>`_
-
 
 Data Quality Rules and Examples
 --------------------------------
@@ -349,9 +348,9 @@ A dummy datasetis provided and the first two characters of the id and name will 
                     "id": "NL.xxx",
                     "name": "NL.xxx",
                 }
-            [)
+            ])
 
-            result= compare_first_characters(data, "id", "name", 2)
+        result = compare_first_characters(data, "id", "name", 2)
 
 This is the function used in this example: compare_first_characters(data, "id", "name", 2). The inputs are the dataset,the column names and the number of characters.   
       
@@ -370,17 +369,17 @@ This rule does three checks. It checks if the first characters are the same, if 
             {
                 "id": "BE.xxx",
                 "name": "BE.xxx",
-
-        .. code-block:: python
-                data = DataFrame([
+                      ])
+        
+    data = DataFrame([
                         {
                             "id": "BE.xxx",
                             "name": "BE.xxx",
 
                         }
-                ])
+                     ])
 
-                result=compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
+    result = compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
 
 
 A prefix BE is used and the function is
@@ -410,8 +409,8 @@ function will return 1, otherwise it will return 0
                         "function": "Developer",
                         "from": "01-01-2021"
                     }
-                    })
-                    result= completeness(data, "name")
+                                 ])
+                result = completeness(data, "name")
 
  This is the function. The inputs are data and the name of the column we want to check.
      
@@ -438,7 +437,7 @@ and we are seeing if it has a substring of the list values.
                 }
             ])
 
-            result=conditional_completeness(data, "conditional", "value", values)
+            result = conditional_completeness(data, "conditional", "value", values)
 
 This is the function of use. The inputs are data, the name of the columns and the list of given values.
 
@@ -466,7 +465,7 @@ The check here is to see if there is unalllowed text in the columns of the dummy
                 }
             ])
 
-            result=conditional_unallowed_text(data, "conditional", "value", values, unallowed_text_item)
+            result = conditional_unallowed_text(data, "conditional", "value", values, unallowed_text_item)
 
 
 This is the function used for this example. The inputs are is the dataframe, the name of the two columns, the values of the substrings and the unallowed text.
@@ -491,12 +490,13 @@ The 'value' and 'conditional' column are being checked to see if it contains the
             }
         ])
 
-        result=conditional_value(data, "conditional", "value", values) 
+        result = conditional_value(data, "conditional", "value", values) 
 
 
 This is the function used for this example. The inputs are data of the dummy dataset, the names of the columns which are "value" and "conditional" and the values, that are the substrings we want to check.
     
-    result = conditional_value(data, "conditional", "value", values) 
+    result = conditional_value(data, "conditional", "value", values)
+
 The output here will 1, because "value" column, contains an expecetd value. Otherwise it would be 0.
 
 
@@ -517,7 +517,7 @@ A dummy dataframe is provided with one column called "id".
                 }
             ])
 
-            result=contains_character(data, "id", ".", 1) 
+        result = contains_character(data, "id", ".", 1) 
 
 This is the function used in this example. The inputs are data, name of the column, the character we want to check and 1 is the expected count
     
@@ -542,7 +542,7 @@ A dummy dataset is provided
                     }
                 ])
 
-                result=formatting(data, "name", r'^[a-zA-Z]+$')
+            result = formatting(data, "name", r'^[a-zA-Z]+$')
 
 
 This is the function used for this example. The inputs are the dataset,the column "name" and the pattern to see if it matches 
@@ -572,7 +572,7 @@ A list of the example values and a dummy dataframe are provided.
                 }
             ])
 
-            result=invalidity(data, "value", exampleValues)
+            result = invalidity(data, "value", exampleValues)
 
 
 The funtion is called invalidity. The inputs are data, column name and the list of values.
@@ -598,7 +598,7 @@ A dummy dataframe with column name "id"
                 }
             ])
 
-            result=length(data, "id", 4)
+        result = length(data, "id", 4)
 
 
 The function is called length. The inputs are data, column name and the length of required characters.
@@ -624,7 +624,7 @@ A dummy dataframe for this example with column name "value"
                 }
             ])
 
-            result=range(data, "value", 0, 1)
+        result = range(data, "value", 0, 1)
 
 
 The function is called range. The inputs are the dataframe, the column name and the range (The upper and lower bound)
@@ -647,7 +647,7 @@ This example checks if the values in the column `column_name` start with any of 
                 }
             ])
 
-            result=starts_with(data, "id", "1")
+        result = starts_with(data, "id", "1")
 
 
 
@@ -675,7 +675,7 @@ A dummy dataset is provided.
             }
         ])
 
-        result=unallowed_text(data, "Organisation", "BG Van Oord")
+        result = unallowed_text(data, "Organisation", "BG Van Oord")
 
 
 The function is called unalllowed_text. The inputs are data, the column name and the unallowed text
@@ -707,7 +707,7 @@ A dummy dataset is provided
                     }
                 ])
 
-            result=uniqueness(data, "id")
+            result = uniqueness(data, "id")
 
 
 
@@ -731,13 +731,13 @@ The values in the example list and a dummy dataset are provided
 
         exampleValues = ['Definite Contract', 'Indefinite Contract']
 
-            data = DataFrame([
+        data = DataFrame([
                 {
                     "value": "Definite Contract"
                 }
-            ])
+                        ])
             
-        result=validity(data, "value", exampleValues)
+        result = validity(data, "value", exampleValues)
 
 The function is called validity. The inputs are data, the column name and the list of example values.
 
