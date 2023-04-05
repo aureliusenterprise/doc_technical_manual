@@ -323,11 +323,11 @@ First run a test to see if the columns are bijacent. The columns "id" and "name"
                     "function": "Senior developer",
                     "from": "01-01-2022"
                 }
-            ])
+                            ])
 
-                result=  bijacency(data, "id", "name") 
+            result=  bijacency(data, "id", "name") 
 
-This is the function that we are using: bijacency(data, "id", "name"). The inputs are the dataset and the column names.
+This is the function that we are using: bijacency(df, "column_a", "column_b"). The inputs are the dataset and the column names.
 
 The id and name are the same in this example, which means they are bijacent. The output will be 1.
 
@@ -337,7 +337,7 @@ The id and name are the same in this example, which means they are bijacent. The
 
 Checks whether the first 'number_of_characters 'values in `first_column_name` and `second_column_name` are similar, and if the values are None or NaN.
 
-A dummy datasetis provided and the first two characters of the id and name will be compared.
+A dummy dataset is provided and the first two characters of the id and name will be compared.
 
  
  .. code-block:: python
@@ -348,18 +348,18 @@ A dummy datasetis provided and the first two characters of the id and name will 
                     "id": "NL.xxx",
                     "name": "NL.xxx",
                 }
-            ])
+                        ])
 
         result = compare_first_characters(data, "id", "name", 2)
 
-This is the function used in this example: compare_first_characters(data, "id", "name", 2). The inputs are the dataset,the column names and the number of characters.   
+This is the function used in this example: compare_first_characters(df, "column_a", "column_b", num_char). The inputs are the dataset,the column names and the number of characters.   
       
 3. Check First Characters using Prefix
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This rule does three checks. It checks if the first characters are the same, if the have same prefix and if the values are Nan or none.
 
-1) A dummy dataset with two columns, id and name is provided
+A dummy dataset with two columns, id and name is provided
 
 
  .. code-block:: python
@@ -369,15 +369,9 @@ This rule does three checks. It checks if the first characters are the same, if 
             {
                 "id": "BE.xxx",
                 "name": "BE.xxx",
-                      ])
+             }         ])
         
-    data = DataFrame([
-                        {
-                            "id": "BE.xxx",
-                            "name": "BE.xxx",
-
-                        }
-                     ])
+   
 
     result = compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
 
@@ -410,11 +404,12 @@ function will return 1, otherwise it will return 0
                         "from": "01-01-2021"
                     }
                                  ])
+
                 result = completeness(data, "name")
 
  This is the function. The inputs are data and the name of the column we want to check.
      
-	 completeness(data, "name")
+	 completeness(df, "column")
  
  The output here will be 0, because the column 'name' has no value in it.
 
@@ -441,10 +436,10 @@ and we are seeing if it has a substring of the list values.
 
 This is the function of use. The inputs are data, the name of the columns and the list of given values.
 
-conditional_completeness(data, "conditional", "value", values)
+conditional_completeness(df, "column_a", "column_b",[list])
 
 The output here will be 1, because they are no empty values in the columns and the column "conditional" has substrings of the given 
-values= ['.TMP', '.FREE']
+values = ['.TMP', '.FREE']
 
 
 6. Check Unallowed Text
@@ -470,7 +465,7 @@ The check here is to see if there is unalllowed text in the columns of the dummy
 
 This is the function used for this example. The inputs are is the dataframe, the name of the two columns, the values of the substrings and the unallowed text.
 
-    conditional_unallowed_text(data, "conditional", "value", values, unallowed_text_item)
+    conditional_unallowed_text(df, "column_a", "column_b", [list_of_values], "string")
 
 The output will be 1 because it containf substrings in the 'conditional'  column and doesn't contain the unalloed text in column "Value". If it did the output would be 0.
 
@@ -495,7 +490,7 @@ The 'value' and 'conditional' column are being checked to see if it contains the
 
 This is the function used for this example. The inputs are data of the dummy dataset, the names of the columns which are "value" and "conditional" and the values, that are the substrings we want to check.
     
-    result = conditional_value(data, "conditional", "value", values)
+    result = conditional_value(df, "column_a", "column_b", {dictionary})
 
 The output here will 1, because "value" column, contains an expecetd value. Otherwise it would be 0.
 
@@ -521,7 +516,7 @@ A dummy dataframe is provided with one column called "id".
 
 This is the function used in this example. The inputs are data, name of the column, the character we want to check and 1 is the expected count
     
-    contains_character(data, "id", ".", 1)  
+    contains_character(df, "column", "string", int)  
 
 
 The check performed here is to if the the id contains "." . The output will be 1 because the "id" column contains "."
@@ -547,7 +542,7 @@ A dummy dataset is provided
 
 This is the function used for this example. The inputs are the dataset,the column "name" and the pattern to see if it matches 
 
-formatting(data, "name", r'^[a-zA-Z]+$')
+formatting(df, "column", expression_pattern)
 
 
 The ouput will be 1 in this example, because 'ExampleText' matches the pattern.
@@ -566,18 +561,18 @@ A list of the example values and a dummy dataframe are provided.
         
         exampleValues = ['x', 'X', 'TBD', 'Name']
 
-            data = DataFrame([
+        data = DataFrame([
                 {
                     "value": "X"
                 }
             ])
 
-            result = invalidity(data, "value", exampleValues)
+        result = invalidity(data, "value", exampleValues)
 
 
 The funtion is called invalidity. The inputs are data, column name and the list of values.
 
-    invalidity(data, "value", exampleValues)
+    invalidity(df, "column", [list])
 
 The output will be 1 , becaue "X" is in the list of values.
 
@@ -603,7 +598,7 @@ A dummy dataframe with column name "id"
 
 The function is called length. The inputs are data, column name and the length of required characters.
     
-    length(data, "id", 4)
+    length(df,"column",int)
 
 The output is 1 because the length of id is 4.
 
@@ -622,16 +617,16 @@ A dummy dataframe for this example with column name "value"
                 {
                     "value": 0.1
                 }
-            ])
+                         ])
 
         result = range(data, "value", 0, 1)
 
 
 The function is called range. The inputs are the dataframe, the column name and the range (The upper and lower bound)
 
-    range(data, "value", 0, 1)
+    range(df, "column", int1, int2)
 
-The output will be 1 because o,1 is between 0 and 1.
+The output will be 1 because 0.1 is between 0 and 1.
 
 
 13. Check Prefix
@@ -645,7 +640,7 @@ This example checks if the values in the column `column_name` start with any of 
                 {
                     "id": 1234
                 }
-            ])
+                         ])
 
         result = starts_with(data, "id", "1")
 
@@ -653,7 +648,7 @@ This example checks if the values in the column `column_name` start with any of 
 
 The function is called starts_with. The inputs are the data the column name and the prefix.
 
-    starts_with(data, "id", "1")
+    starts_with(data, "column", "prefix")
 
 The output is 1, because "1" is in the value of the id column.
     
@@ -680,7 +675,7 @@ A dummy dataset is provided.
 
 The function is called unalllowed_text. The inputs are data, the column name and the unallowed text
 
-    unallowed_text(data, "Organisation", "BG Van Oord")
+    unallowed_text(df, "column", "sting")
 
 The output is 1 because "BG Van Oord" is not in the "Something Else" of the "Organisation" column.
 
@@ -705,7 +700,7 @@ A dummy dataset is provided
                     {
                         "id": "2345"
                     }
-                ])
+                            ])
 
             result = uniqueness(data, "id")
 
@@ -741,7 +736,7 @@ The values in the example list and a dummy dataset are provided
 
 The function is called validity. The inputs are data, the column name and the list of example values.
 
-    validity(data, "value", exampleValues)
+    validity(df, "key",[list])
 
 The output is 1, because the value of the column exists in the example list.
 
