@@ -11,14 +11,14 @@ Aurelius Atlas
 .. toctree::
     :hidden:
     
+    Libraries/m4i_atlas_core/index
     
-    Libraries/m4i_data_quality/index  
     
     
 +----------------------------------------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
 | library                                                        | gitlab/github?     | purpose               | remarks                                                                                                               |
 +================================================================+====================+=======================+=======================================================================================================================+
-| :ref:'m4i_governance_data_quality`<m4i_data_quality_index>'    | gitlab             | data governance       | merge or branches required                                                                                            |
+| :ref:`m4i_governance_data_quality <m4i_data_quality_index>`    | gitlab             | data governance       | merge or branches required                                                                                            |
 |                                                                |                    | quality checks        |                                                                                                                       | 
 +----------------------------------------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
 | :ref:`m4i_atlas_core <m4i_atlas_core_index>`                   | github             |                       | core entities for apache atlas                                                                                        |
