@@ -966,6 +966,8 @@ create_entites(dataset_instance,referred_entites,accesss_token). The first input
 Push the dataset instance to Atlas
 
      .. code-block:: python
+
+
         async def create_in_atlas(dataset,access_token=access_token):
             mutations_dataset = await create_entities(dataset,referred_entities=None,access_token=access_token)
             print(mutations_dataset)
@@ -974,6 +976,8 @@ Push the dataset instance to Atlas
 Push the field instance to Atlas
 
      .. code-block:: python
+
+
         async def create_in_atlas_field(field,access_token=access_token):
             mutations_field = await create_entities(field,field,referred_entities=None,access_token=access_token)
             print(mutations_field)
@@ -982,6 +986,9 @@ Push the field instance to Atlas
 Push the data quality instance to Atlas
 
      .. code-block:: python
+
+
+        
         async def create_in_atlas_rule(rule,access_token=access_token):
             for i in range(100):
                 try:
