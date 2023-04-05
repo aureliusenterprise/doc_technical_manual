@@ -767,8 +767,7 @@ How To Run Data Quality Rules Check Of atlas
 
 3.Run the atlas_dataset_quality found in m4i data management,to apply the rules and get the quality score of your data as output.
 
-
-To run the data quality rules on your follow the steps of this link https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md
+To run the data quality rules on your follow the steps, clich `here. <https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md>`_
 
 
 How To Create Entities And Relationships
@@ -784,7 +783,8 @@ How To Create Entities And Relationships
 
 5.Push the dataset instance, field instance, and data quality instance to Atlas using the create_in_atlas() functions.
 
-To see how to how to do this here is the link, at the how to create entities and relationships section https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md
+To see how to how to do this, click `here. <https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md>`_ 
+
 
 
 
