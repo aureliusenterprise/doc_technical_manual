@@ -999,6 +999,9 @@ Push the data quality instance to Atlas
 
 
 Here is a link to the git, click `here. <https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md>`_
+
+
+
         
 
 
