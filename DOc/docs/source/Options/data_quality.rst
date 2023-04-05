@@ -5,7 +5,7 @@ Data quality refers to the overall fitness for use of data. It describes the deg
 Evaluating data quality ensures that the data is reliable, relevant, and actionable, and can help identify areas for improvement in data collection, storage, and management processes. 
 Ultimately, the goal of data quality management is to ensure that data can be trusted and used effectively to support decision-making, analysis, and other business processes.
 Since actual data is required for this assessment, this analysis can not be done in Aurelius Atlas itself, but is performed on the related data storage system. The quality results however,
-can be documented in Aurelius Atlas. This documentation contains the checked rules as well as the actual data quality complaince results.
+can be documented in Aurelius Atlas. This documentation contains the checked rules as well as the actual data quality compliance results.
 
 Data quality results are then propagated along the breadcrumb of the field to datasets, collections and systems on the technical side and to data attributes, data entities and data domains on the business side.
 
