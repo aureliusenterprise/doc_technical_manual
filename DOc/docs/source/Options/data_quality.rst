@@ -217,7 +217,7 @@ Below is a brief description of each rule.
 
 .. raw:: html
 
-   <a href="https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules/bijacency">Biijacency</a>
+   <a href="https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules/bijacency" style="display: none">Biijacency</a>
 
 
 
