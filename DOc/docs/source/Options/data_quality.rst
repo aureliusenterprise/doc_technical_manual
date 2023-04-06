@@ -214,9 +214,8 @@ These are they data quality rules that are applied on a dataset.
 Below is a brief description of each rule.
 
 
+`Bijacency <https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py>`_
 
-.. role:: a(https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py)
-    :format: html
 
 
 
@@ -225,7 +224,7 @@ Below is a brief description of each rule.
 | Rule                       | Description                                                     |
 +============================+=================================================================+
 |                            |                                                                 |
-|a: `Bijacency <Bijacency>   | Checks whether or not the values in the given `column_a` and    |
+|`Bijacency`_                | Checks whether or not the values in the given `column_a` and    |
 |                            | `column_b` only occur as a unique combination.                  |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
