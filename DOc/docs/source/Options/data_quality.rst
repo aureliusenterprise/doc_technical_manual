@@ -217,7 +217,6 @@ Below is a brief description of each rule.
 
 .. _Bijacency:
 
-[1] https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules/bijacency
 
 .. raw:: html
 
@@ -228,7 +227,7 @@ Below is a brief description of each rule.
 | Rule                       | Description                                                     |
 +============================+=================================================================+
 |                            |                                                                 |
-|Bijacency[1]                | Checks whether or not the values in the given `column_a` and    |
+|Bijacency [1]               | Checks whether or not the values in the given `column_a` and    |
 |                            | `column_b` only occur as a unique combination.                  |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
@@ -301,6 +300,9 @@ Below is a brief description of each rule.
 | Validity                   | `first_column_name` and `second_column_name` exist in the given |
 |                            | list of valid `value_combinations`.                             |
 +----------------------------+-----------------------------------------------------------------+
+
+[1] https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules/bijacency
+
 
 
 Data Quality Rules and Examples
