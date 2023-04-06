@@ -223,13 +223,13 @@ Below is a brief description of each rule.
 
         <a href="https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules/bijacency">Bijacency</a>
 
-
+        :ref:`Bijacency <Bijacency> ` 
 
 +------------------+-----------------------------------------------------------------+
 | Rule             | Description                                                     |
 +==================+=================================================================+
 |                  |                                                                 |
-|:ref:`Bijacency<Bijacency>`  | Checks whether or not the values in the given `column_a` and    |
+|:ref:`Bijacency`  | Checks whether or not the values in the given `column_a` and    |
 |                  | `column_b` only occur as a unique combination.                  |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
