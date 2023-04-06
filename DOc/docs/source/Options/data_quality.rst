@@ -224,7 +224,7 @@ Below is a brief description of each rule.
 | Rule                       | Description                                                     |
 +============================+=================================================================+
 |                            |                                                                 |
-|`Bijacency`__                | Checks whether or not the values in the given `column_a` and    |
+|`Bijacency`__               | Checks whether or not the values in the given `column_a` and    |
 |                            | `column_b` only occur as a unique combination.                  |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
