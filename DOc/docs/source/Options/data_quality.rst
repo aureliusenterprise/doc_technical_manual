@@ -213,13 +213,19 @@ These are they data quality rules that are applied on a dataset.
 
 Below is a brief description of each rule.
 
+.. _link1:
+
+.. raw:: html
+
+   <a href="https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules/bijacency">Biijacency</a>
+
 
 
 +------------------+-----------------------------------------------------------------+
 | Rule             | Description                                                     |
 +==================+=================================================================+
 |                  |                                                                 |
-| Biijacency       | Checks whether or not the values in the given `column_a` and    |
+| :ref:Biijacency  | Checks whether or not the values in the given `column_a` and    |
 |                  | `column_b` only occur as a unique combination.                  |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
