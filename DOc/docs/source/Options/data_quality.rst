@@ -219,8 +219,9 @@ Below is a brief description of each rule.
 .. toctree::
     :hidden:
 
+     .. raw:: html
 
-       <a href="https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules/bijacency" style="display: none">Biijacency</a>
+        <a href="https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules/bijacency" style="display: none">Biijacency</a>
 
 
 
@@ -228,8 +229,8 @@ Below is a brief description of each rule.
 | Rule             | Description                                                     |
 +==================+=================================================================+
 |                  |                                                                 |
-|:ref:`Bijacency   | Checks whether or not the values in the given `column_a` and    |
-|   <Bijacency>`   | `column_b` only occur as a unique combination.                  |
+|:ref:`Bijacency`  | Checks whether or not the values in the given `column_a` and    |
+|                  | `column_b` only occur as a unique combination.                  |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
 | Compare first    | Checks whether the first 'number_of_characters' values in       |
