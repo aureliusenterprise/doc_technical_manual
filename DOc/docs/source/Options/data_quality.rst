@@ -279,7 +279,7 @@ Below is a brief description of each rule.
 |                            | `column_name` match the given `pattern`.                        |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
-|  `Invalidity`_             | Checks whether or not the values in the column with the given   |
+| `Invadility`_              | Checks whether or not the values in the column with the given   |
 |                            | `column_name` does not exist in the given list of `values`.     |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
