@@ -222,7 +222,7 @@ Below is a brief description of each rule.
 .. _Conditional value: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_value/conditional_value.py
 .. _Contains Character: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/contains_character/contains_character.py
 .. _Formatting: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/formatting/formatting.py
-.. _Invadility: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/invalidity/invalidity.py
+.. _Invalidity: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/invalidity/invalidity.py
 .. _Length:https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/length/length.py
 .. _Range:https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/range/range.py
 .. _Starts with: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/starts_with/starts_with.py
@@ -279,7 +279,7 @@ Below is a brief description of each rule.
 |                            | `column_name` match the given `pattern`.                        |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
-| `Invadility`_              | Checks whether or not the values in the column with the given   |
+| `Invalidity`_              | Checks whether or not the values in the column with the given   |
 |                            | `column_name` does not exist in the given list of `values`.     |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
