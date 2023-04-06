@@ -216,8 +216,6 @@ Below is a brief description of each rule.
 
 
 .. _Bijacency:
-.. toctree::
-    :hidden:
 
 
 
