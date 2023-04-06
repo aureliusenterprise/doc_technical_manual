@@ -216,6 +216,20 @@ Below is a brief description of each rule.
 
 .. _Bijacency: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py
 .. _Compare first characters: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters/compare_first_characters.py
+.. _Compare first characters starting without: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters_starting_without/compare_first_characters_starting_without.py
+.. _Completeness: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/completeness/completeness.py
+.. _Conditional completness: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_completeness/conditional_completeness.py
+.. _Conditional value: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_value/conditional_value.py
+.. _Contains Character: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/contains_character/contains_character.py
+.. _Formatting: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/formatting/formatting.py
+.. _invadility: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/invalidity/invalidity.py
+.. _Length:https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/length/length.py
+.. _Range:https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/range/range.py
+.. _Starts with: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/starts_with/starts_with.py
+.. _Unallowed text: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/unallowed_text/unallowed_text.py
+.. _Uniqueness: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/uniqueness/uniqueness.py
+.. _Validity: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/validity/validity.py
+
 
 
 
@@ -234,69 +248,64 @@ Below is a brief description of each rule.
 |                            | the values are None or NaN.                                     |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |           
-| Compare first              | Checks whether the first 'number_of_characters' values starting |
+| `Compare first             | Checks whether the first 'number_of_characters' values starting |
 | characters                 | without in `first_column_name` and `second_column_name` are     |
-| starting without           | similar, and if `column_name` does not start with any of the    |
+| starting without`_         | similar, and if `column_name` does not start with any of the    |
 |                            | given `prefixes`, and if the values are None or NaN.            |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
-| Completeness               | Checks whether the values in the column with the given          |
+| `Completeness`_            | Checks whether the values in the column with the given          |
 |                            | `column_name` are None or NaN.                                  |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
-| Conditional                | Checks whether or not the values in the given `value_column`    |
-| completeness               | are `None` or `NaN`.                                            |
+| `Conditional               | Checks whether or not the values in the given `value_column`    |
+|  completeness`_            | are `None` or `NaN`.                                            |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
-| Conditional                | Checks if values in the column with the given `value_column`    |
-| unallowed text             | contain a specific unallowed `text`.                            |
+| `Conditional               | Checks if values in the column with the given `value_column`    |
+| unallowed text`_           | contain a specific unallowed `text`.                            |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
-| Conditional value          | Checks whether the values in the given `value_column` match     |
+| `Conditional value`_       | Checks whether the values in the given `value_column` match     |
 |                            | (one of) the expected value(s) for a given key in the           |
 |                            | `key_column`.                                                   |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
-| Contains                   | Checks how many times the values in the column with the given   |
-| character                  | `column_name` contain a specific character.                     |
+| `Contains character`_      | Checks how many times the values in the column with the given   |
+|                            | `column_name` contain a specific character.                     |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
-| Formatting                 | Checks whether or not the values in the column with the given   |
+| `Formatting`_              | Checks whether or not the values in the column with the given   |
 |                            | `column_name` match the given `pattern`.                        |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
-| Invalidity                 | Checks whether or not the values in the column with the given   |
+| `Invalidity`_              | Checks whether or not the values in the column with the given   |
 |                            | `column_name` does not exist in the given list of `values`.     |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
-| Length                     | Checks if the number of characters of the values in the column  |
+| `Length`_                  | Checks if the number of characters of the values in the column  |
 |                            | with the given `column_name` are equal to the `required_length`.|
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
-| Range                      | Checks whether or not the values in the column with the given   |
+| `Range`_                   | Checks whether or not the values in the column with the given   |
 |                            | `column_name` are:                                              |
 |                            | - Greater than or equal to the given `lower_bound`.             |
 |                            | - Less than or equal to the given `upper_bound`.                |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
-| Starts with                | Checks whether or not the values in the column with the given   |
+| `Starts with`_             | Checks whether or not the values in the column with the given   |
 |                            | `column_name` start with any of the given `prefixes`.           |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
-| Unallowed text             | Checks if values in the column with the given `column_name`     |
+| `Unallowed text`_          | Checks if values in the column with the given `column_name`     |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
-| Uniqueness                 | Checks whether the values in the column with the given          |
+| `Uniqueness`_              | Checks whether the values in the column with the given          |
 |                            | `column_name` are unique (duplicate value check).               |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
-| Validity                   | Checks whether or not the values in the column with the given   |
+| `Validity`_                | Checks whether or not the values in the column with the given   |
 |                            | `column_name` exist in the given list of `values`.              |
-+----------------------------+-----------------------------------------------------------------+
-|                            |                                                                 |
-| Cross-Column               | Checks whether or not the combination of values in the given    |
-| Validity                   | `first_column_name` and `second_column_name` exist in the given |
-|                            | list of valid `value_combinations`.                             |
 +----------------------------+-----------------------------------------------------------------+
 
 
