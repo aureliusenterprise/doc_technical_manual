@@ -11,7 +11,6 @@ Aurelius Atlas
 .. toctree::
     :hidden:
     
-    Libraries/m4i_data_quality/index
     Libraries/m4i_atlas_core/index
     
     

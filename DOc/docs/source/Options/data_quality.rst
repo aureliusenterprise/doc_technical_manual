@@ -214,10 +214,14 @@ These are they data quality rules that are applied on a dataset.
 Below is a brief description of each rule.
 
 .. _Bijacency:
+.. _m4i_atlas_core_index:
 
-.. raw:: html
+.. toctree::
+    :hidden:
 
-   <a href="https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules/bijacency" style="display: none">Biijacency</a>
+    .. raw:: html
+
+        <a href="https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules/bijacency" style="display: none">Biijacency</a>
 
 
 
