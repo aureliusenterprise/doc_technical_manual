@@ -223,18 +223,12 @@ Below is a brief description of each rule.
 .. _Contains Character: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/contains_character/contains_character.py
 .. _Formatting: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/formatting/formatting.py
 .. _Invalidity: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/invalidity/invalidity.py
-
-
 .. _Length:https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/length/length.py
 .. _Range:https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/range/range.py
 .. _Starts with: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/starts_with/starts_with.py
 .. _Unallowed text: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/unallowed_text/unallowed_text.py
 .. _Uniqueness: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/uniqueness/uniqueness.py
 .. _Validity: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/validity/validity.py
-
-
-
-
 
 
 +----------------------------+-----------------------------------------------------------------+
