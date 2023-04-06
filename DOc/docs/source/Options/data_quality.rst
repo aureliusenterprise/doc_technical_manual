@@ -215,6 +215,7 @@ Below is a brief description of each rule.
 
 
 .. _Bijacency: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py
+.. _Compare first characters: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters/compare_first_characters.py
 
 
 
@@ -228,8 +229,8 @@ Below is a brief description of each rule.
 |                            | `column_b` only occur as a unique combination.                  |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
-| Compare first              | Checks whether the first 'number_of_characters' values in       |
-| characters                 | `first_column_name` and `second_column_name` are similar, and if|
+| `Compare first characters`_| Checks whether the first 'number_of_characters' values in       |
+|                            | `first_column_name` and `second_column_name` are similar, and if|
 |                            | the values are None or NaN.                                     |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |           
