@@ -228,7 +228,7 @@ Below is a brief description of each rule.
 | Rule                       | Description                                                     |
 +============================+=================================================================+
 |                            |                                                                 |
-|:ref:`Bijacency`            | Checks whether or not the values in the given `column_a` and    |
+|:ref:`Bijacency<_Bijacency>`| Checks whether or not the values in the given `column_a` and    |
 |                            | `column_b` only occur as a unique combination.                  |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
