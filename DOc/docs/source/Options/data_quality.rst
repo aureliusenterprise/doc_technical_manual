@@ -213,7 +213,7 @@ These are they data quality rules that are applied on a dataset.
 
 Below is a brief description of each rule.
 
-.. _link1:
+.. _Bijacency:
 
 .. raw:: html
 
@@ -225,7 +225,7 @@ Below is a brief description of each rule.
 | Rule             | Description                                                     |
 +==================+=================================================================+
 |                  |                                                                 |
-| `Biijacency`     | Checks whether or not the values in the given `column_a` and    |
+|:ref:`Bijacency` | Checks whether or not the values in the given `column_a` and    |
 |                  | `column_b` only occur as a unique combination.                  |
 +------------------+-----------------------------------------------------------------+
 |                  |                                                                 |
