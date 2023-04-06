@@ -215,20 +215,16 @@ Below is a brief description of each rule.
 
 
 
-.. _Bijacency:
+.. _Bijacency: https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules/bijacency
 
 
 
-.. raw:: html
-
-    <a href="https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules/bijacency">Bijacency</a>
- 
 
 +----------------------------+-----------------------------------------------------------------+
 | Rule                       | Description                                                     |
 +============================+=================================================================+
 |                            |                                                                 |
-|:ref:`Bijacency <Bijacency>`| Checks whether or not the values in the given `column_a` and    |
+|`Bijacency <Bijacency>`     | Checks whether or not the values in the given `column_a` and    |
 |                            | `column_b` only occur as a unique combination.                  |
 +----------------------------+-----------------------------------------------------------------+
 |                            |                                                                 |
