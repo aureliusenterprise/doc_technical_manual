@@ -219,7 +219,7 @@ Below is a brief description of each rule.
 .. _Compare first characters starting without: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters_starting_without/compare_first_characters_starting_without.py
 .. _Completeness: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/completeness/completeness.py
 .. _Conditional unallowed text: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_unallowed_text/conditional_unallowed_text.py
-.. _Conditional completness: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_completeness/conditional_completeness.py
+.. _Conditional completeness: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_completeness/conditional_completeness.py
 .. _Conditional value: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_value/conditional_value.py
 .. _Contains Character: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/contains_character/contains_character.py
 .. _Formatting: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/formatting/formatting.py
