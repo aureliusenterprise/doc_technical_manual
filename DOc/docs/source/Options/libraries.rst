@@ -14,7 +14,7 @@ Aurelius Atlas
     Libraries/m4i_atlas_core/index
     Libraries/m4i_data_quality/index  
 
-:ref:'m4i_governance_data_quality <m4i_governance_data_index>'
+
     
 +----------------------------------------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
 | library                                                        | gitlab/github?     | purpose               | remarks                                                                                                               |
