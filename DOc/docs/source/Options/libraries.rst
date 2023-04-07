@@ -2,7 +2,7 @@ Libraries
 =========
 .. _libraries:
 
-.. _m4i_data_quality: Libraries/m4i_data_quality/index
+:doc:`Libraries\m4i_data_quality\index `
 
 
 
@@ -21,7 +21,7 @@ Aurelius Atlas
 +----------------------------------------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
 | library                                                        | gitlab/github?     | purpose               | remarks                                                                                                               |
 +================================================================+====================+=======================+=======================================================================================================================+
-| `m4i_governance_data_quality <m4i_data_quality>`_              | gitlab             | data governance       | merge or branches required                                                                                            |
+| :ref:`m4i_governance_data_quality <m4i_data_quality/index>`_   | gitlab             | data governance       | merge or branches required                                                                                            |
 |                                                                |                    | quality checks        |                                                                                                                       | 
 +----------------------------------------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
 | :ref:`m4i_atlas_core <m4i_atlas_core_index>`                   | github             |                       | core entities for apache atlas                                                                                        |
