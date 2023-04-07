@@ -13,7 +13,7 @@ Aurelius Atlas
 .. toctree::
     :hidden:
     
-    
+    Libraries/m4i_atlas_core/index
     Libraries/m4i_data_quality/index  
 
 
@@ -21,7 +21,7 @@ Aurelius Atlas
 +----------------------------------------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
 | library                                                        | gitlab/github?     | purpose               | remarks                                                                                                               |
 +================================================================+====================+=======================+=======================================================================================================================+
-| :ref:`m4i_governance_data_quality <m4i_data_quality_index>`    | gitlab             | data governance       | merge or branches required                                                                                            |
+| :ref:`m4i_governance_data_quality <m4i_atlas_core_index2>`    | gitlab             | data governance       | merge or branches required                                                                                            |
 |                                                                |                    | quality checks        |                                                                                                                       | 
 +----------------------------------------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
 | :ref:`m4i_atlas_core <m4i_atlas_core_index>`                   | github             |                       | core entities for apache atlas                                                                                        |
@@ -41,7 +41,7 @@ Aurelius Atlas
 | atlas-m4i-connector                                            | gitlab             |                       | integration m4i with atlas; merge required                                                                            |
 +----------------------------------------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
 
-
+Libraries/m4i_atlas_core/index
 
 
 Models4Insight
