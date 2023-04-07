@@ -89,7 +89,9 @@ source <venv_name>\bin\activate
 pip install -e <location_of_dependent_packages>
 ```
 
-## Configurations and Credentials
+Configurations and Credentials
+-------------------------------
+
 Please make a copy of `config.sample.py` and `credentials.sample.py` and rename the files to `config.py` and `credentials.py` respectively.
 Please set the configuration parameters and credentials for `atlas` and `elastic` as below.
 
@@ -113,52 +115,9 @@ Should contain two dictionaries viz `config_elastic` and `config_atlas`
 | config_atlas[atlas.server.url] |  The Server URL that Atlas runs on, with `/api/atlas` post fix. |
 | config_atlas[atlas.credentials.token] |  Add Keycloak access token |
 
-Structure
+
+Execution
 ----------
-
-```
-├───nxtgen_governance_data_quality
-│   │   __init__.py
-│   │
-│   ├───core
-│   │   │   __init__.py
-│   │   │
-│   │   ├───parse_entity
-│   │   │   │   ParseEntity.py
-│   │   │   │   __init__.py
-│   │   │
-│   │   ├───read_type
-│   │   │   │   ReadType.py
-│   │   │   │   __init__.py
-│   │   │
-│   │   ├───rules
-│   │   │   │   Rules.py
-│   │   │   │   __init__.py
-├───output
-├───rules
-│       m4i_collection.yaml
-│       m4i_confluent_environment.yaml
-│       m4i_dashboard.yaml
-│       m4i_dataset.yaml
-│       m4i_data_attribute.yaml
-│       m4i_data_domain.yaml
-│       m4i_data_entity.yaml
-│       m4i_elastic_cluster.yaml
-│       m4i_elastic_field.yaml
-│       m4i_elastic_index.yaml
-│       m4i_field.yaml
-│       m4i_kafka_cluster.yaml
-│       m4i_kafka_field.yaml
-│       m4i_kafka_topic.yaml
-│       m4i_person.yaml
-│       m4i_system.yaml
-│       m4i_visualization.yaml
-│
-├───scripts
-│       run.py
-```
-
-# Execution 
 
 1. Create the Python Environment. How to do this can be found in this file under `Installation` 
 2. Fill in the Configurations and Credentials as indicated in this file under `Configurations and Credentials` 
