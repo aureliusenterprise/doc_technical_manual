@@ -1,7 +1,9 @@
 .. _m4i_data_quality_index:
 
 
-# Data Quality on DMP Governance - Atlas
+Data Quality on DMP Governance - Atlas
+--------------------------------------
+
 Is used to determine the quality of various entities already loaded into DMP's governance tool - Apache Atlas. 
 It verifies data loaded against various m4i types ( like m4i_data_domain, m4i_data_entity ) on quality measures like completeness, uniqueness etc.
 
@@ -18,7 +20,8 @@ There are two main categories of Data that is generated for each m4i Type entity
      
 These rules are inherited from `nxtgen-vox-data-management` repository.
 
-# Configuring Rules
+Configuring Rules
+------------------
 An important aspect of Data Quality is the rules that are applied to each entity. 
 There are separate rules for attributes and relationships. However, the structure is same and follows as below.
 
@@ -69,7 +72,8 @@ To Run this package, we need to have below packages installed
 * `vox-data-management` -- communicates for Quality metric already defined
 * `elasticsearch` -- communicates with ElasticSearch
 
-## Installation
+Installation
+-------------
 
 Please ensure your `Python` environment is set on version `3.7`. Some dependencies do not work with any later versions of `Python`.
 Basically, this is a requirement for underlying package `vox_data_management`
@@ -109,7 +113,8 @@ Should contain two dictionaries viz `config_elastic` and `config_atlas`
 | config_atlas[atlas.server.url] |  The Server URL that Atlas runs on, with `/api/atlas` post fix. |
 | config_atlas[atlas.credentials.token] |  Add Keycloak access token |
 
-#Structure
+Structure
+----------
 
 ```
 ├───nxtgen_governance_data_quality
