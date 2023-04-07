@@ -12,7 +12,7 @@ Aurelius Atlas
     :hidden:
     
     Libraries/m4i_atlas_core/index
-    Libraries/m4i_data_quality/index  
+.. _libraries: Libraries/m4i_data_quality/index  
 
 
     
