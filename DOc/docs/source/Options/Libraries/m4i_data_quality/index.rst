@@ -116,8 +116,8 @@ Should contain two dictionaries viz `config_elastic` and `config_atlas`
 | config_atlas[atlas.credentials.token] |  Add Keycloak access token |
 
 
-Execution
-----------
+Execution 
+-----------
 
 1. Create the Python Environment. How to do this can be found in this file under `Installation` 
 2. Fill in the Configurations and Credentials as indicated in this file under `Configurations and Credentials` 
