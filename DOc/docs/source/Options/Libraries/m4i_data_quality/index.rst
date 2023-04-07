@@ -1,3 +1,6 @@
+.. _m4i_data_quality_index:
+
+
 # Data Quality on DMP Governance - Atlas
 Is used to determine the quality of various entities already loaded into DMP's governance tool - Apache Atlas. 
 It verifies data loaded against various m4i types ( like m4i_data_domain, m4i_data_entity ) on quality measures like completeness, uniqueness etc.
