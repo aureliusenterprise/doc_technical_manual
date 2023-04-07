@@ -2,7 +2,7 @@ Libraries
 =========
 .. _libraries:
 
-:doc:`Libraries\m4i_data_quality\index `
+:doc:`Libraries/m4i_data_quality/index `
 
 
 
