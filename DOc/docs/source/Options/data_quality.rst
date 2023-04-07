@@ -339,8 +339,8 @@ First run a test to see if the columns are bijacent. The columns "id" and "name"
 
             result =  bijacency(data, "id", "name") 
 
-This is the function that we are using: bijacency(df, "column_a", "column_b"). The inputs are the dataset and the column names.
 
+This is the function that we are using: `bijacency(df, "column_a", "column_b")`. The inputs are the dataset and the column names.
 The id and name are the same in this example, which means they are bijacent. The output will be 1.
 
 
@@ -364,7 +364,7 @@ A dummy dataset is provided and the first two characters of the id and name will
 
         result = compare_first_characters(data, "id", "name", 2)
 
-This is the function used in this example: compare_first_characters(df, "column_a", "column_b", num_char). The inputs are the dataset,the column names and the number of characters.   
+This is the function used in this example: `compare_first_characters(df, "column_a", "column_b", num_char)`. The inputs are the dataset,the column names and the number of characters.   
       
 3. Check First Characters using Prefix
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -388,11 +388,8 @@ A dummy dataset with two columns, id and name is provided
     result = compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
 
 
-A prefix BE is used and the function is
-
-	compare_first_characters_starting_without(data, "id", "name", 2, 'BE')
-
-we provide the dataset we are using, the column names, the number of characters we want to compare and the prefix.
+A prefix BE is used and the function is `compare_first_characters_starting_without(data, "id", "name", 2, 'BE')`
+The inputs are the data, the column names, the number of characters and the prefix.
 The output will be 1, because the charaters are the same and have the prefix too.
     
 
@@ -419,11 +416,8 @@ function will return 1, otherwise it will return 0
 
                 result = completeness(data, "name")
 
- This is the function. The inputs are data and the name of the column we want to check.
-     
-	 completeness(df, "column")
- 
- The output here will be 0, because the column 'name' has no value in it.
+ The function is called `completeness(df, "column")`. The inputs are data and the name of the column we want to check.
+ The output will be 0, because the column 'name' has no value in it.
 
 
 5. Check Conditional Completeness
@@ -446,10 +440,8 @@ and we are seeing if it has a substring of the list values.
 
             result = conditional_completeness(data, "conditional", "value", values)
 
-This is the function of use. The inputs are data, the name of the columns and the list of given values.
-
-conditional_completeness(df, "column_a", "column_b",[list])
-
+This is the function of use `conditional_completeness(df, "column_a", "column_b",[list])`.
+The inputs are data, the name of the columns and the list of given values.
 The output here will be 1, because they are no empty values in the columns and the column "conditional" has substrings of the given 
 values = ['.TMP', '.FREE']
 
@@ -486,6 +478,7 @@ The output will be 1 because it containf substrings in the 'conditional'  column
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The 'value' and 'conditional' column are being checked to see if it contains the expected values of the 'key' values object.
+
   .. code-block:: python
         
         values = {"xx.TMP": "XX No Grade"}    (this is dictionary with it's key and value)
@@ -500,10 +493,8 @@ The 'value' and 'conditional' column are being checked to see if it contains the
         result = conditional_value(data, "conditional", "value", values) 
 
 
-This is the function used for this example. The inputs are data of the dummy dataset, the names of the columns which are "value" and "conditional" and the values, that are the substrings we want to check.
-    
-    result = conditional_value(df, "column_a", "column_b", {dictionary})
-
+the function used for this example is called `conditional_value(df, "column_a", "column_b", {dictionary})`. 
+The inputs are data of the dummy dataset, the names of the columns which are "value" and "conditional" and the values, that are the substrings we want to check.
 The output here will 1, because "value" column, contains an expecetd value. Otherwise it would be 0.
 
 
@@ -526,11 +517,8 @@ A dummy dataframe is provided with one column called "id".
 
         result = contains_character(data, "id", ".", 1) 
 
-This is the function used in this example. The inputs are data, name of the column, the character we want to check and 1 is the expected count
-    
-    contains_character(df, "column", "string", int)  
-
-
+This is the function used in this example `contains_character(df, "column", "string", int)`. 
+The inputs are data, name of the column, the character we want to check and 1 is the expected count
 The check performed here is to if the the id contains "." . The output will be 1 because the "id" column contains "."
 
 
@@ -552,11 +540,8 @@ A dummy dataset is provided
             result = formatting(data, "name", r'^[a-zA-Z]+$')
 
 
-This is the function used for this example. The inputs are the dataset,the column "name" and the pattern to see if it matches 
-
-formatting(df, "column", expression_pattern)
-
-
+This is the function used for this example `formatting(df, "column", expression_pattern)`.
+The inputs are the dataset,the column "name" and the pattern to see if it matches 
 The ouput will be 1 in this example, because 'ExampleText' matches the pattern.
 
 
@@ -582,9 +567,9 @@ A list of the example values and a dummy dataframe are provided.
         result = invalidity(data, "value", exampleValues)
 
 
-The funtion is called invalidity. The inputs are data, column name and the list of values.
+The funtion is `invalidity(df, "column", [list])`. The inputs are data, column name and the list of values.
 
-    invalidity(df, "column", [list])
+   
 
 The output will be 1 , becaue "X" is in the list of values.
 
@@ -608,10 +593,7 @@ A dummy dataframe with column name "id"
         result = length(data, "id", 4)
 
 
-The function is called length. The inputs are data, column name and the length of required characters.
-    
-    length(df,"column",int)
-
+The function is `length(df,"column",int)`. The inputs are data, column name and the length of required characters.
 The output is 1 because the length of id is 4.
 
 
@@ -634,10 +616,8 @@ A dummy dataframe for this example with column name "value"
         result = range(data, "value", 0, 1)
 
 
-The function is called range. The inputs are the dataframe, the column name and the range (The upper and lower bound)
-
-    range(df, "column", int1, int2)
-
+The function is `range(df, "column", int1, int2)`. 
+The inputs are the dataframe, the column name and the range (The upper and lower bound)
 The output will be 1 because 0.1 is between 0 and 1.
 
 
@@ -658,10 +638,7 @@ This example checks if the values in the column `column_name` start with any of 
 
 
 
-The function is called starts_with. The inputs are the data the column name and the prefix.
-
-    starts_with(data, "column", "prefix")
-
+The function is called `starts_with(data, "column", "prefix")`. The inputs are the data the column name and the prefix.
 The output is 1, because "1" is in the value of the id column.
     
 
@@ -685,10 +662,7 @@ A dummy dataset is provided.
         result = unallowed_text(data, "Organisation", "BG Van Oord")
 
 
-The function is called unalllowed_text. The inputs are data, the column name and the unallowed text
-
-    unallowed_text(df, "column", "sting")
-
+The function is called `unallowed_text(df, "column", "sting")`. The inputs are data, the column name and the unallowed text
 The output is 1 because "BG Van Oord" is not in the "Something Else" of the "Organisation" column.
 
 
@@ -718,10 +692,7 @@ A dummy dataset is provided
 
 
 
-The function is called uniqueness. The inputs are the dataset and the name of the column.
-    
-    uniqueness(data, "id")
-
+The function is `uniqueness(data, "id")`. The inputs are the dataset and the name of the column.
 The output will be 0, because the "id" column conatins duplicate values
 
 
@@ -746,10 +717,7 @@ The values in the example list and a dummy dataset are provided
             
         result = validity(data, "value", exampleValues)
 
-The function is called validity. The inputs are data, the column name and the list of example values.
-
-    validity(df, "key",[list])
-
+The function is `validity(df, "key",[list])`. The inputs are data, the column name and the list of example values.
 The output is 1, because the value of the column exists in the example list.
 
 
