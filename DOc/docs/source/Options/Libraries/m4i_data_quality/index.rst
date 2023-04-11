@@ -27,12 +27,19 @@ There are separate rules for attributes and relationships. However, the structur
 
 
 id: id
+
 expressionVersion: version of expression
+
 expression: expression to evaluate `completeness('name')`
+
 qualifiedName: unique name for the rule example:`m4i_data_domain--name`
+
 qualityDimension: Rule Category - explained below
+
 ruleDescription: Description of the rule ex:`name is not None and is not empty`
+
 active: 0 | 1 
+
 type: attribute | relationship
 
 
@@ -56,17 +63,25 @@ type: attribute | relationship
 Example
 
 id: 1
+
 expressionVersion: 1
+
 expression: completeness('name')
+
 qualifiedName: m4i_data_domain--name
+
 qualityDimension: completeness
+
 ruleDescription: name is not None and is not empty
+
 active: 1
+
 type: attribute
 
 `Rules` are maintained in `rules` directory of the package and can be found for each m4i type.
 
-# Running the code
+Running the code
+-----------------
 We can execute `run.py` file. This will generates 6 files in output folder of the package. Three each for attributes 
 and relationships. In addition, generated data is pushed to Elasticsearch indexes. We can configure pre-fix of indexes by updating
 `elastic_index_prefix` for both attributes and relationships related data.
@@ -75,7 +90,8 @@ and relationships. In addition, generated data is pushed to Elasticsearch indexe
 * Complaint Data -- gives information about complaints.
 * Non-complaint Data -- gives information about non-complaints.
 
-# Dependency
+Dependency
+-----------
 To Run this package, we need to have below packages installed
 * `m4i_atlas_core` -- communicates with Apache Atlas
 * `vox-data-management` -- communicates for Quality metric already defined
@@ -85,18 +101,11 @@ Installation
 -------------
 
 Please ensure your `Python` environment is set on version `3.7`. Some dependencies do not work with any later versions of `Python`.
-Basically, this is a requirement for underlying package `vox_data_management`
+Basically, this is a requirement for underlying package `m4i_data_management`
 
 To install `m4i-atlas-core` and all required dependencies to your active `Python` environment. Activate it using:
 
 `source <venv_name>\bin\activate` or create new `python3.7 -m venv <venv_name>`
-
-Example: Creates a new environment and activates it
-```shell
-python3.7 -m venv <venv_name>
-source <venv_name>\bin\activate
-pip install -e <location_of_dependent_packages>
-```
 
 Configurations and Credentials
 -------------------------------
@@ -107,22 +116,38 @@ Please set the configuration parameters and credentials for `atlas` and `elastic
 `credentials.py`
 Should contain two dictionaries viz `credential_atlas` and `credential_elastic`
 
-| Name | Description | 
-|---|---|
-| credential_atlas[atlas.credentials.username] |  The Username to be used to access the Atlas Instance. | 
-| credential_atlas[atlas.credentials.password] | The Password to be used to access the Atlas Instance must correspond to the Username given. | 
-| credential_elastic[elastic_cloud_id] |  Service URL for Elastic. | 
-| credential_elastic[elastic_cloud_username] |  The Username to be used to access the Elastic Instance. | 
-| credential_elastic[elastic_cloud_password] | The Password to be used to access the Elastic Instance must correspond to the Username given. | 
++----------------------------------------------+-------------------------------------------------------------------+
+| Name                                         | Description                                                       |
++==============================================+===================================================================+
+| credential_atlas[atlas.credentials.username] | The Username to be used to access the Atlas Instance.             |
++----------------------------------------------+-------------------------------------------------------------------+
+| credential_atlas[atlas.credentials.password] | The Password to be used to access the Atlas Instance must         |
+|                                              | correspond to the Username given.                                 |
++----------------------------------------------+-------------------------------------------------------------------+
+| credential_elastic[elastic_cloud_id]         | Service URL for Elastic.                                          |
++----------------------------------------------+-------------------------------------------------------------------+
+| credential_elastic[elastic_cloud_username]   | The Username to be used to access the Elastic Instance.           |
++----------------------------------------------+-------------------------------------------------------------------+
+| credential_elastic[elastic_cloud_password]   | The Password to be used to access the Elastic Instance must       |
+|                                              | correspond to the Username given.                                 |
++----------------------------------------------+-------------------------------------------------------------------+
+
+
+
+
 
 `config.py`
 Should contain two dictionaries viz `config_elastic` and `config_atlas`
 
-| Name | Description | 
-|---|---|
-| config_elastic[elastic_index_prefix] | Define prefix for the elastic Index where data will be pushed to|
-| config_atlas[atlas.server.url] |  The Server URL that Atlas runs on, with `/api/atlas` post fix. |
-| config_atlas[atlas.credentials.token] |  Add Keycloak access token |
++------------------------------------------+------------------------------------------------------------------+
+| Name                                     | Description                                                      |
++==========================================+==================================================================+
+| config_elastic[elastic_index_prefix]     | Define prefix for the elastic Index where data will be pushed to |
++------------------------------------------+------------------------------------------------------------------+
+| config_atlas[atlas.server.url]           | The Server URL that Atlas runs on, with `/api/atlas` post fix.   |
++------------------------------------------+------------------------------------------------------------------+
+| config_atlas[atlas.credentials.token]    | Add Keycloak access token                                        |
++------------------------------------------+------------------------------------------------------------------+
 
 
 Execution 
