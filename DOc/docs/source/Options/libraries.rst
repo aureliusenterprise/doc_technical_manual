@@ -14,7 +14,8 @@ Aurelius Atlas
     :hidden:
     
     Libraries/m4i_atlas_core/index
-    Libraries/m4i_data_quality/index  
+    Libraries/m4i_data_quality/index
+    Libraries/m4i_data_management/index   
 
 
     
@@ -41,7 +42,7 @@ Aurelius Atlas
 | atlas-m4i-connector                                            | gitlab             |                       | integration m4i with atlas; merge required                                                                            |
 +----------------------------------------------------------------+--------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------+
 
-Libraries/m4i_atlas_core/index
+
 
 
 Models4Insight
