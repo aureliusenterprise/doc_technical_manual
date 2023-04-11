@@ -1,8 +1,8 @@
 .. _m4i_data_quality_index:
 
 
-Data Quality on DMP Governance - Atlas
---------------------------------------
+Data Quality
+-------------
 
 Is used to determine the quality of various entities already loaded into DMP's governance tool - Apache Atlas. 
 It verifies data loaded against various m4i types ( like m4i_data_domain, m4i_data_entity ) on quality measures like completeness, uniqueness etc.
@@ -18,43 +18,52 @@ There are two main categories of Data that is generated for each m4i Type entity
      consists of details about entity relationships where certain quality metrics can be applied like
        * completeness -- whether we have correct relationships between two entities.
      
-These rules are inherited from `nxtgen-vox-data-management` repository.
+These rules are inherited from `m4i_data_management` repository.
 
 Configuring Rules
 ------------------
 An important aspect of Data Quality is the rules that are applied to each entity. 
 There are separate rules for attributes and relationships. However, the structure is same and follows as below.
 
-```yaml
-  id: id
-  expressionVersion: version of expression
-  expression: expression to evaluate `completeness('name')`
-  qualifiedName: unique name for the rule example:`m4i_data_domain--name`
-  qualityDimension: Rule Category - explained below
-  ruleDescription: Description of the rule ex:`name is not None and is not empty`
-  active: 0 | 1 
-  type: attribute | relationship
-```
 
-| Rule Category | Rule Description | 
-|---|---|
-| _completeness_ | degree to which data is not null |
-| _accuracy_ | degree to which a column conforms to a standard |
-| _validity_ | degree to which the data comply with a predefined structure |
-| _uniqueness_ | degree to which the data has a unique value | 
-| _timeliness_ | the data should be up to date |
+id: id
+expressionVersion: version of expression
+expression: expression to evaluate `completeness('name')`
+qualifiedName: unique name for the rule example:`m4i_data_domain--name`
+qualityDimension: Rule Category - explained below
+ruleDescription: Description of the rule ex:`name is not None and is not empty`
+active: 0 | 1 
+type: attribute | relationship
+
+
++-----------------+-------------------------------------+
+| Rule Category   | Rule Description                    |
++=================+=====================================+
+| completeness    | degree to which data is not null    |
++-----------------+-------------------------------------+
+| accuracy        | degree to which a column conforms   |
+|                 | to a standard                       |
++-----------------+-------------------------------------+
+| validity        | degree to which the data comply     |
+|                 | with a predefined structure         |
++-----------------+-------------------------------------+
+| uniqueness      | degree to which the data has a      |
+|                 | unique value                        |
++-----------------+-------------------------------------+
+| timeliness      | the data should be up to date       |
++-----------------+-------------------------------------+
 
 Example
-```yaml
-    id: 1
-    expressionVersion: 1
-    expression: completeness('name')
-    qualifiedName: m4i_data_domain--name
-    qualityDimension: completeness
-    ruleDescription: name is not None and is not empty
-    active: 1
-    type: attribute
-```
+
+id: 1
+expressionVersion: 1
+expression: completeness('name')
+qualifiedName: m4i_data_domain--name
+qualityDimension: completeness
+ruleDescription: name is not None and is not empty
+active: 1
+type: attribute
+
 `Rules` are maintained in `rules` directory of the package and can be found for each m4i type.
 
 # Running the code
