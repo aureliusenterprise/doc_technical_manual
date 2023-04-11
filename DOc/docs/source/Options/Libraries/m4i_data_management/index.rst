@@ -2,11 +2,11 @@
 .. _m4i_data_management_index:
 
 
-
 M4I Data Management
 ====================
 
 This library contains all core functionality around data management for Models4Insight.
+
 
 Installation
 -------------
