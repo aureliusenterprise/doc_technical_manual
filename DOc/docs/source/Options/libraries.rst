@@ -15,7 +15,8 @@ Aurelius Atlas
     
     Libraries/m4i_atlas_core/index
     Libraries/m4i_data_quality/index
-    Libraries/m4i_data_management/index   
+    Libraries/m4i_data_management/index
+    Libraries/m4i_data_dictionary_io/index   
 
 
     
