@@ -2,7 +2,7 @@
 
 
 m4i_data_dictionary_io
------------------------
+========================
 
 This library contains all core functionality for reading Data Dictionary excels and pushing the defined entities in bulk
 by type to atlas. Data Dictionary is expected to be in the same format as the template Data Dictionary.
@@ -16,23 +16,28 @@ of `Python`.
 To install `m4i-data-dictionary-io` and all required dependencies to your active `Python` environment, please run the
 following command from the project root folder:
 
-```
+
 pip install -e .
-```
+
 
 Configurations and Credentials
 -------------------------------
 
 In the `scripts` directory. Please make a copy of `config.sample.py` and `credentials.sample.py` and rename the files
 to `config.py` and `credentials.py` respectively. Please set the configuration parameters and credentials for `atlas`.
+ 
++--------------------------------+-----------------------------------------------------------+
+| Server name                    |     Description                                           |
++================================+===========================================================+
+| atlas.server.url               | The Server Url that Atlas runs on, with '/api/atlas' post |
+|                                | fix.                                                      |
++--------------------------------+-----------------------------------------------------------+
+| atlas.credentials.username     | The Username to be used to access the Atlas Instance.     |
++--------------------------------+-----------------------------------------------------------+
+| atlas.credentials.password     | The Password to be used to access the Atlas Instance must |
+|                                | correspond to the Username given.                         |
++--------------------------------+-----------------------------------------------------------+
 
-| Name | Required | Description | 
-|---|---|---|
-| atlas.server.url | True |  The Server Url that Atlas runs on, with '/api/atlas' post fix. | 
-| validate_qualified_name | False | If to validate the qualified Names given. This is default to True, however, if the entities provided in the data dictionary do not follow the qualified Name schema, the validation can be turned off by setting this configuration to False. |
-| data.dictionary.path | True |  The Path to the Data Dictionary to be loaded.| 
-| atlas.credentials.username | True |  The Username to be used to access the Atlas Instance. | 
-| atlas.credentials.password | True | The Password to be used to access the Atlas Instance must correspond to the Username given. | 
 
 Execution
 ----------
