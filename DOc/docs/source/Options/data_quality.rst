@@ -343,6 +343,7 @@ First run a test to see if the columns are bijacent. The columns "id" and "name"
 
 This is the function that we are using: `bijacency(df, "column_a", "column_b")`. The inputs are the dataset and the column names.
 The id and name are the same in this example, which means they are bijacent. The output will be 1.
+
 .. _Compare first characters:
 
 2. Compare First characters
@@ -367,7 +368,9 @@ A dummy dataset is provided and the first two characters of the id and name will
 
 This is the function used in this example: `compare_first_characters(df, "column_a", "column_b", num_char)`. The inputs are the dataset,the column names and the number of characters.   
 
-.. _Compare first characters starting without:      
+
+.. _Compare first characters starting without:
+
 3. Check First Characters using Prefix
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
