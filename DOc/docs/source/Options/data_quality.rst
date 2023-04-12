@@ -214,7 +214,7 @@ These are they data quality rules that are applied on a dataset.
 Below is a brief description of each rule.
 
 
-.. _Bijacency: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py
+.. _[1]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py
 .. _Compare first characters: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters/compare_first_characters.py
 .. _Compare first characters starting without: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters_starting_without/compare_first_characters_starting_without.py
 .. _Completeness: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/completeness/completeness.py
@@ -236,8 +236,8 @@ Below is a brief description of each rule.
 | Rule                          | Description                                                     |
 +===============================+=================================================================+
 |                               |                                                                 |
-|`Bijacency`_                   | Checks whether or not the values in the given `column_a` and    |
-|                               | `column_b` only occur as a unique combination.                  |
+|:ref:`Bijacency`               | Checks whether or not the values in the given `column_a` and    |
+|                               | `column_b` only occur as a unique combination. `[1]`_           |
 +-------------------------------+-----------------------------------------------------------------+
 |                               |                                                                 |
 | `Compare first characters`_   | Checks whether the first 'number_of_characters' values in       |
@@ -309,6 +309,7 @@ Below is a brief description of each rule.
 Data Quality Rules and Examples
 --------------------------------
 
+.. _Bijacency:
 
 1. Bijacency
 ~~~~~~~~~~~~
