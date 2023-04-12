@@ -774,7 +774,7 @@ pip install -e .[dev]
 
 
 Install m4i_data_management:
-You can clone m4i_data_management from this link https://gitlab.com/m4i/m4i_data_management
+You can clone m4i_data_management from this link https://github.com/AthanasiosAurelius/m4i-data-management
 Then you install with this command
 
 
@@ -981,7 +981,7 @@ Push the data quality instance to Atlas
 
 
 
-Here is a link to the git, click `here. <https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/quality_rules.md>`_
+Here is a link to the git, click `here. <https://github.com/AthanasiosAurelius/m4i-data-management/tree/Athanasios/m4i_data_management/core/quality/rules>`_
 
 
 
