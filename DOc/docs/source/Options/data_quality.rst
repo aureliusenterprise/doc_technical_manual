@@ -207,7 +207,7 @@ A description on how to setup the script and how to run it will follow shortly.
 Definitions of data quality rules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-They are located at the m4i-data-management repository `quality rules <https://gitlab.com/m4i/m4i-data-management/-/tree/Athanasios/m4i_data_management/core/quality/rules>`_
+They are located at the m4i-data-management repository `quality rules <https://github.com/AthanasiosAurelius/m4i-data-management/tree/Athanasios/m4i_data_management/core/quality/rules>`_
 You can find all the data quality rules, that you wish to apply on a dataset. They are explanations of each rule and examples on how to use them.
 These are they data quality rules that are applied on a dataset.
 
@@ -749,7 +749,7 @@ Here is a link of the repositories you will need:
 
      https://github.com/aureliusenterprise/m4i_atlas_core
 
-     https://gitlab.com/m4i/m4i-data-management
+     https://github.com/AthanasiosAurelius/m4i-data-management
 
 
 
@@ -981,7 +981,7 @@ Push the data quality instance to Atlas
 
 
 
-Here is a link to the git, click `here. <https://github.com/AthanasiosAurelius/m4i-data-management/tree/Athanasios/m4i_data_management/core/quality/rules>`_
+
 
 
 
