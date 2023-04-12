@@ -217,93 +217,93 @@ Below is a brief description of each rule.
 .. _[1]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py
 .. _[2]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters/compare_first_characters.py
 .. _[3]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters_starting_without/compare_first_characters_starting_without.py
-.. _Completeness: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/completeness/completeness.py
-.. _Conditional unallowed text: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_unallowed_text/conditional_unallowed_text.py
-.. _Conditional completeness: https://github.com/AthanasiosAurelius/m4i-data-management/tree/Athanasios/m4i_data_management/core/quality/rules/conditional_completeness
-.. _Conditional value: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_value/conditional_value.py
-.. _Contains Character: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/contains_character/contains_character.py
-.. _Formatting: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/formatting/formatting.py
-.. _Invalidity: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/invalidity/invalidity.py
-.. _Length: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/length/length.py
-.. _Range: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/range/range.py
-.. _Starts with: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/starts_with/starts_with.py
-.. _Unallowed text: https://github.com/AthanasiosAurelius/m4i-data-management/tree/Athanasios/m4i_data_management/core/quality/rules/unallowed_text
-.. _Uniqueness: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/uniqueness/uniqueness.py
-.. _Validity: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/validity/validity.py
+.. _[4]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/completeness/completeness.py
+.. _[6]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_unallowed_text/conditional_unallowed_text.py
+.. _[5]: https://github.com/AthanasiosAurelius/m4i-data-management/tree/Athanasios/m4i_data_management/core/quality/rules/conditional_completeness
+.. _[7]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_value/conditional_value.py
+.. _[8]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/contains_character/contains_character.py
+.. _[9]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/formatting/formatting.py
+.. _[10]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/invalidity/invalidity.py
+.. _[11]: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/length/length.py
+.. _[12]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/range/range.py
+.. _[13]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/starts_with/starts_with.py
+.. _[14]: https://github.com/AthanasiosAurelius/m4i-data-management/tree/Athanasios/m4i_data_management/core/quality/rules/unallowed_text
+.. _[15]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/uniqueness/uniqueness.py
+.. _[16]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/validity/validity.py
 
 
-+-------------------------------+-----------------------------------------------------------------+
-| Rule                          | Description                                                     |
-+===============================+=================================================================+
-|                               |                                                                 |
-|:ref:`Bijacency`               | Checks whether or not the values in the given `column_a` and    |
-|                               | `column_b` only occur as a unique combination. `[1]`_           |
-+-------------------------------+-----------------------------------------------------------------+
-|                               |                                                                 |
-|:ref:`Compare first characters`| Checks whether the first 'number_of_characters' values in       |
-|                               | `first_column_name` and `second_column_name` are similar, and if|
-|                               | the values are None or NaN.      `[2]`_                         |
-+-------------------------------+-----------------------------------------------------------------+
-|                               |                                                                 |           
-| :ref:`Compare first           | Checks whether the first 'number_of_characters' values starting |
-| characters                    | without in `first_column_name` and `second_column_name` are     |
-| starting without`             | similar, and if `column_name` does not start with any of the    |
-|                               | given `prefixes`, and if the values are None or NaN.   `[3]`_   |
-+-------------------------------+-----------------------------------------------------------------+
-|                               |                                                                 |
-| `Completeness`_               | Checks whether the values in the column with the given          |
-|                               | `column_name` are None or NaN.                                  |
-+-------------------------------+-----------------------------------------------------------------+
-|                               |                                                                 |
-|`Conditional completeness`_    | Checks whether or not the values in the given `value_column`    |
-|                               | are `None` or `NaN`.                                            |
-+-------------------------------+-----------------------------------------------------------------+
-|                               |                                                                 |
-|`Conditional unallowed text`_  | Checks if values in the column with the given `value_column`    |
-|                               | contain a specific unallowed `text`.                            |
-+-------------------------------+-----------------------------------------------------------------+
-|                               |                                                                 |
-| `Conditional value`_          | Checks whether the values in the given `value_column` match     |
-|                               | (one of) the expected value(s) for a given key in the           |
-|                               | `key_column`.                                                   |
-+-------------------------------+-----------------------------------------------------------------+
-|                               |                                                                 |
-| `Contains character`_         | Checks how many times the values in the column with the given   |
-|                               | `column_name` contain a specific character.                     |
-+-------------------------------+-----------------------------------------------------------------+
-|                               |                                                                 |
-| `Formatting`_                 | Checks whether or not the values in the column with the given   |
-|                               | `column_name` match the given `pattern`.                        |
-+-------------------------------+-----------------------------------------------------------------+
-|                               |                                                                 |
-| `Invalidity`_                 | Checks whether or not the values in the column with the given   |
-|                               | `column_name` does not exist in the given list of `values`.     |
-+-------------------------------+-----------------------------------------------------------------+
-|                               |                                                                 |
-| `Length`_                     | Checks if the number of characters of the values in the column  |
-|                               | with the given `column_name` are equal to the `required_length`.|
-+-------------------------------+-----------------------------------------------------------------+
-|                               |                                                                 |
-| `Range`_                      | Checks whether or not the values in the column with the given   |
-|                               | `column_name` are:                                              |
-|                               | - Greater than or equal to the given `lower_bound`.             |
-|                               | - Less than or equal to the given `upper_bound`.                |
-+-------------------------------+-----------------------------------------------------------------+
-|                               |                                                                 |
-| `Starts with`_                | Checks whether or not the values in the column with the given   |
-|                               | `column_name` start with any of the given `prefixes`.           |
-+-------------------------------+-----------------------------------------------------------------+
-|                               |                                                                 |
-| `Unallowed text`_             | Checks if values in the column with the given `column_name`     |
-+-------------------------------+-----------------------------------------------------------------+
-|                               |                                                                 |
-| `Uniqueness`_                 | Checks whether the values in the column with the given          |
-|                               | `column_name` are unique (duplicate value check).               |
-+-------------------------------+-----------------------------------------------------------------+
-|                               |                                                                 |
-| `Validity`_                   | Checks whether or not the values in the column with the given   |
-|                               | `column_name` exist in the given list of `values`.              |
-+-------------------------------+-----------------------------------------------------------------+
++------------------------------------+-----------------------------------------------------------------+
+| Rule                               | Description                                                     |
++====================================+=================================================================+
+|                                    |                                                                 |
+|:ref:`Bijacency`                    | Checks whether or not the values in the given `column_a` and    |
+|                                    | `column_b` only occur as a unique combination. `[1]`_           |
++------------------------------------+-----------------------------------------------------------------+
+|                                    |                                                                 |
+|:ref:`Compare first characters`     | Checks whether the first 'number_of_characters' values in       |
+|                                    | `first_column_name` and `second_column_name` are similar, and if|
+|                                    | the values are None or NaN.      `[2]`_                         |
++------------------------------------+-----------------------------------------------------------------+
+|                                    |                                                                 |           
+| :ref:`Compare first                | Checks whether the first 'number_of_characters' values starting |
+| characters                         | without in `first_column_name` and `second_column_name` are     |
+| starting without`                  | similar, and if `column_name` does not start with any of the    |
+|                                    | given `prefixes`, and if the values are None or NaN.   `[3]`_   |
++------------------------------------+-----------------------------------------------------------------+
+|                                    |                                                                 |
+| :ref:`Completeness`                | Checks whether the values in the column with the given          |
+|                                    | `column_name` are None or NaN. `[4]`_                           |
++------------------------------------+-----------------------------------------------------------------+
+|                                    |                                                                 |
+|:ref`Conditional completeness`      | Checks whether or not the values in the given `value_column`    |
+|                                    | are `None` or `NaN`.     `[5]`_                                 |
++------------------------------------+-----------------------------------------------------------------+
+|                                    |                                                                 |
+|:ref:`Conditional unallowed text`   | Checks if values in the column with the given `value_column`    |
+|                                    | contain a specific unallowed `text`.    `[6]`_                  |
++------------------------------------+-----------------------------------------------------------------+
+|                                    |                                                                 |
+| :ref:`Conditional value`           | Checks whether the values in the given `value_column` match     |
+|                                    | (one of) the expected value(s) for a given key in the           |
+|                                    | `key_column`.           `[7]`                                   |
++------------------------------------+-----------------------------------------------------------------+
+|                                    |                                                                 |
+| :ref:`Contains character`          | Checks how many times the values in the column with the given   |
+|                                    | `column_name` contain a specific character.     `[8]`           |
++------------------------------------+-----------------------------------------------------------------+
+|                                    |                                                                 |
+| :ref:`Formatting`                  | Checks whether or not the values in the column with the given   |
+|                                    | `column_name` match the given `pattern`.      `[9]`             |
++------------------------------------+-----------------------------------------------------------------+
+|                                    |         Checks whether or not the values                        |
+| :ref:`Invalidity`                  |  in the column with the given `column_name` does not exist      |
+|                                    |  in the given list of `values`.    [10]`_                       |
++------------------------------------+-----------------------------------------------------------------+
+|                                    |   Checks if the number of characters                            |
+| :ref:`Length`                      |  of the values in the column  with the given `column_name`      |
+|                                    | are equal to the `required_length`.   `[11]`_                   |
++------------------------------------+-----------------------------------------------------------------+
+|                                    |                                                                 |
+| :ref:`Range`                       | Checks whether or not the values in the column with the given   |
+|                                    | `column_name` are:                                              |
+|                                    | - Greater than or equal to the given `lower_bound`.             |
+|                                    | - Less than or equal to the given `upper_bound`.      `[12]`_   |
++------------------------------------+-----------------------------------------------------------------+
+|                                    |                                                                 |
+| :ref:`Starts with`                 | Checks whether or not the values in the column with the given   |
+|                                    | `column_name` start with any of the given `prefixes`. `[13]`_   |
++------------------------------------+-----------------------------------------------------------------+
+|                                    |  Checks if values in the column                                 |
+| :ref:`Unallowed text`              |  with the given `column_name` `[14]`_                           |
++------------------------------------+-----------------------------------------------------------------+
+|                                    |                                                                 |
+| :ref:`Uniqueness`                  | Checks whether the values in the column with the given          |
+|                                    | `column_name` are unique (duplicate value check).    `[15]`_    |
++------------------------------------+-----------------------------------------------------------------+
+|                                    |                                                                 |
+| :ref:`Validity`                    | Checks whether or not the values in the column with the given   |
+|                                    | `column_name` exist in the given list of `values`.   `[16]`_    |
++------------------------------------+-----------------------------------------------------------------+
 
 
 Data Quality Rules and Examples
@@ -398,6 +398,7 @@ The inputs are the data, the column names, the number of characters and the pref
 The output will be 1, because the charaters are the same and have the prefix too.
     
 
+.. _Completeness:
 
 4. Check Completeness
 ~~~~~~~~~~~~~~~~~~~~~
@@ -424,6 +425,7 @@ function will return 1, otherwise it will return 0
  The function is called `completeness(df, "column")`. The inputs are data and the name of the column we want to check.
  The output will be 0, because the column 'name' has no value in it.
 
+.. _Conditional completeness:
 
 5. Check Conditional Completeness
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
