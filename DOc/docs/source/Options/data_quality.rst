@@ -265,15 +265,15 @@ Below is a brief description of each rule.
 |                                    |                                                                 |
 | :ref:`Conditional value`           | Checks whether the values in the given `value_column` match     |
 |                                    | (one of) the expected value(s) for a given key in the           |
-|                                    | `key_column`.           `[7]`                                   |
+|                                    | `key_column`.           `[7]`_                                  |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |                                                                 |
 | :ref:`Contains character`          | Checks how many times the values in the column with the given   |
-|                                    | `column_name` contain a specific character.     `[8]`           |
+|                                    | `column_name` contain a specific character.     `[8]`_          |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |                                                                 |
 | :ref:`Formatting`                  | Checks whether or not the values in the column with the given   |
-|                                    | `column_name` match the given `pattern`.      `[9]`             |
+|                                    | `column_name` match the given `pattern`.      `[9]`_            |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |         Checks whether or not the values                        |
 | :ref:`Invalidity`                  |  in the column with the given `column_name` does not exist      |
@@ -452,6 +452,7 @@ The inputs are data, the name of the columns and the list of given values.
 The output here will be 1, because they are no empty values in the columns and the column "conditional" has substrings of the given 
 values = ['.TMP', '.FREE']
 
+.. _Conditional unallowed text:
 
 6. Check Unallowed Text
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -481,6 +482,8 @@ This is the function used for this example. The inputs are is the dataframe, the
 The output will be 1 because it containf substrings in the 'conditional'  column and doesn't contain the unalloed text in column "Value". If it did the output would be 0.
 
 
+.. _Conditional value:
+
 7. Check Conditional Value
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -505,6 +508,7 @@ The inputs are data of the dummy dataset, the names of the columns which are "va
 The output here will 1, because "value" column, contains an expecetd value. Otherwise it would be 0.
 
 
+.. _Contains character:
 
 8. Check Character Count
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -528,6 +532,7 @@ This is the function used in this example `contains_character(df, "column", "str
 The inputs are data, name of the column, the character we want to check and 1 is the expected count
 The check performed here is to if the the id contains "." . The output will be 1 because the "id" column contains "."
 
+.. _Formatting:
 
 9. Check Matching Pattern
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -552,6 +557,7 @@ The inputs are the dataset,the column "name" and the pattern to see if it matche
 The ouput will be 1 in this example, because 'ExampleText' matches the pattern.
 
 
+.. _Invalidity:
 
 10. Check Invalidity
 ~~~~~~~~~~~~~~~~~~~~
@@ -580,6 +586,7 @@ The funtion is `invalidity(df, "column", [list])`. The inputs are data, column n
 
 The output will be 1 , becaue "X" is in the list of values.
 
+.. _Length:
 
 11. Check Length
 ~~~~~~~~~~~~~~~~
@@ -603,6 +610,7 @@ A dummy dataframe with column name "id"
 The function is `length(df,"column",int)`. The inputs are data, column name and the length of required characters.
 The output is 1 because the length of id is 4.
 
+.. _Range:
 
 12. Check Range
 ~~~~~~~~~~~~~~~
@@ -627,6 +635,7 @@ The function is `range(df, "column", int1, int2)`.
 The inputs are the dataframe, the column name and the range (The upper and lower bound)
 The output will be 1 because 0.1 is between 0 and 1.
 
+.. _Starts with:
 
 13. Check Prefix
 ~~~~~~~~~~~~~~~~
@@ -648,6 +657,7 @@ This example checks if the values in the column `column_name` start with any of 
 The function is called `starts_with(data, "column", "prefix")`. The inputs are the data the column name and the prefix.
 The output is 1, because "1" is in the value of the id column.
     
+.. _Unallowed text:
 
 14. Check Unallowed Text
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -672,6 +682,7 @@ A dummy dataset is provided.
 The function is called `unallowed_text(df, "column", "sting")`. The inputs are data, the column name and the unallowed text
 The output is 1 because "BG Van Oord" is not in the "Something Else" of the "Organisation" column.
 
+.. _Uniqueness:
 
 15. Check Uniqueness
 ~~~~~~~~~~~~~~~~~~~~
@@ -703,6 +714,7 @@ The function is `uniqueness(data, "id")`. The inputs are the dataset and the nam
 The output will be 0, because the "id" column conatins duplicate values
 
 
+.. _Validity:
 
 16. Check Validity
 ~~~~~~~~~~~~~~~~~~
