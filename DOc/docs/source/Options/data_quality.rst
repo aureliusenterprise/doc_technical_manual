@@ -255,7 +255,7 @@ Below is a brief description of each rule.
 |                                    | `column_name` are None or NaN. `[4]`_                           |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |                                                                 |
-|:ref`Conditional completeness`      | Checks whether or not the values in the given `value_column`    |
+|:ref:`Conditional completeness`     | Checks whether or not the values in the given `value_column`    |
 |                                    | are `None` or `NaN`.     `[5]`_                                 |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |                                                                 |
