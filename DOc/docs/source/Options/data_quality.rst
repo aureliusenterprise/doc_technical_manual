@@ -215,8 +215,8 @@ Below is a brief description of each rule.
 
 
 .. _[1]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py
-.. _Compare first characters: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters/compare_first_characters.py
-.. _Compare first characters starting without: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters_starting_without/compare_first_characters_starting_without.py
+.. _[2]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters/compare_first_characters.py
+.. _[3]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters_starting_without/compare_first_characters_starting_without.py
 .. _Completeness: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/completeness/completeness.py
 .. _Conditional unallowed text: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_unallowed_text/conditional_unallowed_text.py
 .. _Conditional completeness: https://github.com/AthanasiosAurelius/m4i-data-management/tree/Athanasios/m4i_data_management/core/quality/rules/conditional_completeness
@@ -240,15 +240,15 @@ Below is a brief description of each rule.
 |                               | `column_b` only occur as a unique combination. `[1]`_           |
 +-------------------------------+-----------------------------------------------------------------+
 |                               |                                                                 |
-| `Compare first characters`_   | Checks whether the first 'number_of_characters' values in       |
+|:ref:`Compare first characters`| Checks whether the first 'number_of_characters' values in       |
 |                               | `first_column_name` and `second_column_name` are similar, and if|
-|                               | the values are None or NaN.                                     |
+|                               | the values are None or NaN.      `[2]`_                         |
 +-------------------------------+-----------------------------------------------------------------+
 |                               |                                                                 |           
-| `Compare first                | Checks whether the first 'number_of_characters' values starting |
+| :ref:`Compare first           | Checks whether the first 'number_of_characters' values starting |
 | characters                    | without in `first_column_name` and `second_column_name` are     |
-| starting without`_            | similar, and if `column_name` does not start with any of the    |
-|                               | given `prefixes`, and if the values are None or NaN.            |
+| starting without`             | similar, and if `column_name` does not start with any of the    |
+|                               | given `prefixes`, and if the values are None or NaN.   `[3]`_   |
 +-------------------------------+-----------------------------------------------------------------+
 |                               |                                                                 |
 | `Completeness`_               | Checks whether the values in the column with the given          |
@@ -343,7 +343,7 @@ First run a test to see if the columns are bijacent. The columns "id" and "name"
 
 This is the function that we are using: `bijacency(df, "column_a", "column_b")`. The inputs are the dataset and the column names.
 The id and name are the same in this example, which means they are bijacent. The output will be 1.
-
+.. _Compare first characters:
 
 2. Compare First characters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -366,7 +366,8 @@ A dummy dataset is provided and the first two characters of the id and name will
         result = compare_first_characters(data, "id", "name", 2)
 
 This is the function used in this example: `compare_first_characters(df, "column_a", "column_b", num_char)`. The inputs are the dataset,the column names and the number of characters.   
-      
+
+.. _Compare first characters starting without:      
 3. Check First Characters using Prefix
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
