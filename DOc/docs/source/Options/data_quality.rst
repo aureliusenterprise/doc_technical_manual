@@ -214,22 +214,22 @@ These are they data quality rules that are applied on a dataset.
 Below is a brief description of each rule.
 
 
-.. _Bijacency: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py
-.. _Compare first characters: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters/compare_first_characters.py
-.. _Compare first characters starting without: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters_starting_without/compare_first_characters_starting_without.py
-.. _Completeness: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/completeness/completeness.py
-.. _Conditional unallowed text: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_unallowed_text/conditional_unallowed_text.py
-.. _Conditional completeness: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_completeness/conditional_completeness.py
-.. _Conditional value: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_value/conditional_value.py
-.. _Contains Character: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/contains_character/contains_character.py
-.. _Formatting: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/formatting/formatting.py
-.. _Invalidity: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/invalidity/invalidity.py
+.. _Bijacency: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py
+.. _Compare first characters: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters/compare_first_characters.py
+.. _Compare first characters starting without: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters_starting_without/compare_first_characters_starting_without.py
+.. _Completeness: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/completeness/completeness.py
+.. _Conditional unallowed text: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_unallowed_text/conditional_unallowed_text.py
+.. _Conditional completeness: https://github.com/AthanasiosAurelius/m4i-data-management/tree/Athanasios/m4i_data_management/core/quality/rules/conditional_completeness
+.. _Conditional value: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_value/conditional_value.py
+.. _Contains Character: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/contains_character/contains_character.py
+.. _Formatting: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/formatting/formatting.py
+.. _Invalidity: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/invalidity/invalidity.py
 .. _Length: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/length/length.py
-.. _Range: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/range/range.py
-.. _Starts with: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/starts_with/starts_with.py
-.. _Unallowed text: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/unallowed_text/unallowed_text.py
-.. _Uniqueness: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/uniqueness/uniqueness.py
-.. _Validity: https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/validity/validity.py
+.. _Range: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/range/range.py
+.. _Starts with: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/starts_with/starts_with.py
+.. _Unallowed text: https://github.com/AthanasiosAurelius/m4i-data-management/tree/Athanasios/m4i_data_management/core/quality/rules/unallowed_text
+.. _Uniqueness: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/uniqueness/uniqueness.py
+.. _Validity: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/validity/validity.py
 
 
 +-------------------------------+-----------------------------------------------------------------+
