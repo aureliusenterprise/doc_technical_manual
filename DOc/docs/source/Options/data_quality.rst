@@ -626,7 +626,7 @@ A dummy dataframe with column name "id"
 The function is `length(df,"column",int)`. The inputs are data, column name and the length of required characters.
 The output is 1 because the length of id is 4.
 
-The source code to `length` is available `here  < https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/length/length.py>`_
+The source code to `length` is available `here <https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/length/length.py>`_
 
 .. _Range:
 
