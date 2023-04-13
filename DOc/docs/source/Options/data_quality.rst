@@ -25,7 +25,7 @@ Data quality result consists of multiple fields:
 
 * a unique ID, which can be human readable
 * a qualityguid, which is a guid of the actual quality result	
-* a data quality result (dqscore), which is a boolean value of 0 or 1, where 0 mean 0% compliance and 1 means 100% compliance
+* a data quality result (dqscore), which is a boolean value of 0 or 1, where 0 means 0% compliance and 1 means 100% compliance
 
 Data quality rule
 ~~~~~~~~~~~~~~~~~
