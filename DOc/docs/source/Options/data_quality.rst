@@ -214,7 +214,7 @@ These are they data quality rules that are applied on a dataset.
 Below is a brief description of each rule.
 
 
-.. _[1]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py
+.. _Bijacency: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py
 .. _[2]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters/compare_first_characters.py
 .. _[3]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters_starting_without/compare_first_characters_starting_without.py
 .. _[4]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/completeness/completeness.py
@@ -237,7 +237,7 @@ Below is a brief description of each rule.
 +====================================+=================================================================+
 |                                    |                                                                 |
 |:ref:`Bijacency`                    | Checks whether or not the values in the given `column_a` and    |
-|                                    | `column_b` only occur as a unique combination. `[1]`_           |
+|                                    | `column_b` only occur as a unique combination.                  |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |                                                                 |
 |:ref:`Compare first characters`     | Checks whether the first 'number_of_characters' values in       |
@@ -311,8 +311,8 @@ Data Quality Rules and Examples
 
 .. _Bijacency:
 
-1. Bijacency
-~~~~~~~~~~~~
+1. `Bijacency`_
+~~~~~~~~~~~~~~~~
 
 In this example, a dummy dataset is provided and the columns "id" and "name" are compared.
 
