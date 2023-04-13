@@ -343,7 +343,7 @@ First run a test to see if the columns are bijacent. The columns "id" and "name"
 
 This is the function that we are using: `bijacency(df, "column_a", "column_b")`. The inputs are the dataset and the column names.
 The id and name are the same in this example, which means they are bijacent. The output will be 1.
-`link here <Bijacency>`_
+`link here` `<Bijacency>`_
 
 .. _Compare first characters:
 
