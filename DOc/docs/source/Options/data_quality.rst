@@ -311,7 +311,7 @@ Data Quality Rules and Examples
 
 .. _Bijacency:
 
-1. `Bijacency`_
+1. Bijacency
 ~~~~~~~~~~~~~
 
 In this example, a dummy dataset is provided and the columns "id" and "name" are compared.
@@ -343,6 +343,7 @@ First run a test to see if the columns are bijacent. The columns "id" and "name"
 
 This is the function that we are using: `bijacency(df, "column_a", "column_b")`. The inputs are the dataset and the column names.
 The id and name are the same in this example, which means they are bijacent. The output will be 1.
+`link here <Bijacency>`_
 
 .. _Compare first characters:
 
