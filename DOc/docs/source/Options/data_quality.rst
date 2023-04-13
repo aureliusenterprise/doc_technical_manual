@@ -343,8 +343,7 @@ First run a test to see if the columns are bijacent. The columns "id" and "name"
 
 This is the function that we are using: `bijacency(df, "column_a", "column_b")`. The inputs are the dataset and the column names.
 The id and name are the same in this example, which means they are bijacent. The output will be 1.
-
-`link to Bijacency <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py>`_
+The source code to bijacency is available `here <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py>`_
 
 .. _Compare first characters:
 
@@ -368,7 +367,8 @@ A dummy dataset is provided and the first two characters of the id and name will
 
         result = compare_first_characters(data, "id", "name", 2)
 
-This is the function used in this example: `compare_first_characters(df, "column_a", "column_b", num_char)`. The inputs are the dataset,the column names and the number of characters.   
+This is the function used in this example: `compare_first_characters(df, "column_a", "column_b", num_char)`. The inputs are the dataset,the column names and the number of characters.
+The source code to `compare_first_characters` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters/compare_first_characters.py>`_   
 
 
 .. _Compare first characters starting without:
@@ -398,6 +398,7 @@ A dummy dataset with two columns, id and name is provided
 A prefix BE is used and the function is `compare_first_characters_starting_without(data, "id", "name", 2, 'BE')`
 The inputs are the data, the column names, the number of characters and the prefix.
 The output will be 1, because the charaters are the same and have the prefix too.
+The source code to `compare_first_characters_starting_without` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters_starting_without/compare_first_characters_starting_without.py>`_
     
 
 .. _Completeness:
@@ -426,6 +427,7 @@ function will return 1, otherwise it will return 0
 
  The function is called `completeness(df, "column")`. The inputs are data and the name of the column we want to check.
  The output will be 0, because the column 'name' has no value in it.
+ The source code to `completeness` is available `here  < https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/completeness/completeness.py>`_
 
 .. _Conditional completeness:
 
@@ -453,6 +455,7 @@ This is the function of use `conditional_completeness(df, "column_a", "column_b"
 The inputs are data, the name of the columns and the list of given values.
 The output here will be 1, because they are no empty values in the columns and the column "conditional" has substrings of the given 
 values = ['.TMP', '.FREE']
+The source code to `conditional_completeness` is availabe `here  <https://github.com/AthanasiosAurelius/m4i-data-management/tree/Athanasios/m4i_data_management/core/quality/rules/conditional_completeness>`_
 
 .. _Conditional unallowed text:
 
@@ -477,12 +480,10 @@ The check here is to see if there is unalllowed text in the columns of the dummy
             result = conditional_unallowed_text(data, "conditional", "value", values, unallowed_text_item)
 
 
-This is the function used for this example. The inputs are is the dataframe, the name of the two columns, the values of the substrings and the unallowed text.
-
-    conditional_unallowed_text(df, "column_a", "column_b", [list_of_values], "string")
-
+This is the function of use  `conditional_unallowed_text(df, "column_a", "column_b", [list_of_values], "string")`. 
+The inputs are the dataframe, the name of the two columns, the values of the substrings and the unallowed text.
 The output will be 1 because it containf substrings in the 'conditional'  column and doesn't contain the unalloed text in column "Value". If it did the output would be 0.
-
+The source code to `conditional_unallowed_text` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_unallowed_text/conditional_unallowed_text.py>`_
 
 .. _Conditional value:
 
@@ -508,7 +509,7 @@ The 'value' and 'conditional' column are being checked to see if it contains the
 the function used for this example is called `conditional_value(df, "column_a", "column_b", {dictionary})`. 
 The inputs are data of the dummy dataset, the names of the columns which are "value" and "conditional" and the values, that are the substrings we want to check.
 The output here will 1, because "value" column, contains an expecetd value. Otherwise it would be 0.
-
+The source code to `conditional_value` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_value/conditional_value.py>`_
 
 .. _Contains character:
 
@@ -533,7 +534,7 @@ A dummy dataframe is provided with one column called "id".
 This is the function used in this example `contains_character(df, "column", "string", int)`. 
 The inputs are data, name of the column, the character we want to check and 1 is the expected count
 The check performed here is to if the the id contains "." . The output will be 1 because the "id" column contains "."
-
+The source code to `contains_character` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/contains_character/contains_character.py>`_
 .. _Formatting:
 
 9. Check Matching Pattern
@@ -557,7 +558,7 @@ A dummy dataset is provided
 This is the function used for this example `formatting(df, "column", expression_pattern)`.
 The inputs are the dataset,the column "name" and the pattern to see if it matches 
 The ouput will be 1 in this example, because 'ExampleText' matches the pattern.
-
+The source code to `formatting` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/formatting/formatting.py>`_
 
 .. _Invalidity:
 
@@ -583,7 +584,7 @@ A list of the example values and a dummy dataframe are provided.
 
 
 The funtion is `invalidity(df, "column", [list])`. The inputs are data, column name and the list of values.
-
+The source code to `invalidity` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/invalidity/invalidity.py>`_
    
 
 The output will be 1 , becaue "X" is in the list of values.
@@ -611,7 +612,7 @@ A dummy dataframe with column name "id"
 
 The function is `length(df,"column",int)`. The inputs are data, column name and the length of required characters.
 The output is 1 because the length of id is 4.
-
+The source code to `length` is available `here  < https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/length/length.py>`_
 .. _Range:
 
 12. Check Range
@@ -636,7 +637,7 @@ A dummy dataframe for this example with column name "value"
 The function is `range(df, "column", int1, int2)`. 
 The inputs are the dataframe, the column name and the range (The upper and lower bound)
 The output will be 1 because 0.1 is between 0 and 1.
-
+The source code to `range` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/range/range.py>`_
 .. _Starts with:
 
 13. Check Prefix
@@ -658,7 +659,7 @@ This example checks if the values in the column `column_name` start with any of 
 
 The function is called `starts_with(data, "column", "prefix")`. The inputs are the data the column name and the prefix.
 The output is 1, because "1" is in the value of the id column.
-    
+The source code to `starts_with` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/starts_with/starts_with.py>`_   
 .. _Unallowed text:
 
 14. Check Unallowed Text
@@ -683,7 +684,7 @@ A dummy dataset is provided.
 
 The function is called `unallowed_text(df, "column", "sting")`. The inputs are data, the column name and the unallowed text
 The output is 1 because "BG Van Oord" is not in the "Something Else" of the "Organisation" column.
-
+The source code to `unallowed_text` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/tree/Athanasios/m4i_data_management/core/quality/rules/unallowed_text>`_
 .. _Uniqueness:
 
 15. Check Uniqueness
@@ -714,7 +715,7 @@ A dummy dataset is provided
 
 The function is `uniqueness(data, "id")`. The inputs are the dataset and the name of the column.
 The output will be 0, because the "id" column conatins duplicate values
-
+The source code to `uniqueness` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/uniqueness/uniqueness.py>`_
 
 .. _Validity:
 
@@ -740,6 +741,7 @@ The values in the example list and a dummy dataset are provided
 
 The function is `validity(df, "key",[list])`. The inputs are data, the column name and the list of example values.
 The output is 1, because the value of the column exists in the example list.
+The source code to `validity` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/validity/validity.py>`_
 
 
 
