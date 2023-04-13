@@ -343,7 +343,8 @@ First run a test to see if the columns are bijacent. The columns "id" and "name"
 
 This is the function that we are using: `bijacency(df, "column_a", "column_b")`. The inputs are the dataset and the column names.
 The id and name are the same in this example, which means they are bijacent. The output will be 1.
-`link here` `<Bijacency>`_
+
+`link to Bijacency <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py>`_
 
 .. _Compare first characters:
 
