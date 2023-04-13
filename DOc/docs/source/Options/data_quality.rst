@@ -242,67 +242,67 @@ Below is a brief description of each rule.
 |                                    |                                                                 |
 |:ref:`Compare first characters`     | Checks whether the first 'number_of_characters' values in       |
 |                                    | `first_column_name` and `second_column_name` are similar, and if|
-|                                    | the values are None or NaN.      `[2]`_                         |
+|                                    | the values are None or NaN.                                     |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |                                                                 |           
 | :ref:`Compare first                | Checks whether the first 'number_of_characters' values starting |
 | characters                         | without in `first_column_name` and `second_column_name` are     |
 | starting without`                  | similar, and if `column_name` does not start with any of the    |
-|                                    | given `prefixes`, and if the values are None or NaN.   `[3]`_   |
+|                                    | given `prefixes`, and if the values are None or NaN.            |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |                                                                 |
 | :ref:`Completeness`                | Checks whether the values in the column with the given          |
-|                                    | `column_name` are None or NaN. `[4]`_                           |
+|                                    | `column_name` are None or NaN.                                  |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |                                                                 |
 |:ref:`Conditional completeness`     | Checks whether or not the values in the given `value_column`    |
-|                                    | are `None` or `NaN`.     `[5]`_                                 |
+|                                    | are `None` or `NaN`.                                            |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |                                                                 |
 |:ref:`Conditional unallowed text`   | Checks if values in the column with the given `value_column`    |
-|                                    | contain a specific unallowed `text`.    `[6]`_                  |
+|                                    | contain a specific unallowed `text`.                            |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |                                                                 |
 | :ref:`Conditional value`           | Checks whether the values in the given `value_column` match     |
 |                                    | (one of) the expected value(s) for a given key in the           |
-|                                    | `key_column`.           `[7]`_                                  |
+|                                    | `key_column`.                                                   |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |                                                                 |
 | :ref:`Contains character`          | Checks how many times the values in the column with the given   |
-|                                    | `column_name` contain a specific character.     `[8]`_          |
+|                                    | `column_name` contain a specific character.                     |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |                                                                 |
 | :ref:`Formatting`                  | Checks whether or not the values in the column with the given   |
-|                                    | `column_name` match the given `pattern`.      `[9]`_            |
+|                                    | `column_name` match the given `pattern`.                        |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |         Checks whether or not the values                        |
 | :ref:`Invalidity`                  |  in the column with the given `column_name` does not exist      |
-|                                    |  in the given list of `values`.    [10]`_                       |
+|                                    |  in the given list of `values`.                                 |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |   Checks if the number of characters                            |
 | :ref:`Length`                      |  of the values in the column  with the given `column_name`      |
-|                                    | are equal to the `required_length`.   `[11]`_                   |
+|                                    | are equal to the `required_length`.                             |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |                                                                 |
 | :ref:`Range`                       | Checks whether or not the values in the column with the given   |
 |                                    | `column_name` are:                                              |
 |                                    | - Greater than or equal to the given `lower_bound`.             |
-|                                    | - Less than or equal to the given `upper_bound`.      `[12]`_   |
+|                                    | - Less than or equal to the given `upper_bound`.                |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |                                                                 |
 | :ref:`Starts with`                 | Checks whether or not the values in the column with the given   |
-|                                    | `column_name` start with any of the given `prefixes`. `[13]`_   |
+|                                    | `column_name` start with any of the given `prefixes`.           |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |  Checks if values in the column                                 |
-| :ref:`Unallowed text`              |  with the given `column_name` `[14]`_                           |
+| :ref:`Unallowed text`              |  with the given `column_name`                                   |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |                                                                 |
 | :ref:`Uniqueness`                  | Checks whether the values in the column with the given          |
-|                                    | `column_name` are unique (duplicate value check).    `[15]`_    |
+|                                    | `column_name` are unique (duplicate value check).               |
 +------------------------------------+-----------------------------------------------------------------+
 |                                    |                                                                 |
 | :ref:`Validity`                    | Checks whether or not the values in the column with the given   |
-|                                    | `column_name` exist in the given list of `values`.   `[16]`_    |
+|                                    | `column_name` exist in the given list of `values`.              |
 +------------------------------------+-----------------------------------------------------------------+
 
 
@@ -343,6 +343,7 @@ First run a test to see if the columns are bijacent. The columns "id" and "name"
 
 This is the function that we are using: `bijacency(df, "column_a", "column_b")`. The inputs are the dataset and the column names.
 The id and name are the same in this example, which means they are bijacent. The output will be 1.
+
 The source code to bijacency is available `here <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py>`_
 
 .. _Compare first characters:
@@ -368,6 +369,7 @@ A dummy dataset is provided and the first two characters of the id and name will
         result = compare_first_characters(data, "id", "name", 2)
 
 This is the function used in this example: `compare_first_characters(df, "column_a", "column_b", num_char)`. The inputs are the dataset,the column names and the number of characters.
+
 The source code to `compare_first_characters` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters/compare_first_characters.py>`_   
 
 
@@ -398,6 +400,7 @@ A dummy dataset with two columns, id and name is provided
 A prefix BE is used and the function is `compare_first_characters_starting_without(data, "id", "name", 2, 'BE')`
 The inputs are the data, the column names, the number of characters and the prefix.
 The output will be 1, because the charaters are the same and have the prefix too.
+
 The source code to `compare_first_characters_starting_without` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters_starting_without/compare_first_characters_starting_without.py>`_
     
 
@@ -455,6 +458,7 @@ This is the function of use `conditional_completeness(df, "column_a", "column_b"
 The inputs are data, the name of the columns and the list of given values.
 The output here will be 1, because they are no empty values in the columns and the column "conditional" has substrings of the given 
 values = ['.TMP', '.FREE']
+
 The source code to `conditional_completeness` is availabe `here  <https://github.com/AthanasiosAurelius/m4i-data-management/tree/Athanasios/m4i_data_management/core/quality/rules/conditional_completeness>`_
 
 .. _Conditional unallowed text:
@@ -482,8 +486,10 @@ The check here is to see if there is unalllowed text in the columns of the dummy
 
 This is the function of use  `conditional_unallowed_text(df, "column_a", "column_b", [list_of_values], "string")`. 
 The inputs are the dataframe, the name of the two columns, the values of the substrings and the unallowed text.
-The output will be 1 because it containf substrings in the 'conditional'  column and doesn't contain the unalloed text in column "Value". If it did the output would be 0.
+The output will be 1 because it containf substrings in the 'conditional'  column and doesn't contain the unallowed text in column "Value". If it did the output would be 0.
+
 The source code to `conditional_unallowed_text` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_unallowed_text/conditional_unallowed_text.py>`_
+
 
 .. _Conditional value:
 
@@ -509,6 +515,7 @@ The 'value' and 'conditional' column are being checked to see if it contains the
 the function used for this example is called `conditional_value(df, "column_a", "column_b", {dictionary})`. 
 The inputs are data of the dummy dataset, the names of the columns which are "value" and "conditional" and the values, that are the substrings we want to check.
 The output here will 1, because "value" column, contains an expecetd value. Otherwise it would be 0.
+
 The source code to `conditional_value` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/conditional_value/conditional_value.py>`_
 
 .. _Contains character:
@@ -534,6 +541,7 @@ A dummy dataframe is provided with one column called "id".
 This is the function used in this example `contains_character(df, "column", "string", int)`. 
 The inputs are data, name of the column, the character we want to check and 1 is the expected count
 The check performed here is to if the the id contains "." . The output will be 1 because the "id" column contains "."
+
 The source code to `contains_character` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/contains_character/contains_character.py>`_
 .. _Formatting:
 
@@ -558,6 +566,7 @@ A dummy dataset is provided
 This is the function used for this example `formatting(df, "column", expression_pattern)`.
 The inputs are the dataset,the column "name" and the pattern to see if it matches 
 The ouput will be 1 in this example, because 'ExampleText' matches the pattern.
+
 The source code to `formatting` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/formatting/formatting.py>`_
 
 .. _Invalidity:
@@ -584,6 +593,7 @@ A list of the example values and a dummy dataframe are provided.
 
 
 The funtion is `invalidity(df, "column", [list])`. The inputs are data, column name and the list of values.
+
 The source code to `invalidity` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/invalidity/invalidity.py>`_
    
 
@@ -612,6 +622,7 @@ A dummy dataframe with column name "id"
 
 The function is `length(df,"column",int)`. The inputs are data, column name and the length of required characters.
 The output is 1 because the length of id is 4.
+
 The source code to `length` is available `here  < https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/length/length.py>`_
 .. _Range:
 
@@ -637,7 +648,9 @@ A dummy dataframe for this example with column name "value"
 The function is `range(df, "column", int1, int2)`. 
 The inputs are the dataframe, the column name and the range (The upper and lower bound)
 The output will be 1 because 0.1 is between 0 and 1.
+
 The source code to `range` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/range/range.py>`_
+
 .. _Starts with:
 
 13. Check Prefix
@@ -659,7 +672,9 @@ This example checks if the values in the column `column_name` start with any of 
 
 The function is called `starts_with(data, "column", "prefix")`. The inputs are the data the column name and the prefix.
 The output is 1, because "1" is in the value of the id column.
-The source code to `starts_with` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/starts_with/starts_with.py>`_   
+
+The source code to `starts_with` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/starts_with/starts_with.py>`_
+
 .. _Unallowed text:
 
 14. Check Unallowed Text
@@ -684,7 +699,9 @@ A dummy dataset is provided.
 
 The function is called `unallowed_text(df, "column", "sting")`. The inputs are data, the column name and the unallowed text
 The output is 1 because "BG Van Oord" is not in the "Something Else" of the "Organisation" column.
+
 The source code to `unallowed_text` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/tree/Athanasios/m4i_data_management/core/quality/rules/unallowed_text>`_
+
 .. _Uniqueness:
 
 15. Check Uniqueness
@@ -715,6 +732,7 @@ A dummy dataset is provided
 
 The function is `uniqueness(data, "id")`. The inputs are the dataset and the name of the column.
 The output will be 0, because the "id" column conatins duplicate values
+
 The source code to `uniqueness` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/uniqueness/uniqueness.py>`_
 
 .. _Validity:
@@ -741,6 +759,7 @@ The values in the example list and a dummy dataset are provided
 
 The function is `validity(df, "key",[list])`. The inputs are data, the column name and the list of example values.
 The output is 1, because the value of the column exists in the example list.
+
 The source code to `validity` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/validity/validity.py>`_
 
 
