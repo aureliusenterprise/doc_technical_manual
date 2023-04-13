@@ -430,6 +430,7 @@ function will return 1, otherwise it will return 0
 
  The function is called `completeness(df, "column")`. The inputs are data and the name of the column we want to check.
  The output will be 0, because the column 'name' has no value in it.
+
  The source code to `completeness` is available `here  < https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/completeness/completeness.py>`_
 
 .. _Conditional completeness:
@@ -543,6 +544,7 @@ The inputs are data, name of the column, the character we want to check and 1 is
 The check performed here is to if the the id contains "." . The output will be 1 because the "id" column contains "."
 
 The source code to `contains_character` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/contains_character/contains_character.py>`_
+
 .. _Formatting:
 
 9. Check Matching Pattern
@@ -624,6 +626,7 @@ The function is `length(df,"column",int)`. The inputs are data, column name and 
 The output is 1 because the length of id is 4.
 
 The source code to `length` is available `here  < https://gitlab.com/m4i/m4i-data-management/-/blob/Athanasios/m4i_data_management/core/quality/rules/length/length.py>`_
+
 .. _Range:
 
 12. Check Range
