@@ -312,7 +312,7 @@ Data Quality Rules and Examples
 .. _Bijacency:
 
 1. `Bijacency`_
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 In this example, a dummy dataset is provided and the columns "id" and "name" are compared.
 
