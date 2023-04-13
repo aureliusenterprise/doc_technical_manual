@@ -214,7 +214,7 @@ These are they data quality rules that are applied on a dataset.
 Below is a brief description of each rule.
 
 
-.. _Bijacency: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py
+.. _[1]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/bijacency/bijacency.py
 .. _[2]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters/compare_first_characters.py
 .. _[3]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/compare_first_characters_starting_without/compare_first_characters_starting_without.py
 .. _[4]: https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/completeness/completeness.py
@@ -431,7 +431,7 @@ function will return 1, otherwise it will return 0
  The function is called `completeness(df, "column")`. The inputs are data and the name of the column we want to check.
  The output will be 0, because the column 'name' has no value in it.
 
- The source code to `completeness` is available `here  < https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/completeness/completeness.py>`_
+ The source code to `completeness` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/completeness/completeness.py>`_
 
 .. _Conditional completeness:
 
@@ -595,11 +595,12 @@ A list of the example values and a dummy dataframe are provided.
 
 
 The funtion is `invalidity(df, "column", [list])`. The inputs are data, column name and the list of values.
+The output will be 1 , becaue "X" is in the list of values.
 
-The source code to `invalidity` is available `here  <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/invalidity/invalidity.py>`_
+The source code to `invalidity` is available `here <https://github.com/AthanasiosAurelius/m4i-data-management/blob/Athanasios/m4i_data_management/core/quality/rules/invalidity/invalidity.py>`_
    
 
-The output will be 1 , becaue "X" is in the list of values.
+
 
 .. _Length:
 
