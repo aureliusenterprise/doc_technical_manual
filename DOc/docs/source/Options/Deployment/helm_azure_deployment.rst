@@ -1,5 +1,6 @@
-How to Deploy Aurelius Atlas
+Azure Deploy Aurelius Atlas
 ============================
+.. _azure-deployment:
 
 Getting started
 ---------------
@@ -18,10 +19,16 @@ Installation Requirements
 -------------------------
 
 This installation assumes that you have: - a kubernetes cluster running
-- with 2 Node of CPU 4 and 16GB - Chosen Azure Cli installed -
-`az <https://learn.microsoft.com/en-us/cli/azure/install-azure-cli>`__ -
-kubectl installed and linked to Azure Cli - `az
-linked <https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster>`__
+
+- with 2 Node of CPU 4 and 16GB
+
+- Chosen Azure Cli installed
+
+  - `az <https://learn.microsoft.com/en-us/cli/azure/install-azure-cli>`__
+
+- kubectl installed and linked to Azure Cli
+
+  - `az linked <https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster>`__
 
 Required Packages
 -----------------
@@ -36,7 +43,7 @@ installed on the cluster. To install ECK on the cluster, please follow
 the instructions provided on
 https://www.elastic.co/guide/en/cloud-on-k8s/master/k8s-deploy-eck.html
 - For more details about this elastic helm chart look at `elastic
-readme <./charts/elastic/README.md>`__ - Reflector - Used to reflect
+documentation <./charts/elastic/README.md>`__ - Reflector - Used to reflect
 secrets across namespaces - Used in demo to share the DNS certificate to
 different namespace
 
@@ -129,10 +136,8 @@ comment out prod_issuer.yaml in templates Check that it is running:
 
 It is running when Ready is True.
 
-.. figure:: img.png
-   :alt: img.png
+.. image:: img.png
 
-   img.png
 
 Create ssl certificate
 ''''''''''''''''''''''
@@ -159,10 +164,8 @@ comment out certificate.yaml in templates Check that it is approved.
 
 It is running when Ready is True
 
-.. figure:: img_1.png
-   :alt: img_1.png
+.. image:: img_1.png
 
-   img_1.png
 
 Deploy Aurelius Atlas
 ---------------------

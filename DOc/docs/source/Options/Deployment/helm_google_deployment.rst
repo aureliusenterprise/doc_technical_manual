@@ -1,5 +1,6 @@
-How to Deploy Aurelius Atlas
+Google Deploy Aurelius Atlas
 ============================
+.. _google-deployment:
 
 Getting started
 ---------------
@@ -18,10 +19,17 @@ Installation Requirements
 -------------------------
 
 This installation assumes that you have: - a kubernetes cluster running
-- with 2 Node of CPU 4 and 16GB - Gcloud Cli installed -
-`gcloud <https://cloud.google.com/sdk/docs/install#deb>`__ - kubectl
-installed and linked to Gcloud Cli - `gcloud
-linked <https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#gcloud>`__
+
+- with 2 Node of CPU 4 and 16GB
+
+- Gcloud Cli installed
+
+  - `gcloud <https://cloud.google.com/sdk/docs/install#deb>`__
+
+- kubectl installed and linked to Gcloud Cli
+
+  - `gcloud linked <https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#gcloud>`__
+
 - A DomainName
 
 Required Packages
@@ -37,7 +45,7 @@ installed on the cluster. To install ECK on the cluster, please follow
 the instructions provided on
 https://www.elastic.co/guide/en/cloud-on-k8s/master/k8s-deploy-eck.html
 - For more details about this elastic helm chart look at `elastic
-readme <./charts/elastic/README.md>`__ - Reflector - Used to reflect
+documentation <./charts/elastic/README.md>`__ - Reflector - Used to reflect
 secrets across namespaces - Used in demo to share the DNS certificate to
 different namespace
 
@@ -125,10 +133,8 @@ comment out prod_issuer.yaml in templates Check that it is running:
 
 It is running when Ready is True.
 
-.. figure:: img.png
-   :alt: img.png
+.. image:: img.png
 
-   img.png
 
 Create ssl certificate
 ''''''''''''''''''''''
@@ -155,10 +161,8 @@ comment out certificate.yaml in templates Check that it is approved.
 
 It is running when Ready is True
 
-.. figure:: img_1.png
-   :alt: img_1.png
+.. image:: img_1.png
 
-   img_1.png
 
 Deploy Aurelius Atlas
 ---------------------
