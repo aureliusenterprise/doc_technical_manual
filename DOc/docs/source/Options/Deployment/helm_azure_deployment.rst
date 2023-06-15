@@ -33,19 +33,23 @@ This installation assumes that you have: - a kubernetes cluster running
 Required Packages
 -----------------
 
-The deployment requires the following packages: - Certificate Manager -
-To handel and manage the creation of certificates - Used in demo:
-cert-manager - Ingress Controller - Used to create an entry point to the
-cluster through an external IP. - Used in demo: Nginx Controller -
-Elastic - Used to deploy elastic on the kubernetes cluster - In order to
-deploy elastic, ``Elastic Cluster on Kubernetes (ECK)`` must be
-installed on the cluster. To install ECK on the cluster, please follow
-the instructions provided on
-https://www.elastic.co/guide/en/cloud-on-k8s/master/k8s-deploy-eck.html
-- For more details about this elastic helm chart look at `elastic
-documentation <./charts/elastic/README.md>`__ - Reflector - Used to reflect
-secrets across namespaces - Used in demo to share the DNS certificate to
-different namespace
+The deployment requires the following packages:
+
+- Certificate Manager
+   - To handel and manage the creation of certificates
+   - Used in demo: cert-manager
+
+- Ingress Controller
+   - Used to create an entry point to the cluster through an external IP.
+   - Used in demo: Nginx Controller 
+
+- Elastic
+   - Used to deploy elastic on the kubernetes cluster
+   - In order to deploy elastic, ``Elastic Cluster on Kubernetes (ECK)`` must be installed on the cluster. To install ECK on the cluster, please follow the instructions provided on https://www.elastic.co/guide/en/cloud-on-k8s/master/k8s-deploy-eck.html
+
+- Reflector
+   - Used to reflect secrets across namespaces
+   - Used in demo to share the DNS certificate to different namespace
 
 The steps on how to install the required packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -92,9 +96,11 @@ Only install if you do not have an Ingress Controller.
    helm repo update
    helm upgrade --install reflector emberstack/reflector
 
-In Azure, it is possible to apply a dns label to the ingress controller,
-if you do not have a DNS. #### Azure DNS Label
-https://hovermind.com/azure-kubernetes-service/applying-dns-label-to-the-service.html
+In Azure, it is possible to apply a dns label to the ingress controller, if you do not have a DNS. 
+
+Azure DNS Label
+--------------------
+
 Edit the ingress controller deployment
 
 .. code:: bash
@@ -114,14 +120,14 @@ Put ssl certificate in a Secret
 -------------------------------
 
 Define a cluster issuer
-'''''''''''''''''''''''
+-----------------------
 
 This is needed if you installed letsencrypt from the required packages.
 
 Here we define a CLusterIssuer using letsencrypt on the cert-manager
-namespace - move to the directory of the chart helm-governance \*
-uncomment prod_issuer.yaml in templates \* update the
-``{{ .Values.ingress.email_address }}`` in Values file \* Create the
+namespace - move to the directory of the chart helm-governance and
+uncomment prod_issuer.yaml in templates. Update the
+``{{ .Values.ingress.email_address }}`` in Values file and create the
 clusterIssuer with the following command
 
 .. code:: bash
@@ -136,11 +142,11 @@ comment out prod_issuer.yaml in templates Check that it is running:
 
 It is running when Ready is True.
 
-.. image:: img.png
+.. image:: ../imgs/letsencrypt.png
 
 
 Create ssl certificate
-''''''''''''''''''''''
+----------------------
 
 This is needed if you installed letsencrypt from the required packages.
 
@@ -164,7 +170,7 @@ comment out certificate.yaml in templates Check that it is approved.
 
 It is running when Ready is True
 
-.. image:: img_1.png
+.. image:: ../imgs/cert_aurelius_dev.png
 
 
 Deploy Aurelius Atlas
@@ -189,8 +195,13 @@ Users with Randomized Passwords
 In the helm chart 5 base users are created with randomized passwords
 stored as secrets on kubernetes.
 
-The 5 base users are: 1. Keycloak Admin User 2. Atlas Admin User 3.
-Atlas Data Steward User 4. Atlas Data User 5. Elastic User
+The 5 base users are: 
+
+1. Keycloak Admin User 
+2. Atlas Admin User 
+3. Atlas Data Steward User 
+4. Atlas Data User 
+5. Elastic User
 
 To get the randomized passwords out of kubernetes there is a bash script
 get_passwords.
@@ -226,13 +237,13 @@ usernames and randomized passwords as follows:
    ----
 
 Check that all pods are running
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------
 
 .. code:: bash
 
    kubectl -n <namespace> get all # check that all pods are running
 
-Atlas is now accessible via reverse proxy at
+Aurelius Atlas is now accessible via reverse proxy at
 ``<DNS-url>/<namespace>/atlas/``
 
 Initialize the Atlas flink tasks and optionally load sample data
@@ -241,10 +252,14 @@ Initialize the Atlas flink tasks and optionally load sample data
 Flink: - For more details about this flink helm chart look at `flink
 readme <./charts/flink/README.md>`__
 
-Init Jobs: - Create the Atlas Users in Keycloak - Create the App Search
-Engines in Elastic
+Init Jobs: 
 
-``bash ${1} kubectl -n <namespace> exec -it <pod/flink-jobmanager-pod-name> -- bash``
+- Create the Atlas Users in Keycloak 
+- Create the App Search Engines in Elastic
+
+.. code:: bash
+
+   kubectl -n <namespace> exec -it <pod/flink-jobmanager-pod-name> -- bash
 
 .. code:: bash
 
