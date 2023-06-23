@@ -11,7 +11,7 @@ This guide provides comprehensive instructions for setting up the Docker Compose
 Description of system
 =======================
 
-The solution is based on Apache Atlas for metadata management and governance, and Apache Kafka is utilized for communicating changes in the system between different components. A Kafka Web based user interface is made accessible to have easy access to the Apache Kafka system for maintenance and trouble shooting. Additionally, an Apache server is implemented to handle and distribute frontend traffic to the corresponding components. A custom interface has been developed to enable effective search and browsing functionality using full-text search capabilities, leveraging the power of the Elastic stack. This stack includes Elasticsearch, Enterprise Search, and Kibana. Keycloak serves as the identity provider implementing Single Sign On functionalty for all Web based user interfaces. Apache Flink is used to facility the creation of metadata to support the search functionality. Thus, Apache Flink runs streaming jobs that consume Kafka events from Apache Atlas and create metadata in Elastic Enterprise Search. 
+The solution is based on Apache Atlas for metadata management and governance, and Apache Kafka is utilized for communicating changes in the system between different components. A Kafka Web based user interface is made accessible to have easy access to the Apache Kafka system for maintenance and trouble shooting. Additionally, an Apache server is implemented to handle and distribute frontend traffic to the corresponding components. A custom interface has been developed to enable effective search and browsing functionality using full-text search capabilities, leveraging the power of the Elastic stack. This stack includes Elasticsearch, Enterprise Search, and Kibana. Keycloak serves as the identity provider implementing Single Sign On functionality for all Web based user interfaces. Apache Flink is used to facility the creation of metadata to support the search functionality. Thus, Apache Flink runs streaming jobs that consume Kafka events from Apache Atlas and create metadata in Elastic Enterprise Search. 
 
 Hardware requirements
 =======================
@@ -45,8 +45,6 @@ Connect to the VM using as destination its public IP
 Deployment on VM without public domain name
 ==============================================
 
-In this deployment situation, a VM is used further referred to as Host and a client, whcih can be directly accessed by the user.
-
 In this scenario the following additional components are required:
 
 Host:
@@ -69,7 +67,7 @@ To achieve connectivity with the Host and the Client the following steps have to
 
 .. code:: bash
 
-	127.0.0.1       localhost localhost4 $EXTERNAL\_IP
+	127.0.0.1       localhost localhost4 $EXTERNAL\_HOST
 
 This is a representation of the described deployment on VM:
  
@@ -94,14 +92,14 @@ On the host:
 
 .. code:: bash
 
-	export EXTERNAL\_IP=$(ifconfig eth0 | grep 'inet' | cut \-d: \-f2 | sed \-e 's/.\*inet \\([^ ]\*\\).\*/\\1/')
+	export EXTERNAL\_HOST=$(ifconfig eth0 | grep 'inet' | cut \-d: \-f2 | sed \-e 's/.\*inet \\([^ ]\*\\).\*/\\1/')
 
 
 - If deployment is on a VM:
 
 .. code:: bash
 
-	export EXTERNAL\_IP={hostname of VM}
+	export EXTERNAL\_HOST={hostname of VM}
 
 3. Run the following script:
 
@@ -109,7 +107,7 @@ On the host:
 
 	./retrieve\_ip.sh
 
-This script updates the values of `$EXTERNAL\_IP` within the templates used to generate the necessary configuration files for the various services.
+This script updates the values of `$EXTERNAL\_HOST` within the templates used to generate the necessary configuration files for the various services.
 
 4. Grant Elasticsearch sufficient virtual memory to facilitate its startup (admin rights required):
 
@@ -157,7 +155,7 @@ This is how the system looks in operational state:
 When the Apache Atlas container state changes from starting to healthy, then the system is ready.
 
 
-You are able now to access Aurelius Atlas at thw client wiht the URL `http://$EXTERNAL_IP:8087/`
+You are now able to access Aurelius Atlas at the URL: `http://$EXTERNAL_HOST:8087/`
 
 .. image:: ../imgs/frontend.png
 
