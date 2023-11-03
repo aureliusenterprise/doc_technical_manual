@@ -18,9 +18,8 @@ different namespaces.
 Installation Requirements
 -------------------------
 
-This installation assumes that you have: - a kubernetes cluster running
-
-- with 2 Node of CPU 4 and 16GB
+This installation assumes that you have: 
+- a kubernetes cluster running with 2 Node of CPU 4 and 16GB
 
 - Gcloud Cli installed
 
@@ -31,6 +30,9 @@ This installation assumes that you have: - a kubernetes cluster running
   - `gcloud linked <https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#gcloud>`__
 
 - A DomainName
+
+Further you need the helm chart to deploy all services from https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart
+
 
 Required Packages
 -----------------

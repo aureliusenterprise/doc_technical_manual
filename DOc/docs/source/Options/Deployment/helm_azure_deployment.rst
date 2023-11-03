@@ -18,9 +18,9 @@ different namespaces.
 Installation Requirements
 -------------------------
 
-This installation assumes that you have: - a kubernetes cluster running
+This installation assumes that you have: 
 
-- with 2 Node of CPU 4 and 16GB
+- a kubernetes cluster running with 2 Node of CPU 4 and 16GB
 
 - Chosen Azure Cli installed
 
@@ -29,6 +29,8 @@ This installation assumes that you have: - a kubernetes cluster running
 - kubectl installed and linked to Azure Cli
 
   - `az linked <https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster>`__
+  
+Further you need the helm chart to deploy all services from https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart
 
 Required Packages
 -----------------
