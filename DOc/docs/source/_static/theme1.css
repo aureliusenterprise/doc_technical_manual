@@ -1,0 +1,16 @@
+
+/** css/yourtheme.css **/
+
+/* This line is theme specific - it includes the base theme CSS */
+
+/*@import 'theme.css';       /* for the Read the Docs theme */
+
+
+body {
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+      }
+
+
+.wy-table-responsive table td, .wy-table-responsive table th {
+    white-space: normal;
+        }

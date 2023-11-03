@@ -1,6 +1,7 @@
 # Configuration file for the Sphinx documentation builder.
 #
-root_doc = 'contents'
+root_doc = 'index'
+master_doc = 'index'
 
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
@@ -18,8 +19,11 @@ release = '0.1'
 
 extensions = [
     'sphinx.ext.intersphinx',
+    'sphinx.ext.autosectionlabel',
+    #'myst_parser',
 ]
 
+source_suffix = ['.rst', '.md']
 templates_path = ['_templates']
 exclude_patterns = []
 
@@ -34,3 +38,9 @@ html_theme = "sphinx_rtd_theme"
 html_static_path = ['_static']
 html_logo = '_static/logo/logo1.png'
 html_favicon = '_static/favicon/fav.png'
+
+#
+#html_style = 'theme1.css'
+
+def setup(app): 
+    app.add_stylesheet('theme1.css')

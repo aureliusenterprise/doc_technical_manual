@@ -1,6 +1,7 @@
 Aurelius Atlas Data Governance Solution
 =======================================
 
+
 Thank you for your interest in Aurelius Atlas Data Governance solution,
 powered by Apache Atlas.
 
@@ -18,11 +19,15 @@ the Elastic V2 license agreement.
       :caption: Menu
 
       Options/what
-      Options/how
+      Options/deployment
       Options/tech
+      Options/backup
       Options/demo
       Options/integration
+      Options/libraries
       Options/support
       Options/about
+      Options/data_quality
+
 
     

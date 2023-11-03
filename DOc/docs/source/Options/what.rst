@@ -129,6 +129,7 @@ the integration options:
 -  `Azure <https://docs.microsoft.com/en-us/azure/?product=popular>`__
 
 -  `AWS <https://docs.aws.amazon.com/>`__
+
 ..
    -  GCP
 
@@ -146,11 +147,4 @@ options.
     as linking it to IaC*),
 
     provide a link to the page with more details.
-
-How to Deploy Aurelius Atlas
-----------------------------
-
-To start using Aurelius Atlas here is a guide to easily learn how to
-deploy the application `Click here <how>`__
-
 
