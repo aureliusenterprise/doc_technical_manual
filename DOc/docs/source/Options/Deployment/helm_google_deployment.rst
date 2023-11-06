@@ -19,7 +19,7 @@ Installation Requirements
 -------------------------
 
 This installation assumes that you have: 
-- a kubernetes cluster running with 2 Node of CPU 4 and 16GB
+- A kubernetes cluster running with 2 Node of CPU 4 and 16GB
 
 - Gcloud Cli installed
 
@@ -28,6 +28,8 @@ This installation assumes that you have:
 - kubectl installed and linked to Gcloud Cli
 
   - `gcloud linked <https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#gcloud>`__
+
+- Helm installed locally
 
 - A DomainName
 
@@ -55,6 +57,8 @@ The deployment requires the following packages:
    - Used to reflect secrets across namespaces
    - Used in demo to share the DNS certificate to different namespace
 
+- Zookeeper
+
 The steps on how to install the required packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -70,7 +74,14 @@ The certificate manager here is
 
    helm repo add jetstack https://charts.jetstack.io
    helm repo update
-   helm install  cert-manager jetstack/cert-manager   --namespace cert-manager   --create-namespace   --version v1.9.1 --set installCRDs=true
+   helm install  cert-manager jetstack/cert-manager   --namespace cert-manager   --create-namespace   --version v1.9.1   --set installCRDs=true   --set   global.leaderElection.namespace=cert-manager
+
+- It is successful when the output is like this:
+
+.. code:: bash
+
+   NOTES:
+   cert-manager v1.91 has been deployed successfully
 
 2. Install Ingress Nginx Controller
 '''''''''''''''''''''''''''''''''''
@@ -100,11 +111,20 @@ Only install if you do not have an Ingress Controller.
    helm repo update
    helm upgrade --install reflector emberstack/reflector
 
+5. Update Zookeeper Dependencies
+''''''''''''''''''''''''''''''''
+
+Move to the directory of Aurelius-Atlas-helm-chart
+
+.. code:: bash
+
+   cd charts/zookeeper/
+   helm dependency update
+
 Get Ingress Controller External IP to link to DNS
 -------------------------------------------------
 
-Only do this if your ingress controller does not already have a DNS
-applied.  
+Only do this if your ingress controller does not already have a DNS applied.
 
 Get External IP to link to DNS
 ------------------------------
@@ -123,17 +143,19 @@ Define a cluster issuer
 
 This is needed if you installed letsencrypt from the required packages.
 
-Here we define a CLusterIssuer using letsencrypt on the cert-manager
-namespace - move to the directory of the chart helm-governance and
-uncomment prod_issuer.yaml in templates. Update the
-``{{ .Values.ingress.email_address }}`` in Values file and create the
-clusterIssuer with the following command
+Here we define a CLusterIssuer using letsencrypt on the cert-manager namespace:
+- Move to the directory of Aurelius-Atlas-helm-chart
+* Uncomment prod_issuer.yaml in templates
+* Update ``{{ .Values.ingress.email_address }}`` in values.yaml file
+* Create the clusterIssuer with the following command
 
 .. code:: bash
 
    helm template -s templates/prod_issuer.yaml . | kubectl apply -f -
 
-comment out prod_issuer.yaml in templates Check that it is running:
+* Comment out prod_issuer.yaml in templates
+
+Check that it is running:
 
 .. code:: bash
 
@@ -148,25 +170,25 @@ Create ssl certificate
 
 This is needed if you installed letsencrypt from the required packages.
 
--  Assumes you have a DNS linked to the external IP of the ingress
-   controller
--  move to the directory of the chart helm-governance
--  uncomment prod_issuer.yaml in templates
--  update the Values file ``{{ .Values.ingress.dns_url}}`` to your DNS
-   name
+-  Assumes you have a DNS linked to the external IP of the ingress controller
+-  Move to the directory of Aurelius-Atlas-helm-chart
+-  Uncomment certificate.yaml in templates
+-  Update the Values file ``{{ .Values.ingress.dns_url}}`` to your DNS name
 -  Create the certificate with the following command
 
 .. code:: bash
 
    helm template -s templates/certificate.yaml . | kubectl apply -f -
 
-comment out certificate.yaml in templates Check that it is approved.
+* Comment out certificate.yaml in templates
+
+Check that it is approved:
 
 .. code:: bash
 
    kubectl get certificate -n cert-manager 
 
-It is running when Ready is True
+It is running when Ready is True.
 
 .. image:: ../imgs/cert_aurelius_dev.png
 
@@ -183,9 +205,11 @@ Deploy Aurelius Atlas
 .. code:: bash
 
    kubectl create namespace <namespace>
-   cd helm-governance
+   cd Aurelius-Atlas-helm-chart
    helm dependency update
    helm install --generate-name -n <namespace>  -f values.yaml .
+
+Please note that it can take 5-10 minutes to deploy all services.
 
 Users with Randomized Passwords
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
