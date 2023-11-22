@@ -18,7 +18,8 @@ different namespaces.
 Installation Requirements
 -------------------------
 
-This installation assumes that you have: 
+This installation assumes that you have:
+
 - A kubernetes cluster running with 2 Node of CPU 4 and 16GB
 
 - Gcloud Cli installed
@@ -47,7 +48,7 @@ The deployment requires the following packages:
 
 - Ingress Controller
    - Used to create an entry point to the cluster through an external IP.
-   - Used in demo: Nginx Controller 
+   - Used in demo: Nginx Controller
 
 - Elastic
    - Used to deploy elastic on the kubernetes cluster
@@ -144,6 +145,7 @@ Define a cluster issuer
 This is needed if you installed letsencrypt from the required packages.
 
 Here we define a CLusterIssuer using letsencrypt on the cert-manager namespace:
+
 - Move to the directory of Aurelius-Atlas-helm-chart
 * Uncomment prod_issuer.yaml in templates
 * Update ``{{ .Values.ingress.email_address }}`` in values.yaml file
@@ -159,7 +161,7 @@ Check that it is running:
 
 .. code:: bash
 
-   kubectl get clusterissuer -n cert-manager 
+   kubectl get clusterissuer -n cert-manager
 
 It is running when Ready is True.
 
@@ -186,7 +188,7 @@ Check that it is approved:
 
 .. code:: bash
 
-   kubectl get certificate -n cert-manager 
+   kubectl get certificate -n cert-manager
 
 It is running when Ready is True.
 
@@ -196,18 +198,25 @@ It is running when Ready is True.
 Deploy Aurelius Atlas
 ---------------------
 
--  Create the namespace
--  Update the Values file
+1. Update the values.yaml file
 
-   -  DNS name
-   -  external IP deploy the services
+   - ``{{ .Values.keycloak.keycloakFrontendURL }}`` replace it to your DNS name
+   - ``{{ .Values.kafka-ui. ... .bootstrapServers }}`` edit it with your `<namespace>`
+   - ``{{ .Values.kafka-ui. ... .SERVER_SERVLET_CONTEXT_PATH }}`` edit it with your `<namespace>`
+
+- Create the namespace
 
 .. code:: bash
 
-   kubectl create namespace <namespace>
-   cd Aurelius-Atlas-helm-chart
-   helm dependency update
-   helm install --generate-name -n <namespace>  -f values.yaml .
+    kubectl create namespace <namespace>
+
+- Deploy the services
+
+.. code:: bash
+
+    cd Aurelius-Atlas-helm-chart
+    helm dependency update
+    helm install --generate-name -n <namespace>  -f values.yaml .
 
 Please note that it can take 5-10 minutes to deploy all services.
 
@@ -217,12 +226,12 @@ Users with Randomized Passwords
 In the helm chart 5 base users are created with randomized passwords
 stored as secrets on kubernetes.
 
-The 5 base users are: 
+The 5 base users are:
 
-1. Keycloak Admin User 
-2. Atlas Admin User 
-3. Atlas Data Steward User 
-4. Atlas Data User 
+1. Keycloak Admin User
+2. Atlas Admin User
+3. Atlas Data Steward User
+4. Atlas Data User
 5. Elastic User
 
 To get the randomized passwords out of kubernetes there is a bash script
@@ -271,12 +280,13 @@ Atlas is now accessible via reverse proxy at
 Initialize the Atlas flink tasks and optionally load sample data
 ----------------------------------------------------------------
 
-Flink: - For more details about this flink helm chart look at `flink
-readme <./charts/flink/README.md>`__
+Flink:
 
-Init Jobs: 
+- For more details about this flink helm chart look at `flinkreadme <./charts/flink/README.md>`__
 
-- Create the Atlas Users in Keycloak 
+Init Jobs:
+
+- Create the Atlas Users in Keycloak
 - Create the App Search Engines in Elastic
 
 .. code:: bash
@@ -285,13 +295,19 @@ Init Jobs:
 
 .. code:: bash
 
-   cd py_libs/m4i-flink-tasks/scripts/init/
+   cd init
 
-   python init-atlas-m4i-types.py
-   cd ..
+   pip3 install m4i-atlas-core@git+https://github.com/aureliusenterprise/m4i_atlas_core.git#egg=m4i-atlas-core --upgrade
+
+   cd ../py_libs/m4i-flink-tasks/scripts
 
    /opt/flink/bin/flink run -d -py get_entity_job.py
    /opt/flink/bin/flink run -d -py publish_state_job.py
    /opt/flink/bin/flink run -d -py determine_change_job.py
    /opt/flink/bin/flink run -d -py synchronize_appsearch_job.py
    /opt/flink/bin/flink run -d -py local_operation_job.py
+
+.. code:: bash
+
+    cd init
+    ./load_sample_data.sh
