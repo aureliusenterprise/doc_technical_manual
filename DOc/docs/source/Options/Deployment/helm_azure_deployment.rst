@@ -266,19 +266,21 @@ Init Jobs:
 - Create the Atlas Users in Keycloak 
 - Create the App Search Engines in Elastic
 
-.. code:: bash
+..  code:: bash
 
-   kubectl -n <namespace> exec -it <pod/flink-jobmanager-pod-name> -- bash
+    kubectl -n <namespace> exec -it <pod/flink-jobmanager-pod-name> -- bash
 
-.. code:: bash
-
-   cd py_libs/m4i-flink-tasks/scripts/init/
-
-   python init-atlas-m4i-types.py
-   cd ..
-
-   /opt/flink/bin/flink run -d -py get_entity_job.py
-   /opt/flink/bin/flink run -d -py publish_state_job.py
-   /opt/flink/bin/flink run -d -py determine_change_job.py
-   /opt/flink/bin/flink run -d -py synchronize_appsearch_job.py
-   /opt/flink/bin/flink run -d -py local_operation_job.py
+..  code:: bash
+    
+    cd init
+    pip3 install m4i-atlas-core@git+https://github.com/aureliusenterprise/m4i_atlas_core.git#egg=m4i-atlas-core --upgrade
+    cd ../py_libs/m4i-flink-tasks/scripts
+    /opt/flink/bin/flink run -d -py get_entity_job.py
+    /opt/flink/bin/flink run -d -py publish_state_job.py
+    /opt/flink/bin/flink run -d -py determine_change_job.py
+    /opt/flink/bin/flink run -d -py synchronize_appsearch_job.py
+    /opt/flink/bin/flink run -d -py local_operation_job.py
+    ## To Load the Sample Demo Data 
+    cd
+    cd init
+    ./load_sample_data.sh
