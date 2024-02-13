@@ -24,11 +24,11 @@ This installation assumes that you have:
 
 - Chosen Azure Cli installed
 
-  - `az <https://learn.microsoft.com/en-us/cli/azure/install-azure-cli>`__
+  - `az <https://learn.microsoft.com/en-us/cli/azure/install-azure-cli>`
 
 - kubectl installed and linked to Azure Cli
 
-  - `az linked <https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster>`__
+  - `az linked <https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster>`
   
 Further you need the helm chart to deploy all services from https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart
 
@@ -107,8 +107,9 @@ In Azure, it is possible to apply a DNS label to the ingress controller, if you 
 
 Edit the ingress controller deployment (if not set upon installation)
 
-.. code:: bash
-   helm upgrade nginx-ingress ingress-nginx/ingress-nginx --reuse-values --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=<label>
+..  code:: bash
+
+    helm upgrade nginx-ingress ingress-nginx/ingress-nginx --reuse-values --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=<label>
 
 Save and exit. Resulting DSN will be
 ``<label>.westeurope.cloudapp.azure.com``
@@ -118,9 +119,10 @@ Put ssl certificate in a Secret
 
 Before you start, update zookeeper dependencies:
 
-.. code:: bash
-   cd charts/zookeeper/
-   helm dependency update
+..  code:: bash
+
+    cd charts/zookeeper/
+    helm dependency update
 
 Define a cluster issuer
 -----------------------
@@ -130,24 +132,23 @@ This is needed if you installed cert-manager from the required packages.
 Here we define a CLusterIssuer using cert-manager on the cert-manager
 namespace
 
-#. Move to the home directory of the chart helm-governance
-#. Uncomment templates/prod_issuer.yaml. 
-#. Update the ``{{ .Values.ingress.email_address }}`` in values.yaml file and create the
-ClusterIssuer with the following command
+#.  Move to the home directory of the chart helm-governance
+#.  Uncomment templates/prod_issuer.yaml. 
+#.  Update the ``{{ .Values.ingress.email_address }}`` in values.yaml file and create the ClusterIssuer with the following command
 
-.. code:: bash
+    ..  code:: bash
 
-   helm template -s templates/prod_issuer.yaml . | kubectl apply -f -
+        helm template -s templates/prod_issuer.yaml . | kubectl apply -f -
 
 #. comment out prod_issuer.yaml in templates Check that it is running:
 
-.. code:: bash
+    ..  code:: bash
 
-   kubectl get clusterissuer -n cert-manager 
+        kubectl get clusterissuer -n cert-manager 
 
 #. It is running when Ready is True.
 
-.. image:: ../imgs/letsencrypt.png
+    .. image:: ../imgs/letsencrypt.png
 
 
 Create ssl certificate
@@ -155,22 +156,21 @@ Create ssl certificate
 
 This is needed if you installed cert-manager from the required packages.
 
-#.  Assumes you have a DNS linked to the external IP of the ingress
-   controller
+#.  Assumes you have a DNS linked to the external IP of the ingress controller
 #.  Move to the home directory of the chart helm-governance
 #.  Uncomment templates/certificate.yaml
-#.  Update the values.yaml file ``{{ .Values.ingress.dns_url}}`` to your DNS
-   name
+#.  Update the values.yaml file ``{{ .Values.ingress.dns_url}}`` to your DNS name
 #.  Create the certificate with the following command
 
-    .. code:: bash
-
+    ..  code:: bash
+        
         helm template -s templates/certificate.yaml . | kubectl apply -f -
 
 #.  Comment out certificate.yaml in templates.
 #.  Check that it is approved.
 
-    .. code:: bash
+    ..  code:: bash
+
         kubectl get certificate -n cert-manager 
 
 It is running when Ready is True
@@ -182,8 +182,9 @@ Deploy Aurelius Atlas
 ---------------------
 
 #.  Create the namespace
-   .. code:: bash
-      kubectl create namespace <namespace>
+   ..   code:: bash
+
+        kubectl create namespace <namespace>
 
 #.  Update the values.yaml file
     * ``{{ .Values.keycloak.keycloakFrontendURL }}`` replace it to your DNS name 
@@ -191,11 +192,11 @@ Deploy Aurelius Atlas
     * ``{{ .Values.kafka-ui. ... .SERVER_SERVLET_CONTEXT_PATH }}`` edit it with your `<namespace>`
 
 #.  Deploy the services
-   .. code:: bash
+   ..   code:: bash
 
-      cd Aurelius-Atlas-helm-chart
-      helm dependency update
-      helm install --generate-name -n <namespace>  -f values.yaml .
+        cd Aurelius-Atlas-helm-chart
+        helm dependency update
+        helm install --generate-name -n <namespace>  -f values.yaml .
 
 Users with Randomized Passwords
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
