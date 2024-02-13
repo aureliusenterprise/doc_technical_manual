@@ -62,7 +62,7 @@ The steps on how to install the required packages
 Only install if you do not have a certificate manager. Please be aware
 if you use another manger, some commands later will need adjustments.
 The certificate manager here is
-`cert-manager <https://cert-manager.io/docs/installation/helm/>`__.
+`cert-manager <https://cert-manager.io/docs/installation/helm/>`.
 
 .. code:: bash
 
@@ -79,7 +79,9 @@ Only install if you do not have an Ingress Controller.
 
    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
    helm repo update
-   helm install nginx-ingress ingress-nginx/ingress-nginx --set controller.publishService.enabled=true
+   helm install nginx-ingress ingress-nginx/ingress-nginx --set controller.publishService.enabled=true --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
+
+It is also possible to set a DNS label to the ingress controller if you do not have a DNS by adding ``--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=<label>``
 
 3. Install Elastic
 ''''''''''''''''''
@@ -98,22 +100,15 @@ Only install if you do not have an Ingress Controller.
    helm repo update
    helm upgrade --install reflector emberstack/reflector
 
-In Azure, it is possible to apply a dns label to the ingress controller, if you do not have a DNS. 
 
 Azure DNS Label
 --------------------
+In Azure, it is possible to apply a DNS label to the ingress controller, if you do not have a DNS. 
 
-Edit the ingress controller deployment
+Edit the ingress controller deployment (if not set upon installation)
 
 .. code:: bash
-
-   kubectl edit deployment.apps/nginx-ingress-ingress-nginx-controller
-
-Under Annotations add the following providing your desire label :
-
-::
-
-   service.beta.kubernetes.io/azure-dns-label-name: <label>
+   helm upgrade nginx-ingress ingress-nginx/ingress-nginx --reuse-values --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=<label>
 
 Save and exit. Resulting DSN will be
 ``<label>.westeurope.cloudapp.azure.com``
@@ -121,28 +116,36 @@ Save and exit. Resulting DSN will be
 Put ssl certificate in a Secret
 -------------------------------
 
+Before you start, update zookeeper dependencies:
+
+.. code:: bash
+   cd charts/zookeeper/
+   helm dependency update
+
 Define a cluster issuer
 -----------------------
 
-This is needed if you installed letsencrypt from the required packages.
+This is needed if you installed cert-manager from the required packages.
 
-Here we define a CLusterIssuer using letsencrypt on the cert-manager
-namespace - move to the directory of the chart helm-governance and
-uncomment prod_issuer.yaml in templates. Update the
-``{{ .Values.ingress.email_address }}`` in Values file and create the
-clusterIssuer with the following command
+Here we define a CLusterIssuer using cert-manager on the cert-manager
+namespace
+
+#. Move to the home directory of the chart helm-governance
+#. Uncomment templates/prod_issuer.yaml. 
+#. Update the ``{{ .Values.ingress.email_address }}`` in values.yaml file and create the
+ClusterIssuer with the following command
 
 .. code:: bash
 
    helm template -s templates/prod_issuer.yaml . | kubectl apply -f -
 
-comment out prod_issuer.yaml in templates Check that it is running:
+#. comment out prod_issuer.yaml in templates Check that it is running:
 
 .. code:: bash
 
    kubectl get clusterissuer -n cert-manager 
 
-It is running when Ready is True.
+#. It is running when Ready is True.
 
 .. image:: ../imgs/letsencrypt.png
 
@@ -150,25 +153,25 @@ It is running when Ready is True.
 Create ssl certificate
 ----------------------
 
-This is needed if you installed letsencrypt from the required packages.
+This is needed if you installed cert-manager from the required packages.
 
--  Assumes you have a DNS linked to the external IP of the ingress
+#.  Assumes you have a DNS linked to the external IP of the ingress
    controller
--  move to the directory of the chart helm-governance
--  uncomment prod_issuer.yaml in templates
--  update the Values file ``{{ .Values.ingress.dns_url}}`` to your DNS
+#.  Move to the home directory of the chart helm-governance
+#.  Uncomment templates/certificate.yaml
+#.  Update the values.yaml file ``{{ .Values.ingress.dns_url}}`` to your DNS
    name
--  Create the certificate with the following command
+#.  Create the certificate with the following command
 
-.. code:: bash
+    .. code:: bash
 
-   helm template -s templates/certificate.yaml . | kubectl apply -f -
+        helm template -s templates/certificate.yaml . | kubectl apply -f -
 
-comment out certificate.yaml in templates Check that it is approved.
+#.  Comment out certificate.yaml in templates.
+#.  Check that it is approved.
 
-.. code:: bash
-
-   kubectl get certificate -n cert-manager 
+    .. code:: bash
+        kubectl get certificate -n cert-manager 
 
 It is running when Ready is True
 
@@ -178,18 +181,21 @@ It is running when Ready is True
 Deploy Aurelius Atlas
 ---------------------
 
--  Create the namespace
--  Update the Values file
+#.  Create the namespace
+   .. code:: bash
+      kubectl create namespace <namespace>
 
-   -  DNS name
-   -  external IP deploy the services
+#.  Update the values.yaml file
+    * ``{{ .Values.keycloak.keycloakFrontendURL }}`` replace it to your DNS name 
+    * ``{{ .Values.kafka-ui. ... .bootstrapServers }}`` edit it with your `<namespace>`
+    * ``{{ .Values.kafka-ui. ... .SERVER_SERVLET_CONTEXT_PATH }}`` edit it with your `<namespace>`
 
-.. code:: bash
+#.  Deploy the services
+   .. code:: bash
 
-   kubectl create namespace <namespace>
-   cd helm-governance
-   helm dependency update
-   helm install --generate-name -n <namespace>  -f values.yaml .
+      cd Aurelius-Atlas-helm-chart
+      helm dependency update
+      helm install --generate-name -n <namespace>  -f values.yaml .
 
 Users with Randomized Passwords
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -252,7 +258,7 @@ Initialize the Atlas flink tasks and optionally load sample data
 ----------------------------------------------------------------
 
 Flink: - For more details about this flink helm chart look at `flink
-readme <./charts/flink/README.md>`__
+readme <./charts/flink/README.md>`
 
 Init Jobs: 
 
