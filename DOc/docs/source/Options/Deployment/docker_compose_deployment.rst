@@ -30,6 +30,8 @@ To deploy this solution you will need to install the following components:
 
 Please ensure that you have these components installed on both the host and client machines for a successful deployment
 
+In addition you need the docker compose file from https://github.com/aureliusenterprise/Aurelius-Atlas-docker-compose.
+
 How to connect to the docker-compose environment?
 -------------------------------------------------
 

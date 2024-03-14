@@ -9,9 +9,9 @@ FAQS
       :hidden:
       
     Support/general
-    Support/deploy
     Support/integration
     Support/demo-env
+    Support/helm_deployment_troubleshooter
 
 
 Contact
