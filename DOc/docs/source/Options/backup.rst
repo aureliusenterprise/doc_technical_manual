@@ -26,7 +26,7 @@ Acquire access token for Apache Atlas's admin user
 
 You can use ``oauth.sh`` script from https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart. Example usage:
 
-.. code-block::
+.. code-block:: bash
 
    export ACCESS_TOKEN=$(./oauth.sh --endpoint https://aureliusdev.westeurope.cloudapp.azure.com/demo/auth/realms/m4i/protocol/openid-connect/token \
    --client-id m4i_atlas \
@@ -37,7 +37,7 @@ Export data from Apache Atlas
 
 You can use ``export-atlas.py`` script, that wraps Apache Atlas's `Export API <https://atlas.apache.org/index.html#/ExportAPI>`_ to export all data from Atlas. Example Usage:
 
-.. code-block::
+.. code-block:: bash
 
    pip install urlpath
    python export-atlas.py --token $ACCESS_TOKEN \
@@ -110,7 +110,8 @@ Register a repository
 
 
 #. Access Elastic's search pod/image, for example:
-   .. code-block::
+
+   .. code-block:: bash
 
       kubectl -n demo exec -it pod/elastic-search-es-default-0 -- bash
 
@@ -119,18 +120,20 @@ Register a repository
 
    :raw-html-m2r:`<img width="415" alt="Zrzut ekranu 2024-03-13 172223" src="https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart/assets/155443057/e6593057-0f38-4840-86f0-9ec9d54a7466">`
 
-   .. code-block::
+   .. code-block:: bash
 
       bin/elasticsearch-keystore add azure.client.default.account
       bin/elasticsearch-keystore add azure.client.default.key
 
 #. Optionally set a password for the keystore
-   .. code-block::
+
+   .. code-block:: bash
 
       bin/elasticsearch-keystore passwd
 
 #. Reload secure settings
-   .. code-block::
+
+   .. code-block:: bash
 
       curl -X POST -u "elastic:$ELASTIC_PASSWORD" "https://aureliusdev.westeurope.cloudapp.azure.com/demo/elastic/_nodes/reload_secure_settings?pretty" -H 'Content-Type: application/json' -d "
       {
@@ -138,7 +141,8 @@ Register a repository
       }"
 
 #. Create the repository
-   .. code-block::
+
+   .. code-block:: bash
 
       curl -X PUT -u "elastic:$ELASTIC_PASSWORD" "https://aureliusdev.westeurope.cloudapp.azure.com/demo/elastic/_snapshot/demo_backup?pretty" -H 'Content-Type: application/json' -d "
       {
