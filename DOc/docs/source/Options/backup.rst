@@ -3,7 +3,7 @@
 
 
 Aurelius Atlas Backup
-=====================
+*********************
 
 Here you will find how to back up Aurelius Atlas for moving instances.
 
