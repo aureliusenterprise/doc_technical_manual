@@ -3,7 +3,7 @@
 
 
 Aurelius Atlas Backup
-=====================
+*********************
 
 Here you will find how to back up Aurelius Atlas for moving instances.
 
@@ -16,9 +16,8 @@ Apache Atlas Backup Process Overview
 ------------------------------------
 
 
-.. image:: backup-overview.png
-   :target: backup-overview.png
-   :alt: img_2.png
+.. image:: .images/backup-overview.png
+   :target: .images/backup-overview.png
 
 
 Acquire access token for Apache Atlas's admin user
@@ -73,7 +72,7 @@ Create a storage account and a container in Azure
    :raw-html-m2r:`<img width="560" alt="Zrzut ekranu 2024-03-13 143127" src="https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart/assets/155443057/a576c8f2-28de-4264-9f7f-43a0cd39af1e">`
 
 #. 
-   Create a new storage account :w
+   Create a new storage account
 
 
    :raw-html-m2r:`<img width="239" alt="Zrzut ekranu 2024-03-13 143220" src="https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart/assets/155443057/0233f3d5-4bb5-4bb4-ad65-041634000e89">`
