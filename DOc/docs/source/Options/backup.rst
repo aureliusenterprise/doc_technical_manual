@@ -3,7 +3,7 @@
 
 
 Aurelius Atlas Backup
-=====================
+*********************
 
 Here you will find how to back up Aurelius Atlas for moving instances.
 
@@ -16,9 +16,8 @@ Apache Atlas Backup Process Overview
 ------------------------------------
 
 
-.. image:: backup-overview.png
-   :target: backup-overview.png
-   :alt: img_2.png
+.. image:: .images/backup-overview.png
+   :target: .images/backup-overview.png
 
 
 Acquire access token for Apache Atlas's admin user
@@ -70,20 +69,18 @@ Create a storage account and a container in Azure
 
 #. Go to storage accounts service 
 
-   :raw-html-m2r:`<img width="560" alt="Zrzut ekranu 2024-03-13 143127" src="https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart/assets/155443057/a576c8f2-28de-4264-9f7f-43a0cd39af1e">`
-
+   .. image:: .images/storage_account_service.png
 #. 
-   Create a new storage account :w
+   Create a new storage account
 
-
-   :raw-html-m2r:`<img width="239" alt="Zrzut ekranu 2024-03-13 143220" src="https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart/assets/155443057/0233f3d5-4bb5-4bb4-ad65-041634000e89">`
+   .. image:: .images/storage_account_create.png
 
 #. 
    Set the account name. Optionally adjust the redundancy and access tier 
 
-   :raw-html-m2r:`<img width="477" alt="Zrzut ekranu 2024-03-13 144404" src="https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart/assets/155443057/660a0904-9471-474b-8022-50e538cb7fe2">`
+   .. image:: .images/storage_account_options1.png
 
-   :raw-html-m2r:`<img width="483" alt="Zrzut ekranu 2024-03-13 144711" src="https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart/assets/155443057/a4b51c7a-c400-49ae-916f-8df809a3585d">`
+   .. image:: .images/storage_account_options2.png
 
 #. 
    Review and create
@@ -91,19 +88,19 @@ Create a storage account and a container in Azure
 #. 
    Once the account is created, go to Containers tab 
 
-   :raw-html-m2r:`<img width="140" alt="Zrzut ekranu 2024-03-13 154545" src="https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart/assets/155443057/97412587-cd83-474a-9375-ea972f3bff93">`
+   .. image:: .images/containers_tab.png
 
 #. 
    Create a new container 
 
-   :raw-html-m2r:`<img width="221" alt="Zrzut ekranu 2024-03-13 170441" src="https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart/assets/155443057/039674a6-9b13-4ce0-bfcc-4548799fee54">`
+   .. image:: .images/containers_create1.png
 
-   :raw-html-m2r:`<img width="244" alt="Zrzut ekranu 2024-03-13 170607" src="https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart/assets/155443057/bcf49c1d-b2ec-4471-880a-039da6e6abc5">`
+   .. image:: .images/containers_create2.png
 
 #. 
    Go to Access keys tab 
 
-   :raw-html-m2r:`<img width="136" alt="Zrzut ekranu 2024-03-13 171520" src="https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart/assets/155443057/c1a0622f-8f69-45e1-9d0e-58bc93138f09">`
+   .. image:: .images/access_keys_tab.png
 
 Register a repository
 ^^^^^^^^^^^^^^^^^^^^^
@@ -118,7 +115,7 @@ Register a repository
 #. 
    Configure Elasticsearch's keystore with values from the Storage account's Access keys tab.
 
-   :raw-html-m2r:`<img width="415" alt="Zrzut ekranu 2024-03-13 172223" src="https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart/assets/155443057/e6593057-0f38-4840-86f0-9ec9d54a7466">`
+   .. image:: .images/access_keys_values.png
 
    .. code-block:: bash
 
