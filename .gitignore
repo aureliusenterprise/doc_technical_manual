@@ -1,4 +1,3 @@
 /DOc/docs/build/
-/DOc/.vscode/
-/DOc/.venv/
-/.vscode/
+**/.venv
+**/.vscode
