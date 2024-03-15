@@ -66,15 +66,15 @@ Create a snapshot repository
 Create a storage account and a container in Azure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
 #. Go to https://portal.azure.com/
-#. 
-   Go to storage accounts service 
+
+#. Go to storage accounts service 
 
    :raw-html-m2r:`<img width="560" alt="Zrzut ekranu 2024-03-13 143127" src="https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart/assets/155443057/a576c8f2-28de-4264-9f7f-43a0cd39af1e">`
 
 #. 
-   Create a new storage account 
+   Create a new storage account :w
+
 
    :raw-html-m2r:`<img width="239" alt="Zrzut ekranu 2024-03-13 143220" src="https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart/assets/155443057/0233f3d5-4bb5-4bb4-ad65-041634000e89">`
 
@@ -154,9 +154,9 @@ Register a repository
 Create a snapshot
 -----------------
 
-   .. code-block::
+.. code-block:: bash
 
-      curl -X POST -u "elastic:$ELASTIC_PASSWORD" "https://aureliusdev.westeurope.cloudapp.azure.com/demo/elastic/_snapshot/demo_backup/snapshot_2" -H 'Content-Type: application/json' -d '
-      {
+   curl -X POST -u "elastic:$ELASTIC_PASSWORD" "https://aureliusdev.westeurope.cloudapp.azure.com/demo/elastic/_snapshot/demo_backup/snapshot_2" -H 'Content-Type: application/json' -d '
+   {
       "indices": ".ent-search-engine-documents-*"
-      }'
+   }'
