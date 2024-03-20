@@ -24,11 +24,11 @@ This installation assumes that you have:
 
 - Chosen Azure Cli installed
 
-  - `az <https://learn.microsoft.com/en-us/cli/azure/install-azure-cli>`
+  - `az <https://learn.microsoft.com/en-us/cli/azure/install-azure-cli>`_
 
 - kubectl installed and linked to Azure Cli
 
-  - `az linked <https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster>`
+  - `az linked <https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster>`_
   
 Further you need the helm chart to deploy all services from https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart
 
@@ -62,7 +62,7 @@ The steps on how to install the required packages
 Only install if you do not have a certificate manager. Please be aware
 if you use another manger, some commands later will need adjustments.
 The certificate manager here is
-`cert-manager <https://cert-manager.io/docs/installation/helm/>`.
+`cert-manager <https://cert-manager.io/docs/installation/helm/>`_.
 
 .. code:: bash
 
@@ -187,9 +187,10 @@ Deploy Aurelius Atlas
         kubectl create namespace <namespace>
 
 #.  Update the values.yaml file
-    * ``{{ .Values.keycloak.keycloakFrontendURL }}`` replace it to your DNS name 
-    * ``{{ .Values.kafka-ui. ... .bootstrapServers }}`` edit it with your `<namespace>`
-    * ``{{ .Values.kafka-ui. ... .SERVER_SERVLET_CONTEXT_PATH }}`` edit it with your `<namespace>`
+
+    *   ``{{ .Values.keycloak.keycloakFrontendURL }}`` replace it to your DNS name 
+    *   ``{{ .Values.kafka-ui. ... .bootstrapServers }}`` edit it with your `<namespace>`
+    *   ``{{ .Values.kafka-ui. ... .SERVER_SERVLET_CONTEXT_PATH }}`` edit it with your `<namespace>`
 
 #.  Deploy the services
    ..   code:: bash
