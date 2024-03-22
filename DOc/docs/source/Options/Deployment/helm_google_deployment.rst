@@ -146,7 +146,7 @@ This is needed if you installed letsencrypt from the required packages.
 
 Here we define a CLusterIssuer using letsencrypt on the cert-manager namespace:
 
-- Move to the directory of Aurelius-Atlas-helm-chart
+* Move to the directory of Aurelius-Atlas-helm-chart
 * Uncomment prod_issuer.yaml in templates
 * Update ``{{ .Values.ingress.email_address }}`` in values.yaml file
 * Create the clusterIssuer with the following command
@@ -216,7 +216,7 @@ Deploy Aurelius Atlas
 
     cd Aurelius-Atlas-helm-chart
     helm dependency update
-    helm install --generate-name -n <namespace>  -f values.yaml .
+    helm install --generate-name -n <namespace>  -f values.yaml --wait --timeout 15m0s .
 
 Please note that it can take 5-10 minutes to deploy all services.
 
@@ -268,7 +268,7 @@ usernames and randomized passwords as follows:
    ----
 
 Check that all pods are running
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -311,3 +311,4 @@ Init Jobs:
 
     cd init
     ./load_sample_data.sh
+
