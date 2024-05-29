@@ -146,7 +146,7 @@ This is needed if you installed letsencrypt from the required packages.
 
 Here we define a CLusterIssuer using letsencrypt on the cert-manager namespace:
 
-- Move to the directory of Aurelius-Atlas-helm-chart
+* Move to the directory of Aurelius-Atlas-helm-chart
 * Uncomment prod_issuer.yaml in templates
 * Update ``{{ .Values.ingress.email_address }}`` in values.yaml file
 * Create the clusterIssuer with the following command
@@ -172,11 +172,11 @@ Create ssl certificate
 
 This is needed if you installed letsencrypt from the required packages.
 
--  Assumes you have a DNS linked to the external IP of the ingress controller
--  Move to the directory of Aurelius-Atlas-helm-chart
--  Uncomment certificate.yaml in templates
--  Update the Values file ``{{ .Values.ingress.dns_url}}`` to your DNS name
--  Create the certificate with the following command
+*  Assumes you have a DNS linked to the external IP of the ingress controller
+*  Move to the directory of Aurelius-Atlas-helm-chart
+*  Uncomment certificate.yaml in templates
+*  Update the Values file ``{{ .Values.ingress.dns_url}}`` to your DNS name
+*  Create the certificate with the following command
 
 .. code:: bash
 
@@ -198,25 +198,25 @@ It is running when Ready is True.
 Deploy Aurelius Atlas
 ---------------------
 
-1. Update the values.yaml file
+#. Update the values.yaml file
 
    - ``{{ .Values.keycloak.keycloakFrontendURL }}`` replace it to your DNS name
    - ``{{ .Values.kafka-ui. ... .bootstrapServers }}`` edit it with your `<namespace>`
    - ``{{ .Values.kafka-ui. ... .SERVER_SERVLET_CONTEXT_PATH }}`` edit it with your `<namespace>`
 
-- Create the namespace
+#. Create the namespace
 
-.. code:: bash
+   .. code:: bash
 
-    kubectl create namespace <namespace>
+      kubectl create namespace <namespace>
 
-- Deploy the services
+#. Deploy the services
 
-.. code:: bash
+   .. code:: bash
 
-    cd Aurelius-Atlas-helm-chart
-    helm dependency update
-    helm install --generate-name -n <namespace>  -f values.yaml .
+      cd Aurelius-Atlas-helm-chart
+      helm dependency update
+      helm install --generate-name -n <namespace>  -f values.yaml --wait --timeout 15m0s .
 
 Please note that it can take 5-10 minutes to deploy all services.
 
@@ -268,7 +268,7 @@ usernames and randomized passwords as follows:
    ----
 
 Check that all pods are running
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -311,3 +311,4 @@ Init Jobs:
 
     cd init
     ./load_sample_data.sh
+

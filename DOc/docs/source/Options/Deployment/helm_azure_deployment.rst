@@ -18,18 +18,18 @@ different namespaces.
 Installation Requirements
 -------------------------
 
-This installation assumes that you have: 
+This installation assumes that you have:
 
 - a kubernetes cluster running with 2 Node of CPU 4 and 16GB
 
 - Chosen Azure Cli installed
 
-  - `az <https://learn.microsoft.com/en-us/cli/azure/install-azure-cli>`
+  - `az <https://learn.microsoft.com/en-us/cli/azure/install-azure-cli>`_
 
 - kubectl installed and linked to Azure Cli
 
-  - `az linked <https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster>`
-  
+  - `az linked <https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster>`_
+
 Further you need the helm chart to deploy all services from https://github.com/aureliusenterprise/Aurelius-Atlas-helm-chart
 
 Required Packages
@@ -43,7 +43,7 @@ The deployment requires the following packages:
 
 - Ingress Controller
    - Used to create an entry point to the cluster through an external IP.
-   - Used in demo: Nginx Controller 
+   - Used in demo: Nginx Controller
 
 - Elastic
    - Used to deploy elastic on the kubernetes cluster
@@ -62,7 +62,7 @@ The steps on how to install the required packages
 Only install if you do not have a certificate manager. Please be aware
 if you use another manger, some commands later will need adjustments.
 The certificate manager here is
-`cert-manager <https://cert-manager.io/docs/installation/helm/>`.
+`cert-manager <https://cert-manager.io/docs/installation/helm/>`_.
 
 .. code:: bash
 
@@ -103,7 +103,7 @@ It is also possible to set a DNS label to the ingress controller if you do not h
 
 Azure DNS Label
 --------------------
-In Azure, it is possible to apply a DNS label to the ingress controller, if you do not have a DNS. 
+In Azure, it is possible to apply a DNS label to the ingress controller, if you do not have a DNS.
 
 Edit the ingress controller deployment (if not set upon installation)
 
@@ -133,7 +133,7 @@ Here we define a CLusterIssuer using cert-manager on the cert-manager
 namespace
 
 #.  Move to the home directory of the chart helm-governance
-#.  Uncomment templates/prod_issuer.yaml. 
+#.  Uncomment templates/prod_issuer.yaml.
 #.  Update the ``{{ .Values.ingress.email_address }}`` in values.yaml file and create the ClusterIssuer with the following command
 
     ..  code:: bash
@@ -144,7 +144,7 @@ namespace
 
     ..  code:: bash
 
-        kubectl get clusterissuer -n cert-manager 
+        kubectl get clusterissuer -n cert-manager
 
 #. It is running when Ready is True.
 
@@ -163,7 +163,7 @@ This is needed if you installed cert-manager from the required packages.
 #.  Create the certificate with the following command
 
     ..  code:: bash
-        
+
         helm template -s templates/certificate.yaml . | kubectl apply -f -
 
 #.  Comment out certificate.yaml in templates.
@@ -171,7 +171,7 @@ This is needed if you installed cert-manager from the required packages.
 
     ..  code:: bash
 
-        kubectl get certificate -n cert-manager 
+        kubectl get certificate -n cert-manager
 
 It is running when Ready is True
 
@@ -187,16 +187,17 @@ Deploy Aurelius Atlas
         kubectl create namespace <namespace>
 
 #.  Update the values.yaml file
-    * ``{{ .Values.keycloak.keycloakFrontendURL }}`` replace it to your DNS name 
-    * ``{{ .Values.kafka-ui. ... .bootstrapServers }}`` edit it with your `<namespace>`
-    * ``{{ .Values.kafka-ui. ... .SERVER_SERVLET_CONTEXT_PATH }}`` edit it with your `<namespace>`
+
+    *   ``{{ .Values.keycloak.keycloakFrontendURL }}`` replace it to your DNS name
+    *   ``{{ .Values.kafka-ui. ... .bootstrapServers }}`` edit it with your `<namespace>`
+    *   ``{{ .Values.kafka-ui. ... .SERVER_SERVLET_CONTEXT_PATH }}`` edit it with your `<namespace>`
 
 #.  Deploy the services
    ..   code:: bash
 
         cd Aurelius-Atlas-helm-chart
         helm dependency update
-        helm install --generate-name -n <namespace>  -f values.yaml .
+        helm install --generate-name -n <namespace>  -f values.yaml --wait --timeout 15m0s .
 
 Users with Randomized Passwords
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -204,12 +205,12 @@ Users with Randomized Passwords
 In the helm chart 5 base users are created with randomized passwords
 stored as secrets on kubernetes.
 
-The 5 base users are: 
+The 5 base users are:
 
-1. Keycloak Admin User 
-2. Atlas Admin User 
-3. Atlas Data Steward User 
-4. Atlas Data User 
+1. Keycloak Admin User
+2. Atlas Admin User
+3. Atlas Data Steward User
+4. Atlas Data User
 5. Elastic User
 
 To get the randomized passwords out of kubernetes there is a bash script
@@ -261,9 +262,9 @@ Initialize the Atlas flink tasks and optionally load sample data
 Flink: - For more details about this flink helm chart look at `flink
 readme <./charts/flink/README.md>`
 
-Init Jobs: 
+Init Jobs:
 
-- Create the Atlas Users in Keycloak 
+- Create the Atlas Users in Keycloak
 - Create the App Search Engines in Elastic
 
 ..  code:: bash
@@ -271,7 +272,7 @@ Init Jobs:
     kubectl -n <namespace> exec -it <pod/flink-jobmanager-pod-name> -- bash
 
 ..  code:: bash
-    
+
     cd init
     pip3 install m4i-atlas-core@git+https://github.com/aureliusenterprise/m4i_atlas_core.git#egg=m4i-atlas-core --upgrade
     cd ../py_libs/m4i-flink-tasks/scripts
@@ -280,7 +281,7 @@ Init Jobs:
     /opt/flink/bin/flink run -d -py determine_change_job.py
     /opt/flink/bin/flink run -d -py synchronize_appsearch_job.py
     /opt/flink/bin/flink run -d -py local_operation_job.py
-    ## To Load the Sample Demo Data 
+    ## To Load the Sample Demo Data
     cd
     cd init
     ./load_sample_data.sh
