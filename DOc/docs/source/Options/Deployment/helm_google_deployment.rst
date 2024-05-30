@@ -201,8 +201,7 @@ Deploy Aurelius Atlas
 #. Update the values.yaml file
 
    - ``{{ .Values.keycloak.keycloakFrontendURL }}`` replace it to your DNS name
-   - ``{{ .Values.kafka-ui. ... .bootstrapServers }}`` edit it with your `<namespace>`
-   - ``{{ .Values.kafka-ui. ... .SERVER_SERVLET_CONTEXT_PATH }}`` edit it with your `<namespace>`
+   - ``{{ .Values.post_install.upload_data }}`` set to `"true"` if you want to upload sample data after installation, otherwise set to `"false"`
 
 #. Create the namespace
 
@@ -277,38 +276,33 @@ Check that all pods are running
 Atlas is now accessible via reverse proxy at
 ``<DNS-url>/<namespace>/atlas/``
 
-Initialize the Atlas flink tasks and optionally load sample data
-----------------------------------------------------------------
+Enable social login
+~~~~~~~~~~~~~~~~~~~
 
-Flink:
+To enable social login in Aurelius Atlas, please follow the steps below:
 
-- For more details about this flink helm chart look at `flinkreadme <./charts/flink/README.md>`__
+1. Register an OAuth 2.0 client application with Google, GitHub or Facebook. (To see the full list please `keycloak website <https://www.keycloak.org/>`__) This will be used as an identity provider in Keycloak.
 
-Init Jobs:
+   - `google <https://keycloakthemes.com/blog/how-to-setup-sign-in-with-google-using-keycloak>`__
+   - `github <https://medium.com/keycloak/github-as-identity-provider-in-keyclaok-dca95a9d80ca>`__
+   - `facebook <https://medium.com/@didelotkev/facebook-as-identity-provider-in-keycloak-cf298b47cb84>`__
 
-- Create the Atlas Users in Keycloak
-- Create the App Search Engines in Elastic
+2. Update values file ``{{ .Values.keycloak.realm_file_name }}`` to ``realm_m4i_with_provider.json``
+3. Within ``charts/keycloak/realms/realm_m4i_with_provider.json``, replace the client ID and secret with your own credentials:
+   - Place your Client ID into: ``identityProviders.config.clientSecret``
+   - Place your Client secret into : ``identityProviders.config.clientId``
 
-.. code:: bash
+If your deployment is already running, you can enable the identity provider through the Keycloak UI:
+- Navigate to the Keycloak administration console.
+- Click "Identity providers" in the menu, then choose the desired provider from the dropdown menu.
+- Set the Client ID and Client Secret. The rest of the settings can remain default.
 
-   kubectl -n <namespace> exec -it <pod/flink-jobmanager-pod-name> -- bash
+Loading Sample Demo Data (Optional)
+-----------------------------------
 
-.. code:: bash
+A sample dataset can be automatically loaded. Ensure that the ``post_install.upload_data`` variable is set to true in the values file.
 
-   cd init
+For more details about this look at:
 
-   pip3 install m4i-atlas-core@git+https://github.com/aureliusenterprise/m4i_atlas_core.git#egg=m4i-atlas-core --upgrade
-
-   cd ../py_libs/m4i-flink-tasks/scripts
-
-   /opt/flink/bin/flink run -d -py get_entity_job.py
-   /opt/flink/bin/flink run -d -py publish_state_job.py
-   /opt/flink/bin/flink run -d -py determine_change_job.py
-   /opt/flink/bin/flink run -d -py synchronize_appsearch_job.py
-   /opt/flink/bin/flink run -d -py local_operation_job.py
-
-.. code:: bash
-
-    cd init
-    ./load_sample_data.sh
-
+- Atlas Post Install: `link <https://github.com/aureliusenterprise/atlas-post-install>`__
+- Aurelius Atlas - Flink: `link <https://github.com/aureliusenterprise/flink-ci>`__

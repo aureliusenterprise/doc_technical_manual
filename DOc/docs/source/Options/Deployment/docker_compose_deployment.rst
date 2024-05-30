@@ -142,7 +142,7 @@ By default these roles are created in the different services:
 - Aurelius/Apache Atlas Admin User:  
 	Username: atlas  
 
-	Password: 1234
+	Password: atlas
 
 Spin up docker-compose environment
 -----------------------------------
@@ -168,6 +168,16 @@ You are now able to access Aurelius Atlas at the URL: `http://$EXTERNAL_HOST:808
 
 You can find more information about the product in this `page <https://www.aurelius-atlas.com/docs/doc-technicall-manual/en/dev/Options/what.html>`_
 
+Loading Sample Demo Data (Optional)
+-----------------------------------
+
+A sample dataset can be automatically loaded. Ensure that the ``templates/.env_template/UPLOAD_DATA`` variable is set to true in the values file.
+
+For more details about this look at:
+
+- Atlas Post Install: `link <https://github.com/aureliusenterprise/atlas-post-install>`__
+- Aurelius Atlas - Flink: `link <https://github.com/aureliusenterprise/flink-ci>`__
+
 Notes
 -------
 
@@ -185,5 +195,3 @@ Notes
 
 	docker exec -it reverse-proxy /bin/bash
 	apachectl restart
-
-
