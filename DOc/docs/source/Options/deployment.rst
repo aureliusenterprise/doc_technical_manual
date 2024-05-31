@@ -12,4 +12,4 @@ There are multiple deployment options:
 
 - :ref:`Helm charts in a kubernetes cluster for Azure <azure-deployment>`
 - :ref:`Helm charts in a kubernetes cluster for Google <google-deployment>`
-- :ref:`Standalone deployment using docker compose  <docker_compose_deployment>`
+- :ref:`Standalone deployment on Local Machine  <docker_compose_deployment>`

@@ -1,5 +1,5 @@
-How to deploy Aurelius Atlas with Docker Compose
-================================================
+How to deploy Aurelius Atlas on Local Machine
+=============================================
 .. _docker_compose_deployment:
 
 Getting started
